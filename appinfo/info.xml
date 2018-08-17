@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+	<id>twofactor_email</id>
+	<name>Two Factor e-mail provider</name>
+	<summary>E-mail two-factor provider</summary>
+	<description>A Two-Factor-Auth Provider for e-mail</description>
+	<version>0.1.0</version>
+	<licence>agpl</licence>
+	<author>Roeland Jago Douma</author>
+	<namespace>TwoFactorEmail</namespace>
+	<category>security</category>
+
+	<website>https://github.com/rullzer/twofactor_email</website>
+	<bugs>https://github.com/rullzer/twofactor_email/issues</bugs>
+	<repository type="git">https://github.com/rullzer/twofactor_email.git</repository>
+	<dependencies>
+		<php min-version="7.0" max-version="7.2" />
+		<nextcloud min-version="14" max-version="14" />
+	</dependencies>
+	<two-factor-providers>
+		<provider>OCA\TwoFactorEmail\Provider\EmailProvider</provider>
+	</two-factor-providers>
+	<settings>
+		<personal>OCA\TwoFactorEmail\Settings\Personal</personal>
+	</settings>
+</info>
