@@ -1,8 +1,9 @@
 <?php
 
+script(OCA\TwoFactorEmail\AppInfo\Application::APPNAME, '2fa-email');
 
 ?>
 
-<div class="section">
-	<h2 data-anchor-name="email-second-factor-auth"><?php p($l->t('E-mail second-factor auth')); ?></h2>
+<div class="section" id="email-second-factor-auth">
+
 </div>

@@ -51,7 +51,7 @@ class SettingsController extends Controller {
 	/**
 	 * @NoAdminRequired
 	 */
-	public function getState(): JSONResponse {
+	public function state(): JSONResponse {
 		$user = $this->userSession->getUser();
 		if (is_null($user)) {
 			throw new Exception('user not available');
@@ -70,7 +70,10 @@ class SettingsController extends Controller {
 			throw new Exception('user not available');
 		}
 
-		$this->totp->enable($user);
+		$this->totp->createSecret($user);
+		return new JSONResponse([
+			'state' => Totp::STATE_CREATED,
+		]);
 	}
 
 	/**
@@ -83,5 +86,29 @@ class SettingsController extends Controller {
 		}
 
 		$this->totp->deleteSecret($user);
+		return new JSONResponse([
+			'state' => Totp::STATE_DISABLED,
+		]);
+	}
+
+	/**
+	 * @NoAdminRequired
+	 */
+	public function validate(string $token): JSONResponse {
+		$user = $this->userSession->getUser();
+		if (is_null($user)) {
+			throw new Exception('user not available');
+		}
+
+		if ($this->totp->validateEmail($user, $token)) {
+			return new JSONResponse([
+				'state' => Totp::STATE_ENABLED,
+			]);
+		} else {
+			return new JSONResponse([
+				'state' => Totp::STATE_CREATED,
+			]);
+		}
+
 	}
 }

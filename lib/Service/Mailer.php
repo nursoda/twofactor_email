@@ -55,4 +55,19 @@ class Mailer {
 
 		$this->mailer->send($message);
 	}
+
+	public function sendValidation(IUser $user, string $email, string $code) {
+		$template = $this->mailer->createEMailTemplate('2faEmail.validate');
+		$template->setSubject($this->l->t('You second factor e-mail validation'));
+		$template->addHeader();
+		$template->addHeading($this->l->t('Your account is almost protected by e-mail second factor authentication.'));
+		$template->addBodyText($this->l->t('Your code to validate your e-mail address is: %s', [$code]));
+		$template->addFooter();
+
+		$message = $this->mailer->createMessage();
+		$message->setTo([$email]);
+		$message->useTemplate($template);
+
+		$this->mailer->send($message);
+	}
 }

@@ -28,6 +28,7 @@ use Base32\Base32;
 use OCA\TwoFactorEmail\Db\TotpSecret;
 use OCA\TwoFactorEmail\Db\TotpSecretMapper;
 use OCP\AppFramework\Db\DoesNotExistException;
+use OCP\IConfig;
 use OCP\IUser;
 use OCP\Security\ICrypto;
 use Otp\GoogleAuthenticator;
@@ -50,12 +51,17 @@ class Totp {
 	/** @var Mailer */
 	private $mailer;
 
+	/** @var IConfig */
+	private $config;
+
 	public function __construct(TotpSecretMapper $secretMapper,
 								ICrypto $crypto,
-								Mailer $mailer) {
+								Mailer $mailer,
+								IConfig $config) {
 		$this->secretMapper = $secretMapper;
 		$this->crypto = $crypto;
 		$this->mailer = $mailer;
+		$this->config = $config;
 	}
 
 	public function hasSecret(IUser $user) {
@@ -72,16 +78,29 @@ class Totp {
 	 * Test e-mail should then be send to validate the e-mail address
 	 * Next steps is add a listner so we can act on e-mail changed etc
 	 */
-	public function enable(IUser $user, $key): bool {
+	public function createSecret(IUser $user): string {
+		try {
+			// Delete existing one
+			$oldSecret = $this->secretMapper->getSecret($user);
+			$this->secretMapper->delete($oldSecret);
+		} catch (DoesNotExistException $ex) {
+			// Ignore
+		}
+
 		// Create new one
 		$secret = GoogleAuthenticator::generateRandom();
 
 		$dbSecret = new TotpSecret();
 		$dbSecret->setUserId($user->getUID());
 		$dbSecret->setSecret($this->crypto->encrypt($secret));
-		$dbSecret->setState(self::STATE_ENABLED);
+		$dbSecret->setState(self::STATE_CREATED);
 
-		return true;
+		$this->secretMapper->insert($dbSecret);
+
+		$email = $this->getEmail($user);
+		$this->mailer->sendValidation($user, $email, $this->getCode($user));
+
+		return $secret;
 	}
 
 	public function deleteSecret(IUser $user) {
@@ -109,8 +128,7 @@ class Totp {
 
 	public function sendCode(IUser $user) {
 		$code = $this->getCode($user);
-		// TODO: Fetch proper e-mail from settings
-		$email = 'text@xyz.com';
+		$email = $this->getEmail($user);
 		$this->mailer->sendCode($user, $email, $code);
 	}
 
@@ -126,6 +144,35 @@ class Totp {
 		$otp = new Otp();
 		$otp->setPeriod(self::PERIOD);
 		return $otp->checkTotp(Base32::decode($secret), $key, 0);
+	}
+
+	public function validateEmail(IUser $user, string $key): bool {
+		try {
+			$dbSecret = $this->secretMapper->getSecret($user);
+		} catch (DoesNotExistException $ex) {
+			throw new NoTotpSecretFoundException();
+		}
+
+		$secret = $this->crypto->decrypt($dbSecret->getSecret());
+
+		$otp = new Otp();
+		$otp->setPeriod(self::PERIOD);
+		if ($otp->checkTotp(Base32::decode($secret), $key, 0)) {
+			$dbSecret->setState(self::STATE_ENABLED);
+			$this->secretMapper->update($dbSecret);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	private function getEmail(IUser $user): string {
+		$email = $this->config->getUserValue($user->getUID(), 'settings', 'email', '');
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			throw new \Exception('invalid email');
+		}
+
+		return $email;
 	}
 
 }

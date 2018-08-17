@@ -22,28 +22,28 @@ declare(strict_types=1);
  *
  */
 
-namespace OCA\TwoFactorEmail\Db;
+return [
+	'routes' => [
+		[
+			'name' => 'settings#state',
+			'url' => '/settings/state',
+			'verb' => 'GET'
+		],
+		[
+			'name' => 'settings#enable',
+			'url' => '/settings/enable',
+			'verb' => 'POST'
+		],
+		[
+			'name' => 'settings#disable',
+			'url' => '/settings/disable',
+			'verb' => 'POST'
+		],
+		[
+			'name' => 'settings#validate',
+			'url' => '/settings/validate',
+			'verb' => 'POST'
+		]
+	]
+];
 
-use OCP\AppFramework\Db\QBMapper;
-use OCP\IDBConnection;
-use OCP\IUser;
-
-class TotpSecretMapper extends QBMapper {
-
-	public function __construct(IDBConnection $db) {
-		parent::__construct($db, 'twofactor_email_secrets', TotpSecret::class);
-	}
-
-
-	public function getSecret(IUser $user): TotpSecret {
-		$qb = $this->db->getQueryBuilder();
-
-		$qb->select('id', 'user_id', 'secret', 'state')
-			->from($this->getTableName())
-			->where($qb->expr()->eq('user_id', $qb->createNamedParameter($user->getUID())));
-
-		$row = $this->findOneQuery($qb);
-
-		return TotpSecret::fromRow($row);
-	}
-}
