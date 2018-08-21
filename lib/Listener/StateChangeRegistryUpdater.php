@@ -22,33 +22,33 @@ declare(strict_types=1);
  *
  */
 
-namespace OCA\TwoFactorEmail\AppInfo;
+namespace OCA\TwoFactorEmail\Listener;
 
 use OCA\TwoFactorEmail\Event\StateChanged;
-use OCA\TwoFactorEmail\Listener\IListener;
-use OCA\TwoFactorEmail\Listener\StateChangeRegistryUpdater;
-use OCP\AppFramework\App;
+use OCA\TwoFactorEmail\Provider\EmailProvider;
+use OCP\Authentication\TwoFactorAuth\IRegistry;
+use Symfony\Component\EventDispatcher\Event;
 
-class Application extends App {
+class StateChangeRegistryUpdater implements IListener {
 
-	const APPNAME='twofactor_email';
+	/** @var IRegistry */
+	private $registry;
 
-	public function __construct() {
-		parent::__construct(self::APPNAME);
+	/** @var EmailProvider */
+	private $provider;
 
-		$container = $this->getContainer();
-
-		$dispatcher = $container->getServer()->getEventDispatcher();
-		$dispatcher->addListener(StateChanged::class, function (StateChanged $event) use ($container) {
-			/** @var IListener[] $listeners */
-			$listeners = [
-				$container->query(StateChangeRegistryUpdater::class),
-			];
-
-			foreach ($listeners as $listener) {
-				$listener->handle($event);
-			}
-		});
+	public function __construct(IRegistry $registry, EmailProvider $provider) {
+		$this->registry = $registry;
+		$this->provider = $provider;
 	}
 
+	public function handle(Event $event) {
+		if ($event instanceof StateChanged) {
+			if ($event->isEnabled()) {
+				$this->registry->enableProviderFor($this->provider, $event->getUser());
+			} else {
+				$this->registry->disableProviderFor($this->provider, $event->getUser());
+			}
+		}
+	}
 }

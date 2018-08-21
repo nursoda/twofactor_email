@@ -22,33 +22,12 @@ declare(strict_types=1);
  *
  */
 
-namespace OCA\TwoFactorEmail\AppInfo;
+namespace OCA\TwoFactorEmail\Listener;
 
-use OCA\TwoFactorEmail\Event\StateChanged;
-use OCA\TwoFactorEmail\Listener\IListener;
-use OCA\TwoFactorEmail\Listener\StateChangeRegistryUpdater;
-use OCP\AppFramework\App;
+use Symfony\Component\EventDispatcher\Event;
 
-class Application extends App {
+interface IListener {
 
-	const APPNAME='twofactor_email';
-
-	public function __construct() {
-		parent::__construct(self::APPNAME);
-
-		$container = $this->getContainer();
-
-		$dispatcher = $container->getServer()->getEventDispatcher();
-		$dispatcher->addListener(StateChanged::class, function (StateChanged $event) use ($container) {
-			/** @var IListener[] $listeners */
-			$listeners = [
-				$container->query(StateChangeRegistryUpdater::class),
-			];
-
-			foreach ($listeners as $listener) {
-				$listener->handle($event);
-			}
-		});
-	}
+	public function handle(Event $event);
 
 }

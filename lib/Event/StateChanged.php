@@ -22,33 +22,28 @@ declare(strict_types=1);
  *
  */
 
-namespace OCA\TwoFactorEmail\AppInfo;
+namespace OCA\TwoFactorEmail\Event;
 
-use OCA\TwoFactorEmail\Event\StateChanged;
-use OCA\TwoFactorEmail\Listener\IListener;
-use OCA\TwoFactorEmail\Listener\StateChangeRegistryUpdater;
-use OCP\AppFramework\App;
+use OCP\IUser;
+use Symfony\Component\EventDispatcher\Event;
 
-class Application extends App {
+class StateChanged extends Event {
+	/** @var IUser */
+	private $user;
 
-	const APPNAME='twofactor_email';
+	/** @var bool */
+	private $enabled;
 
-	public function __construct() {
-		parent::__construct(self::APPNAME);
-
-		$container = $this->getContainer();
-
-		$dispatcher = $container->getServer()->getEventDispatcher();
-		$dispatcher->addListener(StateChanged::class, function (StateChanged $event) use ($container) {
-			/** @var IListener[] $listeners */
-			$listeners = [
-				$container->query(StateChangeRegistryUpdater::class),
-			];
-
-			foreach ($listeners as $listener) {
-				$listener->handle($event);
-			}
-		});
+	public function __construct(IUser $user, bool $enabled) {
+		$this->user = $user;
+		$this->enabled = $enabled;
 	}
 
+	public function getUser(): IUser {
+		return $this->user;
+	}
+
+	public function isEnabled(): bool {
+		return $this->enabled;
+	}
 }

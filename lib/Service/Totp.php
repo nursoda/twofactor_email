@@ -27,12 +27,14 @@ namespace OCA\TwoFactorEmail\Service;
 use Base32\Base32;
 use OCA\TwoFactorEmail\Db\TotpSecret;
 use OCA\TwoFactorEmail\Db\TotpSecretMapper;
+use OCA\TwoFactorEmail\Event\StateChanged;
 use OCP\AppFramework\Db\DoesNotExistException;
 use OCP\IConfig;
 use OCP\IUser;
 use OCP\Security\ICrypto;
 use Otp\GoogleAuthenticator;
 use Otp\Otp;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class Totp {
 
@@ -54,14 +56,19 @@ class Totp {
 	/** @var IConfig */
 	private $config;
 
+	/** @var EventDispatcherInterface */
+	private $dispatcher;
+
 	public function __construct(TotpSecretMapper $secretMapper,
 								ICrypto $crypto,
 								Mailer $mailer,
-								IConfig $config) {
+								IConfig $config,
+								EventDispatcherInterface $dispatcher) {
 		$this->secretMapper = $secretMapper;
 		$this->crypto = $crypto;
 		$this->mailer = $mailer;
 		$this->config = $config;
+		$this->dispatcher = $dispatcher;
 	}
 
 	public function hasSecret(IUser $user) {
@@ -74,7 +81,6 @@ class Totp {
 	}
 
 	/**
-	 * TODO: enable should only create the secret
 	 * Test e-mail should then be send to validate the e-mail address
 	 * Next steps is add a listner so we can act on e-mail changed etc
 	 */
@@ -110,6 +116,8 @@ class Totp {
 		} catch (DoesNotExistException $ex) {
 			// Ignore
 		}
+
+		$this->dispatcher->dispatch(StateChanged::class, new StateChanged($user, false));
 	}
 
 	private function getCode(IUser $user): string {
@@ -160,6 +168,8 @@ class Totp {
 		if ($otp->checkTotp(Base32::decode($secret), $key, 0)) {
 			$dbSecret->setState(self::STATE_ENABLED);
 			$this->secretMapper->update($dbSecret);
+
+			$this->dispatcher->dispatch(StateChanged::class, new StateChanged($user, true));
 			return true;
 		} else {
 			return false;
