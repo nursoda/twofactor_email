@@ -28,8 +28,8 @@ watch-js:
 	npm run watch
 
 clean:
-	rm -f js/bruteforcesettings.js
-	rm -f js/bruteforcesettings.js.map
+	rm -f js/build/build.js
+	rm -rf vendor
 
 clean-dev:
 	rm -rf node_modules

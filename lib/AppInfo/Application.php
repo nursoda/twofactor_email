@@ -24,31 +24,14 @@ declare(strict_types=1);
 
 namespace OCA\TwoFactorEmail\AppInfo;
 
-use OCA\TwoFactorEmail\Event\StateChanged;
-use OCA\TwoFactorEmail\Listener\IListener;
-use OCA\TwoFactorEmail\Listener\StateChangeRegistryUpdater;
 use OCP\AppFramework\App;
 
 class Application extends App {
 
-	const APPNAME='twofactor_email';
+	const APP_NAME = 'twofactor_email';
 
-	public function __construct() {
-		parent::__construct(self::APPNAME);
-
-		$container = $this->getContainer();
-
-		$dispatcher = $container->getServer()->getEventDispatcher();
-		$dispatcher->addListener(StateChanged::class, function (StateChanged $event) use ($container) {
-			/** @var IListener[] $listeners */
-			$listeners = [
-				$container->query(StateChangeRegistryUpdater::class),
-			];
-
-			foreach ($listeners as $listener) {
-				$listener->handle($event);
-			}
-		});
+	public function __construct(array $urlParams = []) {
+		parent::__construct(self::APP_NAME, $urlParams);
 	}
 
 }

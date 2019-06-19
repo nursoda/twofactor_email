@@ -22,28 +22,24 @@ declare(strict_types=1);
  *
  */
 
-namespace OCA\TwoFactorEmail\Event;
+namespace OCA\TwoFactorEmail\Settings;
 
-use OCP\IUser;
-use Symfony\Component\EventDispatcher\Event;
+use OCP\Authentication\TwoFactorAuth\IPersonalProviderSettings;
+use OCP\Template;
 
-class StateChanged extends Event {
-	/** @var IUser */
-	private $user;
+class PersonalSettings implements IPersonalProviderSettings {
 
-	/** @var bool */
-	private $enabled;
-
-	public function __construct(IUser $user, bool $enabled) {
-		$this->user = $user;
-		$this->enabled = $enabled;
+	public function __construct() {
 	}
 
-	public function getUser(): IUser {
-		return $this->user;
+	/**
+	 * @return Template
+	 *
+	 * @since 15.0.0
+	 */
+	public function getBody(): Template {
+		$tmpl = new Template('twofactor_email', 'personal_settings');
+		return $tmpl;
 	}
 
-	public function isEnabled(): bool {
-		return $this->enabled;
-	}
 }

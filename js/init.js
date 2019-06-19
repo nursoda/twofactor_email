@@ -1,7 +1,5 @@
-<?php
-declare(strict_types=1);
 /**
- * @copyright Copyright (c) 2018, Roeland Jago Douma <roeland@famdouma.nl>
+ * @copyright Copyright (c) 2018 Roeland Jago Douma <roeland@famdouma.nl>
  *
  * @author Roeland Jago Douma <roeland@famdouma.nl>
  *
@@ -18,16 +16,14 @@ declare(strict_types=1);
  * GNU Affero General Public License for more details.
  *
  * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  */
 
-namespace OCA\TwoFactorEmail\Listener;
+import Vue from 'vue';
 
-use Symfony\Component\EventDispatcher\Event;
+import EmailSettings from 'views/EmailSettings.vue';
 
-interface IListener {
-
-	public function handle(Event $event);
-
-}
+new Vue({
+	render: h => h(EmailSettings)
+}).$mount('#twofactor-email');
