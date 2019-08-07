@@ -2,13 +2,13 @@ const path = require('path');
 const {VueLoaderPlugin} = require('vue-loader')
 
 module.exports = {
-	entry: './js/init.js',
+	entry: './src/init.js',
 	node: {
 		fs: 'empty'
 	},
 	output: {
-		filename: 'build.js',
-		path: path.resolve(__dirname, 'build')
+		filename: '2fa-email.js',
+		path: path.resolve(__dirname, '../js')
 	},
 	resolve: {
 		modules: [path.resolve(__dirname), 'node_modules'],
