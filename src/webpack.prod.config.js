@@ -11,5 +11,6 @@ module.exports = merge(baseConfig, {
 		}),
 		new webpack.optimize.AggressiveMergingPlugin()// Merge chunks
 	],
-	mode: 'production'
+	mode: 'production',
+	devtool: '#source-map'
 });
