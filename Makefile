@@ -1,4 +1,4 @@
-app_name=bruteforcesettings
+app_name=twofactor_email
 
 project_dir=$(CURDIR)/../$(app_name)
 build_dir=$(CURDIR)/build/artifacts
@@ -7,7 +7,6 @@ source_dir=$(build_dir)/source
 sign_dir=$(build_dir)/sign
 package_name=$(app_name)
 cert_dir=$(HOME)/.nextcloud/certificates
-version+=1.1.0
 
 all: dev-setup build-js-production
 
@@ -29,18 +28,12 @@ watch-js:
 	npm run watch
 
 clean:
-	rm -f js/bruteforcesettings.js
-	rm -f js/bruteforcesettings.js.map
+	rm -f js/build/build.js
+	rm -rf vendor
 
 clean-dev:
 	rm -rf node_modules
 	rm -rf $(build_dir)
-
-release: appstore create-tag
-
-create-tag:
-	git tag -s -a v$(version) -m "Tagging the $(version) release."
-	git push origin v$(version)
 
 appstore: clean-dev
 	mkdir -p $(sign_dir)
@@ -61,10 +54,18 @@ appstore: clean-dev
 	--exclude=/.scrutinizer.yml \
 	--exclude=/.travis.yml \
 	--exclude=/Makefile \
+	--exclude=/node_modules \
 	$(project_dir)/ $(sign_dir)/$(app_name)
-	tar -czf $(build_dir)/$(app_name)-$(version).tar.gz \
+	@if [ -f $(cert_dir)/$(app_name).key ]; then \
+		echo "Signing app files…"; \
+			php ../../occ integrity:sign-app \
+				--privateKey=$(cert_dir)/$(app_name).key\
+	            --certificate=$(cert_dir)/$(app_name).crt\
+	            --path=$(sign_dir)/$(app_name); \
+	fi
+	tar -czf $(build_dir)/$(app_name).tar.gz \
 		-C $(sign_dir) $(app_name)
 	@if [ -f $(cert_dir)/$(app_name).key ]; then \
 		echo "Signing package…"; \
-		openssl dgst -sha512 -sign $(cert_dir)/$(app_name).key $(build_dir)/$(app_name)-$(version).tar.gz | openssl base64; \
+		openssl dgst -sha512 -sign $(cert_dir)/$(app_name).key $(build_dir)/$(app_name).tar.gz | openssl base64; \
 	fi

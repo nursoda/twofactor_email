@@ -1,1 +1,5 @@
-node_modules/*
+#
+/build
+/js/build
+/node_modules
+/vendor

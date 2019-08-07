@@ -24,8 +24,10 @@ declare(strict_types=1);
 
 namespace OCA\TwoFactorEmail\Controller;
 
-use OCA\TwoFactorEmail\Service\Totp;
+use OCA\TwoFactorEmail\Service\SetupService;
+
 use OCP\AppFramework\Controller;
+use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\IRequest;
 use OCP\IUserSession;
@@ -35,80 +37,83 @@ class SettingsController extends Controller {
 	/** @var IUserSession */
 	private $userSession;
 
-	/** @var Totp */
-	private $totp;
+	/** @var SetupService */
+	private $setupService;
 
-	public function __construct(string $appName,
-								IRequest $request,
+	public function __construct(IRequest $request,
 								IUserSession $userSession,
-								Totp $totp) {
-		parent::__construct($appName, $request);
+								SetupService $setupService) {
+		parent::__construct('twofactor_email', $request);
 
 		$this->userSession = $userSession;
-		$this->totp = $totp;
+		$this->setupService = $setupService;
 	}
 
 	/**
 	 * @NoAdminRequired
 	 */
-	public function state(): JSONResponse {
+	public function getVerificationState(): JSONResponse {
 		$user = $this->userSession->getUser();
+
 		if (is_null($user)) {
-			throw new Exception('user not available');
+			return new JSONResponse(null, Http::STATUS_BAD_REQUEST);
 		}
-		return new JSONResponse([
-			'state' => $this->totp->hasSecret($user),
-		]);
+
+		if (is_null($user->getEMailAddress())) {
+			return new JSONResponse(null, Http::STATUS_SERVICE_UNAVAILABLE);
+		}
+
+		return new JSONResponse($this->setupService->getState($user));
 	}
 
 	/**
 	 * @NoAdminRequired
 	 */
-	public function enable(): JSONResponse {
+	public function startVerification(): JSONResponse {
 		$user = $this->userSession->getUser();
+
 		if (is_null($user)) {
-			throw new Exception('user not available');
+			return new JSONResponse(null, Http::STATUS_BAD_REQUEST);
 		}
 
-		$this->totp->createSecret($user);
-		return new JSONResponse([
-			'state' => Totp::STATE_CREATED,
-		]);
+		$state = $this->setupService->startSetup($user);
+
+		return new JSONResponse($this->setupService->getState($user));
+	}
+
+	/**
+	 * @NoAdminRequired
+	 *
+	 * @param string $verificationCode
+	 *
+	 */
+	public function finishVerification(string $verificationCode): JSONResponse {
+		$user = $this->userSession->getUser();
+
+		if (is_null($user)) {
+			return new JSONResponse(null, Http::STATUS_BAD_REQUEST);
+		}
+
+		try {
+			$this->setupService->finishSetup($user, $verificationCode);
+		} catch (VerificationException $ex) {
+			return new JSONResponse(null, Http::STATUS_BAD_REQUEST);
+		}
+
+		return new JSONResponse([]);
 	}
 
 	/**
 	 * @NoAdminRequired
 	 */
-	public function disable(): JSONResponse {
+	public function revokeVerification(): JSONResponse {
 		$user = $this->userSession->getUser();
+
 		if (is_null($user)) {
-			throw new Exception('user not available');
+			return new JSONResponse(null, Http::STATUS_BAD_REQUEST);
 		}
 
-		$this->totp->deleteSecret($user);
-		return new JSONResponse([
-			'state' => Totp::STATE_DISABLED,
-		]);
+		return new JSONResponse($this->setupService->disable($user));
 	}
 
-	/**
-	 * @NoAdminRequired
-	 */
-	public function validate(string $token): JSONResponse {
-		$user = $this->userSession->getUser();
-		if (is_null($user)) {
-			throw new Exception('user not available');
-		}
-
-		if ($this->totp->validateEmail($user, $token)) {
-			return new JSONResponse([
-				'state' => Totp::STATE_ENABLED,
-			]);
-		} else {
-			return new JSONResponse([
-				'state' => Totp::STATE_CREATED,
-			]);
-		}
-
-	}
 }

@@ -25,22 +25,22 @@ declare(strict_types=1);
 return [
 	'routes' => [
 		[
-			'name' => 'settings#state',
+			'name' => 'settings#getVerificationState',
 			'url' => '/settings/state',
 			'verb' => 'GET'
 		],
 		[
-			'name' => 'settings#enable',
+			'name' => 'settings#startVerification',
 			'url' => '/settings/enable',
 			'verb' => 'POST'
 		],
 		[
-			'name' => 'settings#disable',
+			'name' => 'settings#revokeVerification',
 			'url' => '/settings/disable',
-			'verb' => 'POST'
+			'verb' => 'DELETE'
 		],
 		[
-			'name' => 'settings#validate',
+			'name' => 'settings#finishVerification',
 			'url' => '/settings/validate',
 			'verb' => 'POST'
 		]
