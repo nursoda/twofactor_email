@@ -24,6 +24,7 @@ declare(strict_types=1);
 
 namespace OCA\TwoFactorEmail\Controller;
 
+use OCA\TwoFactorEmail\AppInfo\Application;
 use OCA\TwoFactorEmail\Service\SetupService;
 
 use OCP\AppFramework\Controller;
@@ -43,7 +44,7 @@ class SettingsController extends Controller {
 	public function __construct(IRequest $request,
 								IUserSession $userSession,
 								SetupService $setupService) {
-		parent::__construct('twofactor_email', $request);
+		parent::__construct(Application::APP_NAME, $request);
 
 		$this->userSession = $userSession;
 		$this->setupService = $setupService;

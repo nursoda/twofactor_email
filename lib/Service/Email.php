@@ -8,7 +8,6 @@ use OCP\IL10N;
 use OCP\ILogger;
 use OCP\IUser;
 use OCP\Mail\IMailer;
-use OCP\Util;
 
 class Email {
 
@@ -33,8 +32,8 @@ class Email {
 	 * @param IUser $user
 	 * @param string $authenticationCode
 	 */
-	public function send(IUser $user, string $authenticationCode) {
-		$this->logger->debug("sending email message to $identifier, authentication code: $authenticationCode");
+	public function send(IUser $user, string $authenticationCode): void {
+		$this->logger->debug('sending email message to ' . $user->getEMailAddress() . ', authentication code: $authenticationCode');
 
 		$template = $this->mailer->createEMailTemplate('twofactor_email.send');
 		$template->setSubject($this->l10n->t('Nextcloud Two-Factor Authentication'));

@@ -54,7 +54,7 @@ class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 	}
 
 	private function getSessionKey() {
-		return "twofactor_email_secret";
+		return 'twofactor_email_secret';
 	}
 
 	/**
@@ -97,7 +97,7 @@ class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 
 		try {
 			$this->emailService->send($user, $secret);
-		} catch (Exception $ex) {
+		} catch (\Exception $ex) {
 			return new Template('twofactor_email', 'error');
 		}
 
@@ -128,7 +128,7 @@ class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 	}
 
 	public function getPersonalSettings(IUser $user): IPersonalProviderSettings {
-		return new PersonalSettings($this->gatewayName);
+		return new PersonalSettings();
 	}
 
 	public function getLightIcon(): String {

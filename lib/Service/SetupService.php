@@ -66,7 +66,7 @@ class SetupService {
 	}
 
 	public function finishSetup(IUser $user, string $authenticationCode): State {
-		$state = $this->stateStorage->get($user, $gatewayName);
+		$state = $this->stateStorage->get($user);
 
 		if (is_null($state->getVerificationCode())) {
 			throw new Exception('no verification code set');
