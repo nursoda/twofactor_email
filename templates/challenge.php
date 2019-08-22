@@ -1,7 +1,3 @@
-<?php
-style('twofactor_email', 'style');
-?>
-
 <form method="POST" class="email-2fa-form">
 	<input type="text"
 		   class="challenge"
