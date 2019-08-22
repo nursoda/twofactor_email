@@ -53,23 +53,6 @@ class SettingsController extends Controller {
 	/**
 	 * @NoAdminRequired
 	 */
-	public function getVerificationState(): JSONResponse {
-		$user = $this->userSession->getUser();
-
-		if (is_null($user)) {
-			return new JSONResponse(null, Http::STATUS_BAD_REQUEST);
-		}
-
-		if (is_null($user->getEMailAddress())) {
-			return new JSONResponse(null, Http::STATUS_SERVICE_UNAVAILABLE);
-		}
-
-		return new JSONResponse($this->setupService->getState($user));
-	}
-
-	/**
-	 * @NoAdminRequired
-	 */
 	public function startVerification(): JSONResponse {
 		$user = $this->userSession->getUser();
 

@@ -24,12 +24,27 @@ declare(strict_types=1);
 
 namespace OCA\TwoFactorEmail\Settings;
 
+use OCA\TwoFactorEmail\AppInfo\Application;
+use OCA\TwoFactorEmail\Provider\State;
 use OCP\Authentication\TwoFactorAuth\IPersonalProviderSettings;
+use OCP\IInitialStateService;
 use OCP\Template;
 
 class PersonalSettings implements IPersonalProviderSettings {
 
-	public function __construct() {
+	/** @var IInitialStateService */
+	private $initialStateService;
+	/** @var State */
+	private $state;
+	/** @var bool */
+	private $available;
+
+	public function __construct(IInitialStateService $initialStateService,
+								State $state,
+								bool $available) {
+		$this->initialStateService = $initialStateService;
+		$this->state = $state;
+		$this->available = $available;
 	}
 
 	/**
@@ -38,8 +53,9 @@ class PersonalSettings implements IPersonalProviderSettings {
 	 * @since 15.0.0
 	 */
 	public function getBody(): Template {
-		$tmpl = new Template('twofactor_email', 'personal_settings');
-		return $tmpl;
+		$this->initialStateService->provideInitialState(Application::APP_NAME, 'available', $this->available);
+		$this->initialStateService->provideInitialState(Application::APP_NAME, 'state', $this->state);
+		return new Template('twofactor_email', 'personal_settings');
 	}
 
 }

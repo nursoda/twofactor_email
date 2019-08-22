@@ -42,11 +42,11 @@
 <script>
 	import L10n from "components/L10n.vue";
 	import {
-		getVerificationState,
 		startVerification,
 		tryVerification,
 		disable
 	} from "service/registration";
+	import {loadState} from "nextcloud-initial-state";
 
 	export default {
 		name: "GatewaySettings",
@@ -58,7 +58,7 @@
 			};
 
 			return {
-				loading: true,
+				loading: false,
 				states: STATE,
 				state: STATE.DISABLED,
 				emailAddress: '',
@@ -68,15 +68,10 @@
 			};
 		},
 		mounted: function () {
-			getVerificationState()
-				.then(res => {
-					console.debug('loaded state for email', res);
-					this.isAvailable = res.isAvailable;
-					this.state = res.state;
-					this.emailAddress = res.emailAddress;
-				})
-				.catch(console.error.bind(this))
-				.then(() => this.loading = false);
+			this.isAvailable = loadState('twofactor_email', 'available');
+			let state = loadState('twofactor_email', 'state');
+			this.state = state.state;
+			this.emailAddress = state.emailAddress;
 		},
 		methods: {
 			enable: function () {

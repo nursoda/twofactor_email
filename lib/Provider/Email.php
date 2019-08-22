@@ -7,6 +7,7 @@ namespace OCA\TwoFactorEmail\Provider;
 use OCA\TwoFactorEmail\EmailMask;
 use OCA\TwoFactorEmail\AppInfo\Application;
 use OCA\TwoFactorEmail\Service\Email as EmailService;
+use OCA\TwoFactorEmail\Service\SetupService;
 use OCA\TwoFactorEmail\Service\StateStorage;
 use OCA\TwoFactorEmail\Settings\PersonalSettings;
 
@@ -14,6 +15,7 @@ use OCP\Authentication\TwoFactorAuth\IPersonalProviderSettings;
 use OCP\Authentication\TwoFactorAuth\IProvider;
 use OCP\Authentication\TwoFactorAuth\IProvidesIcons;
 use OCP\Authentication\TwoFactorAuth\IProvidesPersonalSettings;
+use OCP\IInitialStateService;
 use OCP\IL10N;
 use OCP\ISession;
 use OCP\IUser;
@@ -41,16 +43,21 @@ class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 	/** @var IL10N */
 	protected $l10n;
 
+	/** @var IInitialStateService */
+	private $initialStateService;
+
 	public function __construct(EmailService $emailService,
 								StateStorage $stateStorage,
 								ISession $session,
 								ISecureRandom $secureRandom,
-								IL10N $l10n) {
+								IL10N $l10n,
+								IInitialStateService $initialStateService) {
 		$this->emailService = $emailService;
 		$this->stateStorage = $stateStorage;
 		$this->session = $session;
 		$this->secureRandom = $secureRandom;
 		$this->l10n = $l10n;
+		$this->initialStateService = $initialStateService;
 	}
 
 	private function getSessionKey() {
@@ -128,7 +135,7 @@ class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 	}
 
 	public function getPersonalSettings(IUser $user): IPersonalProviderSettings {
-		return new PersonalSettings();
+		return new PersonalSettings($this->initialStateService, $this->stateStorage->get($user), $user->getEMailAddress() !== null);
 	}
 
 	public function getLightIcon(): String {

@@ -1,17 +1,6 @@
 import Axios from 'nextcloud-axios';
 import {generateUrl} from 'nextcloud-server/dist/router'
 
-export function getVerificationState () {
-	let url = generateUrl('/apps/twofactor_email/settings/state')
-
-	return Axios.get(url).then(resp => {
-		resp.data.isAvailable = true
-		return resp.data
-	}).catch(err => {
-		isAvailable: false
-	})
-}
-
 export function startVerification () {
 	let url = generateUrl('/apps/twofactor_email/settings/enable')
 
