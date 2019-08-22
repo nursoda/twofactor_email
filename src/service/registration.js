@@ -1,63 +1,34 @@
-import {nc_fetch_json} from 'nextcloud_fetch';
+import Axios from 'nextcloud-axios';
+import {generateUrl} from 'nextcloud-server/dist/router'
 
 export function getVerificationState () {
-	let url = OC.generateUrl('/apps/twofactor_email/settings/state')
+	let url = generateUrl('/apps/twofactor_email/settings/state')
 
-	return nc_fetch_json(url).then(function (resp) {
-		if (resp.ok) {
-			return resp.json().then(json => {
-				json.isAvailable = true
-				return json
-			})
-		}
-		if (resp.status === 503) {
-			return {
-				isAvailable: false
-			}
-		}
-		throw resp
+	return Axios.get(url).then(resp => {
+		resp.data.isAvailable = true
+		return resp.data
+	}).catch(err => {
+		isAvailable: false
 	})
 }
 
 export function startVerification () {
-	let url = OC.generateUrl('/apps/twofactor_email/settings/enable')
+	let url = generateUrl('/apps/twofactor_email/settings/enable')
 
-	return nc_fetch_json(url, {
-		method: 'POST',
-	}).then(function (resp) {
-		if (resp.ok) {
-			return resp.json();
-		}
-		throw resp;
-	})
+	return Axios.post(url).then(resp => resp.data)
 }
 
 
 export function tryVerification (code) {
-	let url = OC.generateUrl('/apps/twofactor_email/settings/validate')
+	let url = generateUrl('/apps/twofactor_email/settings/validate')
 
-	return nc_fetch_json(url, {
-		method: 'POST',
-		body: JSON.stringify({
+	return Axios.post(url, {
 			verificationCode: code
-		})
-	}).then(function (resp) {
-		if (resp.ok) {
-			return resp.json();
-		}
-		throw resp;
-	})
+		}).then(resp => resp.data)
 }
 
 export function disable () {
-	let url = OC.generateUrl('/apps/twofactor_email/settings/disable')
+	let url = generateUrl('/apps/twofactor_email/settings/disable')
 
-	return nc_fetch_json(url, {
-		method: 'DELETE'
-	}).then(function (resp) {
-		if (resp.ok) {
-			return resp.json();
-		}
-		throw resp;
-	})
+	return Axios.delete(url).then(resp => resp.data)
 }
