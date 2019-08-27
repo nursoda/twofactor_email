@@ -5,7 +5,7 @@
 	<name>Two Factor e-mail provider</name>
 	<summary>E-mail two-factor provider</summary>
 	<description>A Two-Factor-Auth Provider for e-mail</description>
-	<version>0.1.1</version>
+	<version>1.0.0</version>
 	<licence>agpl</licence>
 	<author>Roeland Jago Douma</author>
 	<namespace>TwoFactorEmail</namespace>
