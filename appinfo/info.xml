@@ -5,7 +5,7 @@
 	<name>Two Factor e-mail provider</name>
 	<summary>E-mail two-factor provider</summary>
 	<description>A Two-Factor-Auth Provider for e-mail</description>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<licence>agpl</licence>
 	<author>Roeland Jago Douma</author>
 	<namespace>TwoFactorEmail</namespace>
@@ -15,8 +15,8 @@
 	<bugs>https://github.com/rullzer/twofactor_email/issues</bugs>
 	<repository type="git">https://github.com/rullzer/twofactor_email.git</repository>
 	<dependencies>
-		<php min-version="7.1" max-version="7.3" />
-		<nextcloud min-version="16" max-version="17" />
+		<php min-version="7.1" max-version="7.4" />
+		<nextcloud min-version="16" max-version="18" />
 	</dependencies>
 	<two-factor-providers>
 		<provider>OCA\TwoFactorEmail\Provider\Email</provider>
