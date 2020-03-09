@@ -7,11 +7,11 @@
 </template>
 
 <script>
-	import L10n from "components/L10n.vue";
-	export default {
-		name: "EmailInstructions",
-		components: {
-			L10n
-		}
-	}
+import L10n from './L10n.vue'
+export default {
+	name: 'EmailInstructions',
+	components: {
+		L10n,
+	},
+}
 </script>

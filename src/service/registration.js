@@ -1,23 +1,22 @@
-import Axios from 'nextcloud-axios';
-import {generateUrl} from 'nextcloud-server/dist/router'
+import Axios from 'nextcloud-axios'
+import { generateUrl } from 'nextcloud-server/dist/router'
 
-export function startVerification () {
-	let url = generateUrl('/apps/twofactor_email/settings/enable')
+export function startVerification() {
+	const url = generateUrl('/apps/twofactor_email/settings/enable')
 
 	return Axios.post(url).then(resp => resp.data)
 }
 
-
-export function tryVerification (code) {
-	let url = generateUrl('/apps/twofactor_email/settings/validate')
+export function tryVerification(code) {
+	const url = generateUrl('/apps/twofactor_email/settings/validate')
 
 	return Axios.post(url, {
-			verificationCode: code
-		}).then(resp => resp.data)
+		verificationCode: code,
+	}).then(resp => resp.data)
 }
 
-export function disable () {
-	let url = generateUrl('/apps/twofactor_email/settings/disable')
+export function disable() {
+	const url = generateUrl('/apps/twofactor_email/settings/disable')
 
 	return Axios.delete(url).then(resp => resp.data)
 }
