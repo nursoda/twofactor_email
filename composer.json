@@ -5,5 +5,8 @@
     "platform": {
       "php": "7.0"
     }
+  },
+  "scripts": {
+    "lint": "find . -name \\*.php -not -path './vendor/*' -exec php -l \"{}\" \\;"
   }
 }
