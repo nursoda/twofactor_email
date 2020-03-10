@@ -20,10 +20,10 @@
  *
  */
 
-import Vue from 'vue';
+import Vue from 'vue'
 
-import EmailSettings from 'views/EmailSettings.vue';
+import EmailSettings from './views/EmailSettings.vue'
 
 new Vue({
-	render: h => h(EmailSettings)
-}).$mount('#twofactor-email');
+	render: h => h(EmailSettings),
+}).$mount('#twofactor-email')
