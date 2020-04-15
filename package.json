@@ -19,7 +19,7 @@
     "stylelint:fix": "stylelint src --fix"
   },
   "dependencies": {
-    "@nextcloud/eslint-plugin": "^1.1.0",
+    "@nextcloud/eslint-plugin": "^1.4.0",
     "nextcloud-axios": "^0.2.1",
     "nextcloud-initial-state": "0.0.3",
     "nextcloud-server": "^0.15.10",
@@ -29,7 +29,7 @@
     "vue-template-compiler": "^2.6.11"
   },
   "devDependencies": {
-    "@nextcloud/eslint-plugin": "^1.1.0",
+    "@nextcloud/eslint-plugin": "^1.4.0",
     "babel-eslint": "^10.0.3",
     "css-loader": "^3.5.2",
     "eslint": "^5.16.0",
