@@ -7,7 +7,7 @@ class EmailMask {
 	/**
 	 * convert test@example.com to ***t@example.com
 	 */
-	public static function maskEmail(string $email): string {
+	public static function maskEmail($email): string {
 		$at = strrpos($email, "@");
 
 		$start = $at - 1;
