@@ -10,6 +10,10 @@ class EmailMask {
 	public static function maskEmail(string $email): string {
 		$at = strrpos($email, "@");
 
+		if ($at === false) {
+			return $email;
+		}
+
 		$start = $at - 1;
 
 		return str_repeat('*', $start) . substr($email, $start);

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="4.3.1@2feba22a005a18bf31d4c7b9bdb9252c73897476">
+  <file src="lib/Provider/Email.php">
+    <MissingDependency occurrences="3">
+      <code>Template</code>
+      <code>Template</code>
+      <code>Template</code>
+    </MissingDependency>
+  </file>
+  <file src="lib/Service/Email.php">
+    <InvalidArrayOffset occurrences="1">
+      <code>[ $user-&gt;getEMailAddress() =&gt; $user-&gt;getDisplayName() ]</code>
+    </InvalidArrayOffset>
+  </file>
+  <file src="lib/Settings/PersonalSettings.php">
+    <MissingDependency occurrences="1">
+      <code>Template</code>
+    </MissingDependency>
+  </file>
+</files>

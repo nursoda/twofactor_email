@@ -20,15 +20,15 @@ class StateStorage {
 		$this->config = $config;
 	}
 
-	private function getUserValue(IUser $user, string $key, $default = '') {
+	private function getUserValue(IUser $user, string $key, $default = ''): string {
 		return $this->config->getUserValue($user->getUID(), Application::APP_NAME, $key, $default);
 	}
 
-	private function setUserValue(IUser $user, string $key, $value) {
+	private function setUserValue(IUser $user, string $key, $value): void {
 		$this->config->setUserValue($user->getUID(), Application::APP_NAME, $key, $value);
 	}
 
-	private function deleteUserValue(IUser $user, string $key) {
+	private function deleteUserValue(IUser $user, string $key): void {
 		$this->config->deleteUserValue($user->getUID(), Application::APP_NAME, $key);
 	}
 
