@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 /**
  * @copyright Copyright (c) 2018, Roeland Jago Douma <roeland@famdouma.nl>
@@ -27,11 +28,9 @@ namespace OCA\TwoFactorEmail\AppInfo;
 use OCP\AppFramework\App;
 
 class Application extends App {
-
-	const APP_NAME = 'twofactor_email';
+	public const APP_NAME = 'twofactor_email';
 
 	public function __construct(array $urlParams = []) {
 		parent::__construct(self::APP_NAME, $urlParams);
 	}
-
 }

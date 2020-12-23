@@ -7,7 +7,6 @@ namespace OCA\TwoFactorEmail\Provider;
 use OCA\TwoFactorEmail\EmailMask;
 use OCA\TwoFactorEmail\AppInfo\Application;
 use OCA\TwoFactorEmail\Service\Email as EmailService;
-use OCA\TwoFactorEmail\Service\SetupService;
 use OCA\TwoFactorEmail\Service\StateStorage;
 use OCA\TwoFactorEmail\Settings\PersonalSettings;
 
@@ -23,13 +22,12 @@ use OCP\Security\ISecureRandom;
 use OCP\Template;
 
 class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
-
-	const STATE_DISABLED = 0;
-	const STATE_VERIFYING = 1;
-	const STATE_ENABLED = 2;
+	public const STATE_DISABLED = 0;
+	public const STATE_VERIFYING = 1;
+	public const STATE_ENABLED = 2;
 
 	/** @var EmailService */
-	var $emailService;
+	public $emailService;
 
 	/** @var StateStorage */
 	protected $stateStorage;

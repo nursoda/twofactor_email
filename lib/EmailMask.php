@@ -14,5 +14,4 @@ class EmailMask {
 
 		return str_repeat('*', $start) . substr($email, $start);
 	}
-
 }

@@ -38,7 +38,7 @@ class StateStorage {
 
 		if ($isVerified) {
 			$state = EmailProvider::STATE_ENABLED;
-		} else if ($authenticationCode !== '') {
+		} elseif ($authenticationCode !== '') {
 			$state = EmailProvider::STATE_VERIFYING;
 		} else {
 			$state = EmailProvider::STATE_DISABLED;
@@ -96,5 +96,4 @@ class StateStorage {
 
 		return $state;
 	}
-
 }
