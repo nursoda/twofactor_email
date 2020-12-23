@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 /**
  * @copyright Copyright (c) 2018, Roeland Jago Douma <roeland@famdouma.nl>
@@ -99,5 +100,4 @@ class SettingsController extends Controller {
 
 		return new JSONResponse($this->setupService->disable($user));
 	}
-
 }

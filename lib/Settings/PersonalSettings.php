@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 /**
  * @copyright Copyright (c) 2018, Roeland Jago Douma <roeland@famdouma.nl>
@@ -57,5 +58,4 @@ class PersonalSettings implements IPersonalProviderSettings {
 		$this->initialStateService->provideInitialState(Application::APP_NAME, 'state', $this->state);
 		return new Template('twofactor_email', 'personal_settings');
 	}
-
 }

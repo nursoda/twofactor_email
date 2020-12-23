@@ -91,5 +91,4 @@ class SetupService {
 			State::disabled($user)
 		);
 	}
-
 }
