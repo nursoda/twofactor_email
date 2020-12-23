@@ -15,7 +15,7 @@
 	<bugs>https://github.com/rullzer/twofactor_email/issues</bugs>
 	<repository type="git">https://github.com/rullzer/twofactor_email.git</repository>
 	<dependencies>
-		<php min-version="7.1" max-version="7.4" />
+		<php min-version="7.2" max-version="8.0" />
 		<nextcloud min-version="19" max-version="21" />
 	</dependencies>
 	<two-factor-providers>
