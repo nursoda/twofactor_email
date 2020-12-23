@@ -26,6 +26,7 @@ declare(strict_types=1);
 namespace OCA\TwoFactorEmail\Controller;
 
 use OCA\TwoFactorEmail\AppInfo\Application;
+use OCA\TwoFactorEmail\Exception\VerificationException;
 use OCA\TwoFactorEmail\Service\SetupService;
 
 use OCP\AppFramework\Controller;
@@ -58,7 +59,7 @@ class SettingsController extends Controller {
 		$user = $this->userSession->getUser();
 
 		if (is_null($user)) {
-			return new JSONResponse(null, Http::STATUS_BAD_REQUEST);
+			return new JSONResponse([], Http::STATUS_BAD_REQUEST);
 		}
 
 		$state = $this->setupService->startSetup($user);
@@ -76,13 +77,13 @@ class SettingsController extends Controller {
 		$user = $this->userSession->getUser();
 
 		if (is_null($user)) {
-			return new JSONResponse(null, Http::STATUS_BAD_REQUEST);
+			return new JSONResponse([], Http::STATUS_BAD_REQUEST);
 		}
 
 		try {
 			$this->setupService->finishSetup($user, $verificationCode);
 		} catch (VerificationException $ex) {
-			return new JSONResponse(null, Http::STATUS_BAD_REQUEST);
+			return new JSONResponse([], Http::STATUS_BAD_REQUEST);
 		}
 
 		return new JSONResponse([]);
@@ -95,7 +96,7 @@ class SettingsController extends Controller {
 		$user = $this->userSession->getUser();
 
 		if (is_null($user)) {
-			return new JSONResponse(null, Http::STATUS_BAD_REQUEST);
+			return new JSONResponse([], Http::STATUS_BAD_REQUEST);
 		}
 
 		return new JSONResponse($this->setupService->disable($user));

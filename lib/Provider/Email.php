@@ -17,6 +17,7 @@ use OCP\Authentication\TwoFactorAuth\IProvidesPersonalSettings;
 use OCP\IInitialStateService;
 use OCP\IL10N;
 use OCP\ISession;
+use OCP\IURLGenerator;
 use OCP\IUser;
 use OCP\Security\ISecureRandom;
 use OCP\Template;
@@ -44,21 +45,26 @@ class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 	/** @var IInitialStateService */
 	private $initialStateService;
 
+	/** @var IURLGenerator */
+	private $urlGenerator;
+
 	public function __construct(EmailService $emailService,
 								StateStorage $stateStorage,
 								ISession $session,
 								ISecureRandom $secureRandom,
 								IL10N $l10n,
-								IInitialStateService $initialStateService) {
+								IInitialStateService $initialStateService,
+								IURLGenerator $urlGenerator) {
 		$this->emailService = $emailService;
 		$this->stateStorage = $stateStorage;
 		$this->session = $session;
 		$this->secureRandom = $secureRandom;
 		$this->l10n = $l10n;
 		$this->initialStateService = $initialStateService;
+		$this->urlGenerator = $urlGenerator;
 	}
 
-	private function getSessionKey() {
+	private function getSessionKey(): string {
 		return 'twofactor_email_secret';
 	}
 
@@ -137,10 +143,10 @@ class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 	}
 
 	public function getLightIcon(): String {
-		return image_path(Application::APP_NAME, 'app.svg');
+		return $this->urlGenerator->imagePath(Application::APP_NAME, 'app.svg');
 	}
 
 	public function getDarkIcon(): String {
-		return image_path(Application::APP_NAME, 'app-dark.svg');
+		return $this->urlGenerator->imagePath(Application::APP_NAME, 'app-dark.svg');
 	}
 }
