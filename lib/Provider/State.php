@@ -75,6 +75,13 @@ class State implements JsonSerializable {
 	}
 
 	public function jsonSerialize() {
+		if ($this->user->getEMailAddress() === null) {
+			return [
+				'state' => $this->state,
+				'emailAddress' => '',
+			];
+		}
+
 		return [
 			'state' => $this->state,
 			'emailAddress' => EmailMask::maskEmail($this->user->getEMailAddress()),
