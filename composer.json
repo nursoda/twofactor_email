@@ -10,7 +10,7 @@
     "psalm": "psalm.phar"
   },
   "require-dev": {
-    "nextcloud/coding-standard": "^0.3.0",
+    "nextcloud/coding-standard": "^0.4.0",
     "psalm/phar": "^4.3",
     "christophwurst/nextcloud": "v19.0.0"
   }
