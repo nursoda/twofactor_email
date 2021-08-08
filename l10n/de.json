@@ -3,7 +3,7 @@
     "Authenticate via Email" : "Authentifiziere per E-Mail",
     "%s Two-Factor Authentication" : "%s Zwei-Faktor Authentifizierung",
     "Your account %s is protected by two-factor authentication." : "Dein Konto %s ist durch Zwei-Faktor Authentifizierung geschützt.",
-    "Your code to continue your login is: %s" : "Dein Code, um die Anmeldung fortzusetzen, ist: %s\"",
+    "Your code to continue your login is: %s" : "Dein Code, um die Anmeldung fortzusetzen, ist: %s",
     "Two Factor e-mail provider" : "Zwei-Faktor E-Mail Provider",
     "E-mail two-factor provider" : "E-Mail Zwei-Faktor Provider",
     "A Two-Factor-Auth Provider for e-mail" : "Ein Zwei-Faktor Authentifizierungsprovider per E-Mail",
