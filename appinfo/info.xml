@@ -7,13 +7,14 @@
 	<description>A Two-Factor-Auth Provider for e-mail</description>
 	<version>2.1.0</version>
 	<licence>agpl</licence>
-	<author>Roeland Jago Douma</author>
+	<author mail="olav@seyfarth.de">Olav Seyfarth (current maintainer)</author>
+	<author>Roeland Jago Douma (original author)</author>
 	<namespace>TwoFactorEmail</namespace>
 	<category>security</category>
 
-	<website>https://github.com/rullzer/twofactor_email</website>
-	<bugs>https://github.com/rullzer/twofactor_email/issues</bugs>
-	<repository type="git">https://github.com/rullzer/twofactor_email.git</repository>
+	<website>https://github.com/nursoda/twofactor_email</website>
+	<bugs>https://github.com/nursoda/twofactor_email/issues</bugs>
+	<repository type="git">https://github.com/nursoda/twofactor_email.git</repository>
 	<dependencies>
 		<php min-version="7.2" max-version="8.0" />
 		<nextcloud min-version="19" max-version="22" />

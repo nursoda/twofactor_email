@@ -1,11 +1,11 @@
-const path = require('path')
-const { VueLoaderPlugin } = require('vue-loader')
+const path = require('path');
+const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
 	entry: './src/init.js',
-	node: {
-		fs: 'empty',
-	},
+//	node: {
+//		fs: 'empty',
+//	},
 	output: {
 		filename: '2fa-email.js',
 		path: path.resolve(__dirname, '../js'),

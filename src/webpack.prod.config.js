@@ -1,6 +1,6 @@
-const webpack = require('webpack')
-const { merge } = require('webpack-merge')
-const baseConfig = require('./webpack.base.config.js')
+const webpack = require('webpack');
+const { merge } = require('webpack-merge');
+const baseConfig = require('./webpack.base.config.js');
 
 module.exports = merge(baseConfig, {
 	plugins: [
@@ -12,5 +12,5 @@ module.exports = merge(baseConfig, {
 		new webpack.optimize.AggressiveMergingPlugin(), // Merge chunks
 	],
 	mode: 'production',
-	devtool: '#source-map',
+	devtool: 'source-map',
 })

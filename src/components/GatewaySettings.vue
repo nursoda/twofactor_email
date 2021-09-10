@@ -46,7 +46,7 @@ import {
 	tryVerification,
 	disable,
 } from '../service/registration'
-import { loadState } from 'nextcloud-initial-state'
+import { loadState } from '@nextcloud/initial-state'
 
 export default {
 	name: 'GatewaySettings',

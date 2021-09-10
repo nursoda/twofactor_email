@@ -1,4 +1,4 @@
-import Axios from 'nextcloud-axios'
+import Axios from '@nextcloud/axios'
 import { generateUrl } from 'nextcloud-server/dist/router'
 
 export function startVerification() {
