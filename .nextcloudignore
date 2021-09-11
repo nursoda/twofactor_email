@@ -1,6 +1,3 @@
-/AUTHORS.md
-/build
-/.babelrc
 /.eslintrc.js
 /.jshintrc
 /.git
@@ -11,12 +8,15 @@
 /.travis.yml
 /.tx
 /.scrutinizer.yml
+/AUTHORS.md
 /CONTRIBUTING.md
+/Makefile
+/build
+/babel.config.json
 /composer.*
 /karma.conf.js
 /krankerl.toml
 /l10n/no-php
-/Makefile
 /nbproject
 /node_modules
 /package*
