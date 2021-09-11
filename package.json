@@ -1,6 +1,6 @@
 {
   "name": "twofactor_email",
-  "version": "0.1.0",
+  "version": "2.1.0",
   "description": "Two Factor e-mail provider",
   "author": [
     {
@@ -39,14 +39,18 @@
     "vue-template-compiler": "latest"
   },
   "devDependencies": {
+    "@babel/core": "latest",
     "@babel/eslint-parser": "latest",
+    "@babel/preset-env": "latest",
     "@nextcloud/eslint-config": "latest",
     "@nextcloud/eslint-plugin": "latest",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
     "css-loader": "latest",
     "eslint": "latest",
     "eslint-config-standard": "latest",
     "eslint-plugin-import": "latest",
-    "eslint-plugin-jsdoc": "^36.1.0",
+    "eslint-plugin-jsdoc": "latest",
     "eslint-plugin-node": "latest",
     "eslint-plugin-promise": "latest",
     "eslint-plugin-vue": "latest",

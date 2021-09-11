@@ -70,14 +70,14 @@ export default {
 			verificationError: false,
 		}
 	},
-	mounted: function() {
+	mounted() {
 		this.isAvailable = loadState('twofactor_email', 'available')
 		const state = loadState('twofactor_email', 'state')
 		this.state = state.state
 		this.emailAddress = state.emailAddress
 	},
 	methods: {
-		enable: function() {
+		enable() {
 			this.loading = true
 			this.verificationError = false
 			startVerification()
@@ -93,7 +93,7 @@ export default {
 					this.loading = false
 				})
 		},
-		confirm: function() {
+		confirm() {
 			this.loading = true
 
 			tryVerification(this.confirmationCode)
@@ -108,7 +108,7 @@ export default {
 				})
 		},
 
-		disable: function() {
+		disable() {
 			this.loading = true
 
 			disable()
