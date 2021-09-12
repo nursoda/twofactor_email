@@ -3,17 +3,15 @@ const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
 	entry: './src/init.js',
-	/*
-	node: {
-		fs: 'empty',
-	},
-	*/
 	output: {
 		filename: '2fa-email.js',
 		path: path.resolve(__dirname, '../js'),
 	},
 	resolve: {
 		modules: [path.resolve(__dirname), 'node_modules'],
+		fallback: {
+			fs: false,
+		},
 	},
 	module: {
 		rules: [
