@@ -2,7 +2,7 @@ OC.L10N.register(
     "twofactor_email",
     {
     "Email verification" : "E-Mail Verifizierung",
-    "Authenticate via Email" : "Authentifiziere per E-Mail",
+    "Authenticate via email" : "Authentifiziere per E-Mail",
     "%s Two-Factor Authentication" : "%s Zwei-Faktor Authentifizierung",
     "Your account %s is protected by two-factor authentication." : "Dein Konto %s ist durch Zwei-Faktor Authentifizierung geschützt.",
     "Your code to continue your login is: %s" : "Dein Code, um die Anmeldung fortzusetzen, ist: %s",

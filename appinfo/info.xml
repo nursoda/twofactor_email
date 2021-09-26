@@ -1,25 +1,34 @@
 <?xml version="1.0"?>
-<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
-	  xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
 	<id>twofactor_email</id>
-	<name>Two Factor e-mail provider</name>
-	<summary>E-mail two-factor provider</summary>
-	<description>A Two-Factor-Auth Provider for e-mail</description>
-	<version>2.1.0</version>
+	<name>Two-Factor E-mail</name>
+	<summary>Two Factor E-mail provider</summary>
+	<description>Provide two-factor authentication using the e-mail address set in the user account</description>
+	<version>2.2.0</version>
 	<licence>agpl</licence>
 	<author mail="olav@seyfarth.de">Olav Seyfarth (current maintainer)</author>
 	<author>Roeland Jago Douma (original author)</author>
 	<namespace>TwoFactorEmail</namespace>
 	<category>security</category>
-
 	<website>https://github.com/nursoda/twofactor_email</website>
 	<bugs>https://github.com/nursoda/twofactor_email/issues</bugs>
 	<repository type="git">https://github.com/nursoda/twofactor_email.git</repository>
+	<screenshot small-thumbnail="/screenshots/select-auth_thumb.png">/screenshots/challenge.png</screenshot>
+	<screenshot>/screenshots/settings-before.png</screenshot>
+	<screenshot>/screenshots/settings-after.png</screenshot>
 	<dependencies>
-		<php min-version="7.2" max-version="8.0" />
-		<nextcloud min-version="19" max-version="22" />
+		<nextcloud min-version="19" max-version="23" />
+		<php min-version="7.3" max-version="8.0" />
 	</dependencies>
 	<two-factor-providers>
 		<provider>OCA\TwoFactorEmail\Provider\Email</provider>
 	</two-factor-providers>
+	<activity>
+		<settings>
+			<setting>OCA\TwoFactorEmail\Activity\Setting</setting>
+		</settings>
+		<providers>
+			<provider>OCA\TwoFactorEmail\Activity\Provider</provider>
+		</providers>
+	</activity>
 </info>

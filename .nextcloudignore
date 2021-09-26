@@ -22,6 +22,8 @@
 /package*
 /psalm.xml
 /screenshots
+/signed
 /src
 /tests
 /vendor/bin
+/screenshots
