@@ -44,8 +44,8 @@ class Email {
 		$template = $this->mailer->createEMailTemplate('twofactor_email.send');
 		$template->setSubject($this->l10n->t('Login with Two-Factor Email on %s', [$this->themingDefaults->getName()]));
 		$template->addHeader();
-		$template->addHeading($this->l10n->t('Login attempt to account %s', [$user->getDisplayName()]));
-		$template->addBodyText($this->l10n->t('If you just tried to login, you need to enter this access code as your account is protected by Two-Factor Email: %s', [$authenticationCode]));
+		$template->addHeading($this->l10n->t('Login attempt for account %s', [$user->getDisplayName()]));
+		$template->addBodyText($this->l10n->t('If you just tried to login, you need to enter this access code because your account is protected by Two-Factor Email: %s', [$authenticationCode]));
 		$template->addFooter();
 
 		$message = $this->mailer->createMessage();
