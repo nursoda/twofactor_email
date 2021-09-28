@@ -79,6 +79,10 @@ export default {
 		const state = loadState('twofactor_email', 'state')
 		this.state = state.state
 		this.emailAddress = state.emailAddress
+		// Catch user removing mail address while in state CREATED
+		if (!this.isAvailable) {
+			this.state = STATE.DISABLED
+		}
 	},
 	methods: {
 		enable() {
