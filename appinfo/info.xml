@@ -15,14 +15,6 @@
 	<two-factor-providers>
 		<provider>OCA\TwoFactorEmail\Provider\Email</provider>
 	</two-factor-providers>
-	<activity>
-		<settings>
-			<setting>OCA\TwoFactorEmail\Activity\Setting</setting>
-		</settings>
-		<providers>
-			<provider>OCA\TwoFactorEmail\Activity\Provider</provider>
-		</providers>
-	</activity>
 	<name>Two-Factor Email</name>
 	<summary>Two-Factor Email Provider</summary>
 	<website>https://github.com/nursoda/twofactor_email</website>
