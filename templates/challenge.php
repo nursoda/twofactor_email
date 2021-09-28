@@ -1,5 +1,5 @@
 <form method="POST" class="email-2fa-form">
-	<p><?php p($l->t('A code has been sent to %s.', [$_['emailAddress']])); ?></p>
+	<p><?php p($l->t('A code has been sent to %s', [$_['emailAddress']])); ?></p>
 	<input type="text"
 		   class="challenge"
 		   name="challenge"
