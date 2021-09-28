@@ -32,7 +32,7 @@ OC.L10N.register(
 	"Disable email verification" : "Code per E-Mail deaktivieren",
 
 	// templates/error.php 
-	"Error while sending the message. Please try again later or contact the administrator." : "Fehler beim Versenden der Nachricht. Bitte später nochmal probieren, oder den Administrator fragen."
+	"Error while sending the message. Please try again later or contact the administrator." : "Fehler beim Versenden der Nachricht. Bitte später nochmal probieren, oder den Administrator fragen.",
 
 	// templates/challenge.php
 	"An code has been sent to %s. Please insert it here:" : "Ein Code wurde an %s gesendet. Bitte hier eingeben:",
