@@ -26,7 +26,7 @@ OC.L10N.register(
 	"Verify code" : "Code bestätigen",
 	"Cancel activation" : "Einschalten abbrechen",
 
-	"Two-Factor Email is enabled. Ćodes are sent to {emailAddress}." : "Zwei-Faktor E-Mail ist eingeschaltet. Codes werden an {emailAddress} gesendet.",
+	"Two-Factor Email is enabled. Codes are sent to {emailAddress}." : "Zwei-Faktor E-Mail ist eingeschaltet. Codes werden an {emailAddress} gesendet.",
 	"Disable Two-Factor Email" : "Zwei-Faktor E-Mail ausschalten",
 
 	// templates/error.php 
