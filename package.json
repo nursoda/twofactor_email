@@ -1,7 +1,7 @@
 {
   "name": "twofactor_email",
   "version": "2.1.1",
-  "description": "Two-Factor email provider",
+  "description": "Two-Factor Email Provider",
   "author": [
     {
       "name": "Olav Seyfarth (current maintainer)",

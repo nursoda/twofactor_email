@@ -39,7 +39,7 @@ class Email {
 	 * @param string $authenticationCode
 	 */
 	public function send(IUser $user, string $authenticationCode): void {
-		$this->logger->debug('sending email message to ' . $user->getEMailAddress() . ', code: $authenticationCode');
+		$this->logger->debug('sending email message to ' . $user->getEMailAddress() . ', authentication code: $authenticationCode');
 
 		$template = $this->mailer->createEMailTemplate('twofactor_email.send');
 		$template->setSubject($this->l10n->t('Login with Two-Factor Email on %s', [$this->themingDefaults->getName()]));

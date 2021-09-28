@@ -8,31 +8,30 @@
 		</div>
 		<div v-else>
 			<p v-if="state === states.DISABLED">
-				<slot name="instructions" />
-				<L10n text="Two-Factor Email is currently deactivated." />
+				<L10n text="Two-Factor Email is not activated. It may send codes to the email address set in your user account." />
 				<button @click="enable">
-					<L10n text="Enable" />
+					<L10n text="Enable email verification" />
 				</button>
 			</p>
 			<p v-if="state === states.CREATED">
 				<strong v-if="verificationError === true">
 					<L10n text="The code entered did not match. A new code was sent. Please retry." />
 				</strong>
-				<L10n text="A confirmation code has been sent to {emailAddress}. Please insert it here:"
+				<L10n text="A code has been sent to {emailAddress}. Please insert it here:"
 					:options="{emailAddress: emailAddress}" />
 				<input v-model="confirmationCode">
 				<button @click="confirm">
-					<L10n text="Verify" />
+					<L10n text="Verify code" />
 				</button>
 				<button @click="disable">
-					<L10n text="Cancel" />
+					<L10n text="Cancel activation" />
 				</button>
 			</p>
 			<p v-if="state === states.ENABLED">
-				<L10n text="Two-Factor Email is active. Access codes are sent to {emailAddress}."
+				<L10n text="Two-Factor Email is active. Codes are sent to {emailAddress}."
 					:options="{emailAddress: emailAddress}" />
 				<button @click="disable">
-					<L10n text="Disable" />
+					<L10n text="Disable email verification" />
 				</button>
 			</p>
 		</div>

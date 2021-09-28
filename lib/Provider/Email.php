@@ -79,14 +79,14 @@ class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 	 * Get the display name for selecting the 2FA provider
 	 */
 	public function getDisplayName(): string {
-		return $this->l10n->t('Email');
+		return $this->l10n->t('Email verification');
 	}
 
 	/**
 	 * Get the description for selecting the 2FA provider
 	 */
 	public function getDescription(): string {
-		return $this->l10n->t('Authenticate via email');
+		return $this->l10n->t('Send a code to the address set in your account');
 	}
 
 	private function getSecret(): string {
@@ -143,10 +143,10 @@ class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 	}
 
 	public function getLightIcon(): String {
-		return $this->urlGenerator->imagePath(Application::APP_NAME, 'app.svg');
+		return $this->urlGenerator->imagePath(Application::APP_NAME, 'email-code-light.svg');
 	}
 
 	public function getDarkIcon(): String {
-		return $this->urlGenerator->imagePath(Application::APP_NAME, 'app-dark.svg');
+		return $this->urlGenerator->imagePath(Application::APP_NAME, 'email-code--dark.svg');
 	}
 }

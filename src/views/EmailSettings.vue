@@ -21,18 +21,14 @@
   -->
 
 <template>
-	<GatewaySettings display-name="Email">
-		<EmailInstructions slot="instructions" />
-	</GatewaySettings>
+	<GatewaySettings display-name="Email" />
 </template>
 
 <script>
 import GatewaySettings from '../components/GatewaySettings.vue'
-import EmailInstructions from '../components/EmailInstructions.vue'
 
 export default {
 	components: {
-		EmailInstructions,
 		GatewaySettings,
 	},
 }
