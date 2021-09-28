@@ -147,6 +147,6 @@ class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 	}
 
 	public function getDarkIcon(): String {
-		return $this->urlGenerator->imagePath(Application::APP_NAME, 'email-code--dark.svg');
+		return $this->urlGenerator->imagePath(Application::APP_NAME, 'email-code-dark.svg');
 	}
 }
