@@ -1,25 +1,17 @@
 <?xml version="1.0"?>
 <info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
 	<id>twofactor_email</id>
-	<name>Two-Factor E-mail</name>
-	<summary>Two Factor E-mail provider</summary>
-	<description>Provide two-factor authentication using the e-mail address set in the user account</description>
-	<version>2.2.0</version>
+	<version>2.1.1</version>
+	<dependencies>
+		<nextcloud min-version="19" max-version="23" />
+		<php min-version="7.2" max-version="8.0" />
+	</dependencies>
+	<repository type="git">https://github.com/nursoda/twofactor_email.git</repository>
 	<licence>agpl</licence>
 	<author mail="olav@seyfarth.de">Olav Seyfarth (current maintainer)</author>
 	<author>Roeland Jago Douma (original author)</author>
-	<namespace>TwoFactorEmail</namespace>
 	<category>security</category>
-	<website>https://github.com/nursoda/twofactor_email</website>
-	<bugs>https://github.com/nursoda/twofactor_email/issues</bugs>
-	<repository type="git">https://github.com/nursoda/twofactor_email.git</repository>
-	<screenshot small-thumbnail="/screenshots/select-auth_thumb.png">/screenshots/challenge.png</screenshot>
-	<screenshot>/screenshots/settings-before.png</screenshot>
-	<screenshot>/screenshots/settings-after.png</screenshot>
-	<dependencies>
-		<nextcloud min-version="19" max-version="23" />
-		<php min-version="7.3" max-version="8.0" />
-	</dependencies>
+	<namespace>TwoFactorEmail</namespace>
 	<two-factor-providers>
 		<provider>OCA\TwoFactorEmail\Provider\Email</provider>
 	</two-factor-providers>
@@ -31,4 +23,18 @@
 			<provider>OCA\TwoFactorEmail\Activity\Provider</provider>
 		</providers>
 	</activity>
+	<name>Two-Factor Email</name>
+	<summary>Two-Factor Email Provider</summary>
+	<website>https://github.com/nursoda/twofactor_email</website>
+	<bugs>https://github.com/nursoda/twofactor_email/issues</bugs>
+	<documentation>
+		<user>https://github.com/nursoda/twofactor_email/wiki/user</user>
+		<admin>https://github.com/nursoda/twofactor_email/wiki/admin</admin>
+		<developer>https://github.com/nursoda/twofactor_email/wiki/developer</developer>
+	</documentation>
+	<screenshot small-thumbnail="https://raw.githubusercontent.com/nursoda/twofactor_email/main/screenshots/select-auth_thumb.png">https://raw.githubusercontent.com/nursoda/twofactor_email/main/screenshots/challenge.png</screenshot>
+	<screenshot>https://raw.githubusercontent.com/nursoda/twofactor_email/main/screenshots/settings-before.png</screenshot>
+	<screenshot>https://raw.githubusercontent.com/nursoda/twofactor_email/main/screenshots/settings-after.png</screenshot>
+	<description lang="en">This app allows users to set up email as a second factor for web logins. It requires that an email address is set in personal settings. It currently cannot be used on first login when two-factor authentication is enforced (not implemented yet).</description>
+	<description lang="de">Diese App ermöglicht es Benutzern, E-Mail als zweiten Faktor für Webanmeldungen einzurichten. Sie setzt voraus, dass eine E-Mail-Adresse in den persönlichen Einstellungen hinterlegt ist. Sie kann derzeit nicht für die erste Anmeldung verwendet werden, wenn die Zwei-Faktor-Authentifizierung erzwungen wird.</description>
 </info>

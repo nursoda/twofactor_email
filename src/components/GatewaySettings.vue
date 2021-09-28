@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div v-if="!isAvailable">
-			<L10n text="The Email two-factor authentication method is not available. Do you have an email address set?" />
+			<L10n text="To be able to activate Two-Factor Email you need to set an email address in your user account first." />
 		</div>
 		<div v-else-if="loading">
 			<span class="icon-loading-small" />
@@ -9,16 +9,16 @@
 		<div v-else>
 			<p v-if="state === states.DISABLED">
 				<slot name="instructions" />
-				<L10n text="You are not using Email as a two-factor authentication method at the moment." />
+				<L10n text="Two-Factor Email is currently deactivated." />
 				<button @click="enable">
 					<L10n text="Enable" />
 				</button>
 			</p>
 			<p v-if="state === states.CREATED">
 				<strong v-if="verificationError === true">
-					<L10n text="Could not verify your code. Please try again." />
+					<L10n text="The code entered did not match. A new code was sent. Please retry." />
 				</strong>
-				<L10n text="A confirmation code has been sent to {emailAddress}. Please insert the code here:"
+				<L10n text="A confirmation code has been sent to {emailAddress}. Please insert it here:"
 					:options="{emailAddress: emailAddress}" />
 				<input v-model="confirmationCode">
 				<button @click="confirm">
@@ -29,7 +29,7 @@
 				</button>
 			</p>
 			<p v-if="state === states.ENABLED">
-				<L10n text="Your account was successfully configured to receive authentication codes via Email to {emailAddress}."
+				<L10n text="Two-Factor Email is active now. Access codes are sent to {emailAddress}."
 					:options="{emailAddress: emailAddress}" />
 				<button @click="disable">
 					<L10n text="Disable" />
