@@ -29,7 +29,7 @@
 				</button>
 			</p>
 			<p v-if="state === states.ENABLED">
-				<L10n text="Two-Factor Email is active now. Access codes are sent to {emailAddress}."
+				<L10n text="Two-Factor Email is active. Access codes are sent to {emailAddress}."
 					:options="{emailAddress: emailAddress}" />
 				<button @click="disable">
 					<L10n text="Disable" />

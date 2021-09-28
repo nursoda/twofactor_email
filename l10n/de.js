@@ -17,7 +17,7 @@ OC.L10N.register(
     "An access code has been sent to {emailAddress}. Please insert it here:" : "Ein Zugangs-Code wurde an {emailAddress} gesendet. Bitte hier eingeben:",
     "Verify" : "Überprüfen",
     "Cancel" : "Abbrechen",
-    "Two-Factor Email is active now. Access codes are sent to {emailAddress}." : "Zwei-Faktor E-Mail ist jetzt aktiv. Zugangs-Codes werden an {emailAddress} gesendet.",
+    "Two-Factor Email is active. Access codes are sent to {emailAddress}." : "Zwei-Faktor E-Mail ist jetzt aktiv. Zugangs-Codes werden an {emailAddress} gesendet.",
     "Disable" : "Abschalten",
     "Access code" : "Zugangs-Code",
     "An access code has been sent to %s. Please insert it here:" : "Ein Zugangs-Code wurde an %s gesendet. Bitte hier eingeben:",
