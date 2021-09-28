@@ -20,9 +20,8 @@ OC.L10N.register(
 
 	"Enable Two-Factor Email" : "Zwei-Faktor E-Mail einschalten",
 
-	"The entered code did not match. A new " : "Der eigegebene Code stimmte nicht. Ein weiterer ",
-	"A " : "Ein ",
-	"code has been sent to {emailAddress}." : "Code wurde an {emailAddress} gesendet.",
+	"The entered code does not match that sent to {emailAddress}." : "Der eigegebene Code unterscheidet sich von dem an {emailAddress} gesendeten.",
+	"A code has been sent to {emailAddress}." : "Ein Code wurde an {emailAddress} gesendet.",
 	"Verify code" : "Code bestätigen",
 	"Cancel activation" : "Einschalten abbrechen",
 

@@ -14,13 +14,13 @@
 			</p>
 			<p v-if="state === states.CREATED">
 				<span v-if="verificationError === true">
-					<L10n text="The entered code did not match. A new " />
+					<L10n text="The entered code does not match that sent to {emailAddress}."
+						:options="{emailAddress: emailAddress}" />
 				</span>
-				<span v-if="verificationError === false">
-					<L10n text="A " />
+				<span v-else>
+					<L10n text="A code has been sent to {emailAddress}."
+						:options="{emailAddress: emailAddress}" />
 				</span>
-				<L10n text="code has been sent to {emailAddress}."
-					:options="{emailAddress: emailAddress}" />
 				<br />
 				<input v-model="confirmationCode">
 				<button @click="confirm">
