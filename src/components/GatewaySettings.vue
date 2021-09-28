@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div v-if="!isAvailable">
-			<L10n text="You need to set an email address in #Personal info# first." />
+			<L10n text="You need to set an email address in 'Personal info' first." />
 		</div>
 		<div v-else-if="loading">
 			<span class="icon-loading-small" />
