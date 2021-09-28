@@ -8,7 +8,7 @@
 		</div>
 		<div v-else>
 			<p v-if="state === states.DISABLED">
-				<L10n text="Two-Factor Email is not activated.\nIt may send codes to the email address set in your user account." />
+				<L10n text="Two-Factor Email is not activated. It may send codes to the email address set in your user account." />
 				<br />
 				<button @click="enable">
 					<L10n text="Enable email verification" />
