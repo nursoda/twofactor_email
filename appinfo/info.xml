@@ -27,5 +27,5 @@
 	<screenshot small-thumbnail="https://raw.githubusercontent.com/nursoda/twofactor_email/main/screenshots/select-auth_thumb.png">https://raw.githubusercontent.com/nursoda/twofactor_email/main/screenshots/challenge.png</screenshot>
 	<screenshot>https://raw.githubusercontent.com/nursoda/twofactor_email/main/screenshots/settings-before.png</screenshot>
 	<screenshot>https://raw.githubusercontent.com/nursoda/twofactor_email/main/screenshots/settings-after.png</screenshot>
-	<description>This app allows users to set up email as a second factor for web logins. It requires that an email address is set in personal settings. It currently cannot be used on first login when two-factor authentication is enforced (not implemented yet).</description>
+	<description>This app allows users to set up email as a second factor for web logins. It requires that an email address is set in 'Personal info'. It currently cannot be used on first login when two-factor authentication is enforced (not implemented yet).</description>
 </info>

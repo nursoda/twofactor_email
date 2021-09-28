@@ -1,25 +1,28 @@
 <template>
 	<div>
 		<div v-if="!isAvailable">
-			<L10n text="To be able to activate Two-Factor Email you need to set an email address in your user account first." />
+			<L10n text="You need to set an email address in 'Personal info' first." />
 		</div>
 		<div v-else-if="loading">
 			<span class="icon-loading-small" />
 		</div>
 		<div v-else>
 			<p v-if="state === states.DISABLED">
-				<L10n text="Two-Factor Email is not activated. It may send codes to the email address set in your user account." />
-				<br />
 				<button @click="enable">
 					<L10n text="Enable email verification" />
 				</button>
 			</p>
 			<p v-if="state === states.CREATED">
-				<strong v-if="verificationError === true">
-					<L10n text="The code entered did not match. A new code was sent. Please retry." />
-				</strong>
-				<L10n text="A code has been sent to {emailAddress}. Please insert it here:"
+				<span v-if="verificationError === true">
+					<L10n text="The entered code did not match. A new " />
+				</span>
+				<span v-if="verificationError === false">
+					<L10n text="A " />
+				</span>
+				<L10n text="code has been sent to {emailAddress}."
 					:options="{emailAddress: emailAddress}" />
+				<br />
+				<L10n text="Please insert it here:" />
 				<input v-model="confirmationCode">
 				<button @click="confirm">
 					<L10n text="Verify code" />
@@ -29,8 +32,9 @@
 				</button>
 			</p>
 			<p v-if="state === states.ENABLED">
-				<L10n text="Two-Factor Email is active. Codes are sent to {emailAddress}."
+				<L10n text="Codes are sent to {emailAddress}."
 					:options="{emailAddress: emailAddress}" />
+				<br />
 				<button @click="disable">
 					<L10n text="Disable email verification" />
 				</button>
