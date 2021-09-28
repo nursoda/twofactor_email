@@ -27,3 +27,4 @@
 /tests
 /vendor/bin
 /screenshots
+/.l10n/gen-json.sh

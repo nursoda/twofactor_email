@@ -9,7 +9,7 @@
 		<div v-else>
 			<p v-if="state === states.DISABLED">
 				<button @click="enable">
-					<L10n text="Enable email verification" />
+					<L10n text="Enable Two-Factor Email" />
 				</button>
 			</p>
 			<p v-if="state === states.CREATED">
@@ -22,7 +22,6 @@
 				<L10n text="code has been sent to {emailAddress}."
 					:options="{emailAddress: emailAddress}" />
 				<br />
-				<L10n text="Please insert it here:" />
 				<input v-model="confirmationCode">
 				<button @click="confirm">
 					<L10n text="Verify code" />
@@ -32,11 +31,11 @@
 				</button>
 			</p>
 			<p v-if="state === states.ENABLED">
-				<L10n text="Codes are sent to {emailAddress}."
+				<L10n text="Two-Factor Email is enabled. Codes are sent to {emailAddress}."
 					:options="{emailAddress: emailAddress}" />
 				<br />
 				<button @click="disable">
-					<L10n text="Disable email verification" />
+					<L10n text="Disable Two-Factor Email" />
 				</button>
 			</p>
 		</div>

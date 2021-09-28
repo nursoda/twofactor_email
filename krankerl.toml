@@ -3,4 +3,8 @@ before_cmds = [
 	"composer install --no-dev",
 	"npm install --deps",
 	"npm run build",
+	"l10n/2json.sh",
+]
+after_cmds = [
+	"rm l10n/*.json",
 ]

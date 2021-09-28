@@ -86,7 +86,7 @@ class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 	 * Get the description for selecting the 2FA provider
 	 */
 	public function getDescription(): string {
-		return $this->l10n->t('Send a code to the address set in \'Personal info\'');
+		return $this->l10n->t('Send a code to your email address');
 	}
 
 	private function getSecret(): string {

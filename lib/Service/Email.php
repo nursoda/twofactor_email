@@ -42,10 +42,11 @@ class Email {
 		$this->logger->debug('sending email message to ' . $user->getEMailAddress() . ', code: $authenticationCode');
 
 		$template = $this->mailer->createEMailTemplate('twofactor_email.send');
-		$template->setSubject($this->l10n->t('Login with Two-Factor Email on %s', [$this->themingDefaults->getName()]));
+		$user_at_cloud = $user->getDisplayName() . " @ " . $this->themingDefaults->getName();
+		$template->setSubject($this->l10n->t('Login attempt for %s', [$user_at_cloud]));
 		$template->addHeader();
-		$template->addHeading($this->l10n->t('Login attempt for %s', [$user->getDisplayName()]));
-		$template->addBodyText($this->l10n->t('If you just tried to login, please enter this code: %s', [$authenticationCode]));
+		$template->addHeading($this->l10n->t('Your two-factor authentication code is: %s', [$authenticationCode]));
+		$template->addBodyText($this->l10n->t('If you tried to login, please enter that code on %s. If you did not, somebody else did and knows your your email address or username – and your password!', [$this->themingDefaults->getName()]));
 		$template->addFooter();
 
 		$message = $this->mailer->createMessage();
