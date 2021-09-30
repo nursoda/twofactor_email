@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace OCA\TwoFactorEmail\Provider;
 
-use OCA\TwoFactorEmail\EmailMask;
 use OCA\TwoFactorEmail\AppInfo\Application;
 use OCA\TwoFactorEmail\Service\Email as EmailService;
 use OCA\TwoFactorEmail\Service\StateStorage;
@@ -113,7 +112,7 @@ class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 		}
 
 		$tmpl = new Template('twofactor_email', 'challenge');
-		$tmpl->assign('emailAddress', EmailMask::maskEmail($user->getEMailAddress()));
+		$tmpl->assign('emailAddress', $user->getEMailAddress());
 		return $tmpl;
 	}
 
