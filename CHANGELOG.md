@@ -3,13 +3,14 @@ Notable changes in [changelog format](https://keepachangelog.com/en/1.0.0/)
 Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
 ## Unreleased
-- localize info.xml
+- Don't show email address in challenge
+- Localize info.xml
 
 ## 2.1.1 - 2021-09-28
 - Support NC 23 (tested against current master daily)
 - UI: new app icon, rephrase strings
-- app store: initial screenshots, update description
-- documentation: initial wiki on GitHub
+- App store: initial screenshots, update description
+- Documentation: initial wiki on GitHub
 
 ## 2.1.0 - 2021-09-11
 - Version 2.1.0 (store) = 2.0.1 (GitHub)
