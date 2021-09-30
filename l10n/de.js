@@ -29,7 +29,7 @@ OC.L10N.register(
 	"Error while sending the email. Please try again later or ask your administrator." : "Fehler beim Versenden der E-Mail. Bitte probiere es später nochmal oder frage deinen Administrator.",
 
 	// templates/challenge.php
-	"A code was sent to %s" : "Ein Code wurde an %s gesendet",
+	"A code has been sent to your email address." : "Ein Code wurde an deine E-Mail-Adresse gesendet",
 	"Enter authentication code" : "Anmelde-Code eingeben",
 },
 "");
