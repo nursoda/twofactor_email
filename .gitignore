@@ -4,3 +4,5 @@
 /build/
 /node-modules/
 /signed/
+/translationtool.phar
+/translationfiles

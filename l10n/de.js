@@ -1,10 +1,7 @@
 OC.L10N.register(
 	"twofactor_email",
 	{
-	// appinfo/info.xml 
-	"Two-Factor Email" : "Zwei-Faktor E-Mail",
-	"Two-Factor Email Provider" : "Zwei-Faktor E-Mail Anbieter",
-	"This app allows users to set up email as a second factor for web logins. It requires that an email address is set in 'Personal info'. It currently cannot be used on first login when two-factor authentication is enforced (not implemented yet)." : "Diese App ermöglicht es Benutzern, E-Mail als zweiten Faktor für Webanmeldungen einzurichten. Sie setzt voraus, dass eine E-Mail-Adresse in den persönlichen Einstellungen hinterlegt ist. Sie kann derzeit nicht für die erste Anmeldung verwendet werden, wenn die Zwei-Faktor-Authentifizierung erzwungen wird",
+	// ADDITIONAL strings to be localized may be found in package.json and appinfo.info.xml
 
 	// lib/Provider/Email.php
 	"Email verification" : "E-Mail Bestätigung",
