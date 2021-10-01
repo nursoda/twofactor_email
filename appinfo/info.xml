@@ -18,9 +18,9 @@
 	<website>https://github.com/nursoda/twofactor_email</website>
 	<bugs>https://github.com/nursoda/twofactor_email/issues</bugs>
 	<documentation>
-		<user>https://github.com/nursoda/twofactor_email/wiki/user</user>
-		<admin>https://github.com/nursoda/twofactor_email/wiki/admin</admin>
-		<developer>https://github.com/nursoda/twofactor_email/wiki/developer</developer>
+		<user>https://github.com/nursoda/twofactor_email/wiki/User-manual</user>
+		<admin>https://github.com/nursoda/twofactor_email/wiki/Admin-manual</admin>
+		<developer>https://github.com/nursoda/twofactor_email/wiki/Developer-notes</developer>
 	</documentation>
 	<screenshot small-thumbnail="https://raw.githubusercontent.com/nursoda/twofactor_email/main/screenshots/select-auth_thumb.png">https://raw.githubusercontent.com/nursoda/twofactor_email/main/screenshots/challenge.png</screenshot>
 	<screenshot>https://raw.githubusercontent.com/nursoda/twofactor_email/main/screenshots/settings-before.png</screenshot>
