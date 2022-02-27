@@ -9,7 +9,7 @@ OC.L10N.register(
 
 	// lib/Service/Email.php
 	"Login attempt for %s" : "Anmeldeversuch für %s",
-	"Your two-factor authentication code is: %s" : "Dein Zwei-Faktor Anmelde-Code lautet: %s",
+	"Your two-factor authentication code is: %s" : "Dein Zwei-Faktor Authentifizierungscode lautet: %s",
 	"If you tried to login, please enter that code on %s. If you did not, somebody else did and knows your your email address or username – and your password!" : "Gib diesen Code auf %s ein, falls du dich anmelden wolltest. Falls du das nicht warst kennt jemand deine E-Mail-Adresse oder deinen Benutzernamen – und dein Passwort!",
 
 	// src/components/GatewaySettings.vue
@@ -30,6 +30,7 @@ OC.L10N.register(
 
 	// templates/challenge.php
 	"A code has been sent to your email address." : "Ein Code wurde an deine E-Mail-Adresse gesendet",
-	"Enter authentication code" : "Anmelde-Code eingeben",
+	"Authentication code" : "Authentifizierungscode",
+	"Submit" : "Übermitteln",
 },
 "");

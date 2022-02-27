@@ -8,5 +8,6 @@
 		   autocomplete="off"
 		   autocapitalize="off"
 		   value="<?php echo isset($_['secret']) ? $_['secret'] : '' ?>"
-		   placeholder="<?php p($l->t('Enter authentication code')) ?>">
+		   placeholder="<?php p($l->t('Authentication code')) ?>">
+	<input type="submit" class="confirm-inline icon-confirm" value="<?php p($l->t('Submit')) ?>">
 </form>
