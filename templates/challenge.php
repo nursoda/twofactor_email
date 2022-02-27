@@ -1,13 +1,8 @@
-<form method="POST" class="email-2fa-form">
-	<p><?php p($l->t('A code has been sent to your email address.')); ?></p>
-	<input type="text"
-		   class="challenge"
-		   name="challenge"
-		   required="required"
-		   autofocus
-		   autocomplete="off"
-		   autocapitalize="off"
-		   value="<?php echo isset($_['secret']) ? $_['secret'] : '' ?>"
-		   placeholder="<?php p($l->t('Authentication code')) ?>">
-	<input type="submit" class="confirm-inline icon-confirm" value="<?php p($l->t('Submit')) ?>">
+<img class="two-factor-icon" src="<?php print_unescaped(image_path('twofactor_email', 'email-code-light.svg')); ?>" alt="<?php p($l->t('Two-Factor Email app icon')); ?>">
+<p><?php p($l->t('A code has been sent to your email address.')) ?></p>
+<form method="POST" class="twofactor-email-form">
+	<input type="tel" minlength="6" maxlength="6" name="challenge" required="required" autofocus autocomplete="one-time-code" autocapitalize="off" placeholder="<?php p($l->t('Authentication code')) ?>">
+	<button class="primary two-factor-submit" type="submit">
+		<?php p($l->t('Submit')); ?>
+	</button>
 </form>

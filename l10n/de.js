@@ -29,6 +29,7 @@ OC.L10N.register(
 	"Error while sending the email. Please try again later or ask your administrator." : "Fehler beim Versenden der E-Mail. Bitte probiere es später nochmal oder frage deinen Administrator.",
 
 	// templates/challenge.php
+	"Two-Factor Email app icon" : "Zwei-Faktor E-Mail App-Symbol",
 	"A code has been sent to your email address." : "Ein Code wurde an deine E-Mail-Adresse gesendet",
 	"Authentication code" : "Authentifizierungscode",
 	"Submit" : "Übermitteln",
