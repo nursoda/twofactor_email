@@ -120,11 +120,12 @@ export default {
 
 			disable()
 				.then(res => {
-					this.state = res.state
+					this.state = this.states.DISABLED
 					this.emailAddress = res.emailAddress
 					this.loading = false
 				})
 				.catch(reason => {
+					this.ErrorDetected = true
 					console.error(reason)
 				})
 		},
