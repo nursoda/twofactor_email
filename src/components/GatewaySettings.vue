@@ -89,8 +89,8 @@ export default {
 					this.emailAddress = res.emailAddress
 					this.loading = false
 				})
-				.catch(e => {
-					console.error(e)
+				.catch(reason => {
+					console.error(reason)
 					this.state = this.states.DISABLED
 					this.verificationError = true
 					this.loading = false
@@ -104,7 +104,7 @@ export default {
 					this.state = this.states.ENABLED
 					this.loading = false
 				})
-				.catch(res => {
+				.catch(reason => {
 					this.state = this.states.CREATED
 					this.verificationError = true
 					this.loading = false
@@ -120,7 +120,9 @@ export default {
 					this.emailAddress = res.emailAddress
 					this.loading = false
 				})
-				.catch(console.error.bind(this))
+				.catch(reason => {
+					console.error(reason)
+				})
 		},
 	},
 }
