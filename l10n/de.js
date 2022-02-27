@@ -15,7 +15,7 @@ OC.L10N.register(
 	// src/components/GatewaySettings.vue
 	"You need to set an email address in 'Personal info' first." : "Du musst zuerst eine E-Mail-Adresse in 'Persönliche Informationen' hinterlegen.",
 
-	"The email could not be sent" : "Die E-Mail konnte nicht versendet werden.",
+	"Could not send a verification code via email. An Admin must set this up first." : "Prüfcode konnte nicht per E-Mail versendet werden. Ein Administrator muss dies zuerst einrichten.",
 	"Enable Two-Factor Email" : "Zwei-Faktor E-Mail einschalten",
 
 	"The entered code does not match that sent to {emailAddress}." : "Der eigegebene Code unterscheidet sich von dem an {emailAddress} gesendeten.",
