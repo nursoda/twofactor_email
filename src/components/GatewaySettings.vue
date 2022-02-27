@@ -8,6 +8,10 @@
 		</div>
 		<div v-else>
 			<p v-if="state === states.DISABLED">
+				<span v-if="verificationError === true">
+					<L10n text="The email could not be sent." />
+				</span>
+				<br />
 				<button @click="enable">
 					<L10n text="Enable Two-Factor Email" />
 				</button>
