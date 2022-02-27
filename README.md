@@ -9,3 +9,5 @@ It currently uses the primary email address set in 'Personal info' and cannot be
 It currently cannot be used on first login when two-factor authentication is enforced (not implemented yet).
 
 Any pull requests or offers to help are welcome, please contact the maintainer (see [wiki](https://github.com/nursoda/twofactor_email/wiki/developer)).
+
+The easiest way to install this app is to select "Apps" from the menu (as admin) and search for "two", then install it (which will retrieve it from the [App Store](https://apps.nextcloud.com/apps/twofactor_email)).
