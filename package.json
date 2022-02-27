@@ -33,7 +33,7 @@
     "@nextcloud/eslint-plugin": "latest",
     "@nextcloud/initial-state": "latest",
     "nextcloud-server": "latest",
-    "vue": "latest",
+    "vue": "^2.6.14",
     "vue-loader": "latest",
     "vue-style-loader": "latest",
     "vue-template-compiler": "latest"
