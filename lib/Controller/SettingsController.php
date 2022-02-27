@@ -27,7 +27,7 @@ namespace OCA\TwoFactorEmail\Controller;
 
 use OCA\TwoFactorEmail\AppInfo\Application;
 use OCA\TwoFactorEmail\Exception\VerificationException;
-use OCA\TwoFactorEmail\Exception\VerificationTransmissionException;
+use OCA\TwoFactorEmail\Exception\TransmissionException;
 use OCA\TwoFactorEmail\Service\SetupService;
 
 use OCP\AppFramework\Controller;
@@ -65,7 +65,7 @@ class SettingsController extends Controller {
 
 		try {
 			$state = $this->setupService->startSetup($user);
-		} catch (VerificationTransmissionException $ex) {
+		} catch (TransmissionException $ex) {
 			return new JSONResponse([], Http::STATUS_BAD_REQUEST);
 		}
 
