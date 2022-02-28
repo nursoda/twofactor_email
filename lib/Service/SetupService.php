@@ -6,7 +6,7 @@ namespace OCA\TwoFactorEmail\Service;
 
 use Exception;
 use OCA\TwoFactorEmail\Exception\VerificationException;
-use OCA\TwoFactorEmail\Exception\VerificationTransmissionException;
+use OCA\TwoFactorEmail\Exception\TransmissionException;
 use OCA\TwoFactorEmail\Service\Email as EmailService;
 use OCA\TwoFactorEmail\Provider\Email as EmailProvider;
 use OCA\TwoFactorEmail\Provider\State;
@@ -57,7 +57,7 @@ class SetupService {
 		try {
 			$this->emailService->send($user, $authenticationCode);
 		} catch (Exception $ex) {
-			throw new VerificationTransmissionException('could not send verification code');
+			throw new TransmissionException('could not send verification code', 0, $ex);
 		}
 
 		return $this->stateStorage->persist(
@@ -69,7 +69,7 @@ class SetupService {
 		$state = $this->stateStorage->get($user);
 
 		if (is_null($state->getVerificationCode())) {
-			throw new Exception('no verification code set');
+			throw new VerificationException('no verification code set');
 		}
 
 		if ($state->getVerificationCode() !== $authenticationCode) {

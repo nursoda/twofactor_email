@@ -8,12 +8,17 @@
 		</div>
 		<div v-else>
 			<p v-if="state === states.DISABLED">
-				<button @click="enable">
-					<L10n text="Enable Two-Factor Email" />
-				</button>
+				<span v-if="ErrorDetected === true">
+					<L10n text="Could not send a verification code via email. An Admin must set this up first." />
+				</span>
+				<span v-else>
+					<button @click="enable">
+						<L10n text="Enable Two-Factor Email" />
+					</button>
+				</span>
 			</p>
 			<p v-if="state === states.CREATED">
-				<span v-if="verificationError === true">
+				<span v-if="ErrorDetected === true">
 					<L10n text="The entered code does not match that sent to {emailAddress}."
 						:options="{emailAddress: emailAddress}" />
 				</span>
@@ -21,7 +26,7 @@
 					<L10n text="A code has been sent to {emailAddress}."
 						:options="{emailAddress: emailAddress}" />
 				</span>
-				<br />
+				<br>
 				<input v-model="confirmationCode">
 				<button @click="confirm">
 					<L10n text="Verify code" />
@@ -33,7 +38,7 @@
 			<p v-if="state === states.ENABLED">
 				<L10n text="Two-Factor Email is enabled. Codes are sent to {emailAddress}."
 					:options="{emailAddress: emailAddress}" />
-				<br />
+				<br>
 				<button @click="disable">
 					<L10n text="Disable Two-Factor Email" />
 				</button>
@@ -70,7 +75,7 @@ export default {
 			emailAddress: '',
 			isAvailable: true,
 			confirmationCode: '',
-			verificationError: false,
+			ErrorDetected: false,
 		}
 	},
 	mounted() {
@@ -82,17 +87,16 @@ export default {
 	methods: {
 		enable() {
 			this.loading = true
-			this.verificationError = false
+			this.ErrorDetected = false
 			startVerification()
 				.then(res => {
 					this.state = this.states.CREATED
 					this.emailAddress = res.emailAddress
 					this.loading = false
 				})
-				.catch(e => {
-					console.error(e)
+				.catch(reason => {
 					this.state = this.states.DISABLED
-					this.verificationError = true
+					this.ErrorDetected = true
 					this.loading = false
 				})
 		},
@@ -104,9 +108,9 @@ export default {
 					this.state = this.states.ENABLED
 					this.loading = false
 				})
-				.catch(res => {
+				.catch(reason => {
 					this.state = this.states.CREATED
-					this.verificationError = true
+					this.ErrorDetected = true
 					this.loading = false
 				})
 		},
@@ -116,11 +120,14 @@ export default {
 
 			disable()
 				.then(res => {
-					this.state = res.state
+					this.state = this.states.DISABLED
 					this.emailAddress = res.emailAddress
 					this.loading = false
 				})
-				.catch(console.error.bind(this))
+				.catch(reason => {
+					this.ErrorDetected = true
+					console.error(reason)
+				})
 		},
 	},
 }
