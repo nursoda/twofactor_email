@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
 	<id>twofactor_email</id>
-	<version>2.1.1</version>
+	<version>2.2.0</version>
 	<dependencies>
-		<nextcloud min-version="19" max-version="23" />
-		<php min-version="7.2" max-version="8.0" />
+		<nextcloud min-version="22" max-version="24" />
+		<php min-version="7.4" max-version="8.1" />
 	</dependencies>
 	<repository type="git">https://github.com/nursoda/twofactor_email.git</repository>
 	<licence>agpl</licence>
@@ -25,10 +25,9 @@
 	<screenshot small-thumbnail="https://raw.githubusercontent.com/nursoda/twofactor_email/main/screenshots/select-auth_thumb.png">https://raw.githubusercontent.com/nursoda/twofactor_email/main/screenshots/challenge.png</screenshot>
 	<screenshot>https://raw.githubusercontent.com/nursoda/twofactor_email/main/screenshots/settings-before.png</screenshot>
 	<screenshot>https://raw.githubusercontent.com/nursoda/twofactor_email/main/screenshots/settings-after.png</screenshot>
-	<name lang="en">Two-Factor Email</name>
-	<name lang="de">Zwei-Faktor E-Mail</name>
+	<name>Two-Factor Email</name>
 	<summary lang="en">Two-Factor Email Provider</summary>
-	<summary lang="de">Zwei-Faktor E-Mail Anbieter</summary>
+	<summary lang="de">Zwei-Faktor E-Mail Provider</summary>
 	<description lang="en">This app allows users to set up email as a second factor for web logins. It requires that an email address is set in 'Personal info'. It currently cannot be used on first login when two-factor authentication is enforced (not implemented yet).</description>
 	<description lang="de">Diese App ermöglicht es Benutzern, E-Mail als zweiten Faktor für Webanmeldungen einzurichten. Sie setzt voraus, dass eine E-Mail-Adresse in den persönlichen Einstellungen hinterlegt ist. Sie kann derzeit nicht für die erste Anmeldung verwendet werden, wenn die Zwei-Faktor-Authentifizierung erzwungen wird.</description>
 </info>
