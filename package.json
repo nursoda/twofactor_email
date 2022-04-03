@@ -31,7 +31,6 @@
   "dependencies": {
     "nextcloud-server": "latest",
     "@nextcloud/axios": "latest",
-    "@nextcloud/eslint-plugin": "latest",
     "@nextcloud/initial-state": "latest",
     "vue": "^2.6.14"
   },
