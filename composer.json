@@ -12,5 +12,8 @@
   "require-dev": {
     "nextcloud/coding-standard": ">=0.5.0",
     "psalm/phar": ">=4.9.2"
+  },
+  "require": {
+    "php": ">=7.3 <8.2"
   }
 }
