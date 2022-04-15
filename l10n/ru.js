@@ -23,7 +23,7 @@ OC.L10N.register(
 	"Verify code" : "Подтвердить код",
 	"Cancel activation" : "Отменить активацию",
 
-	"Two-Factor Email is enabled. Codes are sent to {emailAddress}." : "Двухфакторная аутентификации по электронной почте включена. Коды отправляются на {emailAddress}.",
+	"Two-Factor Email is enabled. Codes are sent to {emailAddress}." : "Двухфакторная аутентификация по электронной почте включена. Коды отправляются на {emailAddress}.",
 	"Disable Two-Factor Email" : "Отключить двухфакторную аутентификацию по электронной почте",
 
 	// templates/error.php 
