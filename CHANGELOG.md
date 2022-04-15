@@ -1,6 +1,10 @@
 # Changelog
 Notable changes in [changelog format](https://keepachangelog.com/en/1.0.0/), project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
+## 2.3.0 (2022-04-15)
+### Added
+- Add Russian translation
+
 ## 2.2.0 (2022-04-05)
 ### Added
 - Support for Nextcloud 24 (tested against beta 2)
