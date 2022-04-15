@@ -25,7 +25,9 @@ jobs:
           php-version: "${{ matrix.php }}"
           tools: composer:v2
           coverage: none
+      - name: Remove PHP lockfile
+        run: rm composer.lock
       - name: Install dependencies
-        run: composer require -W --dev christophwurst/nextcloud:${{ matrix.nextcloud }}
+        run: composer require --dev christophwurst/nextcloud:${{ matrix.nextcloud }}
       - name: Run coding standards check
         run: composer run psalm
