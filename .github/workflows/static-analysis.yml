@@ -22,7 +22,7 @@ jobs:
       - name: Set up php
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "${{ matrix.php }}"
+          php-version: "8.1"
           tools: composer:v2
           coverage: none
       - name: Remove PHP lockfile
@@ -30,4 +30,4 @@ jobs:
       - name: Install dependencies
         run: composer require --dev christophwurst/nextcloud:${{ matrix.nextcloud }}
       - name: Run coding standards check
-        run: composer run psalm
+        run: composer run -- psalm --php-version=${{ matrix.php }}
