@@ -23,11 +23,9 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php }}"
-          tools: composer:v1
+          tools: composer:v2
           coverage: none
       - name: Install dependencies
-        run: composer update # use latest dependencies for current PHP version
-      - name: Install dependencies
-        run: composer require --dev christophwurst/nextcloud:${{ matrix.nextcloud }}
+        run: composer require -W --dev christophwurst/nextcloud:${{ matrix.nextcloud }}
       - name: Run coding standards check
         run: composer run psalm
