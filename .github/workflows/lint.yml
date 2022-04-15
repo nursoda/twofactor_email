@@ -10,43 +10,34 @@ on:
 jobs:
   php:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        php-versions: ['7.3', '7.4', '8.0', '8.1']
-  
-    name: php${{ matrix.php-versions }}
+        php: [ '7.4', '8.0', '8.1' ]
+    name: php${{ matrix.php }}
     steps:
       - uses: actions/checkout@v2
-
-      - name: Set up php ${{ matrix.php-versions }}
-        uses: shivammathur/setup-php@v1
+      - name: Set up php ${{ matrix.php }}
+        uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php-versions }}
+          php-version: ${{ matrix.php }}
           coverage: none
-
       - name: Lint
         run: composer run lint
 
   node:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        node-versions: ['14.x', '16.x', '17.x']
-
-    name: node${{ matrix.node-versions }}
+        node: [ '16.x', '17.x' ]
+    name: node${{ matrix.node }}
     steps:
       - uses: actions/checkout@v2
-
-      - name: Set up node ${{ matrix.node-versions }}
+      - name: Set up node ${{ matrix.node }}
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-versions }}
-
+          node-version: ${{ matrix.node }}
       - name: Install dependencies
         run: npm ci
-
       - name: Lint
         run: npm run lint
 
@@ -55,15 +46,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
       - name: Set up php 
-        uses: shivammathur/setup-php@master
+        uses: shivammathur/setup-php@v2
         with:
           php-version: 8.1
-          tools: composer:v1
+          tools: composer:v2
           coverage: none
       - name: Install dependencies
-        run: composer i
+        run: composer install
       - name: Run coding standards check
         run: composer run cs:check
-

@@ -6,3 +6,4 @@
 /signed/
 /translationtool.phar
 /translationfiles
+.php-cs-fixer.cache
