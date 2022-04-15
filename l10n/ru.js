@@ -10,7 +10,7 @@ OC.L10N.register(
 	// lib/Service/Email.php
 	"Login attempt for %s" : "Попытка входа для %s",
 	"Your two-factor authentication code is: %s" : "Ваш код двухфакторной аутентификации: %s",
-	"If you tried to login, please enter that code on %s. If you did not, somebody else did and knows your your email address or username – and your password!" : "Если вы пытались войти, введите этот код в %s. Если вы этого не сделали, это сделал кто-то другой и знает ваш адрес электронной почты или имя пользователя, а также ваш пароль!",
+	"If you tried to login, please enter that code on %s. If you did not, somebody else did and knows your your email address or username – and your password!" : "Если вы пытались войти, введите этот код в %s. Если вы этого не делали, это сделал кто-то другой и знает ваш адрес электронной почты или имя пользователя, а также ваш пароль!",
 
 	// src/components/GatewaySettings.vue
 	"You need to set an email address in 'Personal info' first." : "Сначала вам нужно установить адрес электронной почты в разделе «Личной информации».",
@@ -23,7 +23,7 @@ OC.L10N.register(
 	"Verify code" : "Подтвердить код",
 	"Cancel activation" : "Отменить активацию",
 
-	"Two-Factor Email is enabled. Codes are sent to {emailAddress}." : "Двухфакторная аутентификация по электронной почте включена. Коды отправляются на {emailAddress}.",
+	"Two-Factor Email is enabled. Codes are sent to {emailAddress}." : "Двухфакторная аутентификация по электронной почте включена. Коды аутентификации будут отправлены на {emailAddress}.",
 	"Disable Two-Factor Email" : "Отключить двухфакторную аутентификацию по электронной почте",
 
 	// templates/error.php 
