@@ -6,24 +6,27 @@ jobs:
   static-psalm-analysis:
     runs-on: ubuntu-latest
     strategy:
-      matrix:
+      matrix: # https://docs.github.com/en/actions/using-jobs/using-a-build-matrix-for-your-jobs
         nextcloud: [ 'v21.0.0', 'v22.1.1', 'v23.0.2', 'dev-master' ]
         php: [ '7.3', '7.4', '8.0' ]
+        exclude:
+          - nextcloud: 'dev-master' 
+            php: '7.3'
         include:
           - nextcloud: 'dev-master' 
-            php: 8.1
+            php: '8.1'
     name: Nextcloud ${{ matrix.nextcloud }} on PHP ${{ matrix.php }}
     steps:
       - name: Checkout
         uses: actions/checkout@master
       - name: Set up php
-        uses: shivammathur/setup-php@master
+        uses: shivammathur/setup-php@v2
         with:
           php-version: "${{ matrix.php }}"
           tools: composer:v1
           coverage: none
       - name: Install dependencies
-        run: composer i
+        run: composer update # use latest dependencies for current PHP version
       - name: Install dependencies
         run: composer require --dev christophwurst/nextcloud:${{ matrix.nextcloud }}
       - name: Run coding standards check
