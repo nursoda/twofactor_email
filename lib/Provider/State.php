@@ -4,8 +4,6 @@ declare(strict_types = 1);
 
 namespace OCA\TwoFactorEmail\Provider;
 
-use OCA\TwoFactorEmail\EmailMask;
-
 use OCP\IUser;
 
 use JsonSerializable;
