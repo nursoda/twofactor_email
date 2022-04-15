@@ -4,23 +4,27 @@ on: [pull_request]
 
 jobs:
   static-psalm-analysis:
-      runs-on: ubuntu-latest
-      strategy:
-          matrix:
-              ocp-version: [ 'v21.0.0', 'v22.0.0', 'v23.0.0', 'v24.0.0', 'dev-master' ]
-      name: Nextcloud ${{ matrix.ocp-version }}
-      steps:
-          - name: Checkout
-            uses: actions/checkout@master
-          - name: Set up php
-            uses: shivammathur/setup-php@master
-            with:
-                php-version: 8.1
-                tools: composer:v1
-                coverage: none
-          - name: Install dependencies
-            run: composer i
-          - name: Install dependencies
-            run: composer require --dev christophwurst/nextcloud:${{ matrix.ocp-version }}
-          - name: Run coding standards check
-            run: composer run psalm
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        nextcloud: [ 'v21.0.0', 'v22.1.1', 'v23.0.2', 'dev-master' ]
+        php: [ '7.3', '7.4', '8.0' ]
+        include:
+          - nextcloud: 'dev-master' 
+            php: 8.1
+    name: Nextcloud ${{ matrix.nextcloud }} on PHP ${{ matrix.php }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Set up php
+        uses: shivammathur/setup-php@master
+        with:
+          php-version: "${{ matrix.php }}"
+          tools: composer:v1
+          coverage: none
+      - name: Install dependencies
+        run: composer i
+      - name: Install dependencies
+        run: composer require --dev christophwurst/nextcloud:${{ matrix.nextcloud }}
+      - name: Run coding standards check
+        run: composer run psalm
