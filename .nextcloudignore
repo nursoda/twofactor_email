@@ -3,7 +3,8 @@
 /.github
 /.gitignore
 /.nextcloudignore
-/.php_cs.dist
+/.php-cs-fixer.dist.php
+/.php-cs-fixer.cache
 /build
 /babel.config.json
 /composer.*
