@@ -1,9 +1,13 @@
 # Changelog
 Notable changes in [changelog format](https://keepachangelog.com/en/1.0.0/), project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
+## 2.4.0 (2022-05-11)
+### Added
+- Add French translation (@ArchaicHammer)
+
 ## 2.3.0 (2022-04-15)
 ### Added
-- Add Russian translation
+- Add Russian translation (@jensaymoo)
 
 ## 2.2.0 (2022-04-05)
 ### Added
