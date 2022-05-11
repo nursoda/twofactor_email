@@ -27,8 +27,10 @@
 	<screenshot>https://raw.githubusercontent.com/nursoda/twofactor_email/main/screenshots/settings-after.png</screenshot>
 	<name>Two-Factor Email</name>
 	<summary lang="en">Two-Factor Email Provider</summary>
+	<summary lang="fr">Service de double authentification par email</summary>
 	<summary lang="de">Zwei-Faktor E-Mail Provider</summary>
 	<description lang="en">This app allows users to set up email as a second factor for web logins. It requires that an email address is set in 'Personal info'. It currently cannot be used on first login when two-factor authentication is enforced (not implemented yet).</description>
 	<description lang="de">Diese App ermöglicht es Benutzern, E-Mail als zweiten Faktor für Webanmeldungen einzurichten. Sie setzt voraus, dass eine E-Mail-Adresse in den persönlichen Einstellungen hinterlegt ist. Sie kann derzeit nicht für die erste Anmeldung verwendet werden, wenn die Zwei-Faktor-Authentifizierung erzwungen wird.</description>
 	<description lang="ru">Это приложение позволяет пользователям настроить электронную почту в качестве второго фактора для входа в систему через Интернет. Для этого необходимо, чтобы адрес электронной почты был сохранен в разделе «Личная информация». В настоящее время его нельзя использовать для первого входа в систему, если принудительно применяется двухфакторная аутентификация.</description>
+	<description lang="fr">Cette application permet aux utilisateurs d'activer la double authentification par email lors de la connexion web. Une adresse mail doit être configurée dans les 'Infos personelles'. Ce module ne peut pas être utilisé pour les premières connexion quand la double authentification est forcée (Ce n'est pas encore implémentée).</description>
 </info>
