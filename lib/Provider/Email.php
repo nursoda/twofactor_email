@@ -8,7 +8,8 @@ use OCA\TwoFactorEmail\AppInfo\Application;
 use OCA\TwoFactorEmail\Service\Email as EmailService;
 use OCA\TwoFactorEmail\Service\StateStorage;
 use OCA\TwoFactorEmail\Settings\PersonalSettings;
-
+use OCP\Authentication\TwoFactorAuth\IActivatableAtLogin;
+use OCP\Authentication\TwoFactorAuth\ILoginSetupProvider;
 use OCP\Authentication\TwoFactorAuth\IPersonalProviderSettings;
 use OCP\Authentication\TwoFactorAuth\IProvider;
 use OCP\Authentication\TwoFactorAuth\IProvidesIcons;
@@ -20,8 +21,11 @@ use OCP\IURLGenerator;
 use OCP\IUser;
 use OCP\Security\ISecureRandom;
 use OCP\Template;
+use OCP\AppFramework\IAppContainer;
+use OCP\IConfig as OCCONFIG;
+use OCP\Authentication\TwoFactorAuth\IRegistry;
 
-class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
+class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings, IActivatableAtLogin {
 	public const STATE_DISABLED = 0;
 	public const STATE_VERIFYING = 1;
 	public const STATE_ENABLED = 2;
@@ -53,7 +57,10 @@ class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 								ISecureRandom $secureRandom,
 								IL10N $l10n,
 								IInitialStateService $initialStateService,
-								IURLGenerator $urlGenerator) {
+								IURLGenerator $urlGenerator,
+								IAppContainer $container,
+								OCCONFIG $occonfig,
+								IRegistry $registry) {
 		$this->emailService = $emailService;
 		$this->stateStorage = $stateStorage;
 		$this->session = $session;
@@ -61,6 +68,9 @@ class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 		$this->l10n = $l10n;
 		$this->initialStateService = $initialStateService;
 		$this->urlGenerator = $urlGenerator;
+		$this->container = $container;
+		$this->occonfig = $occonfig;
+		$this->registry = $registry;
 	}
 
 	private function getSessionKey(): string {
@@ -142,10 +152,14 @@ class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 	}
 
 	public function getLightIcon(): String {
-		return $this->urlGenerator->imagePath(Application::APP_NAME, 'app.svg');
+		return $this->urlGenerator->imagePath(Application::APP_NAME, 'app.svg') ?? '';
 	}
 
 	public function getDarkIcon(): String {
-		return $this->urlGenerator->imagePath(Application::APP_NAME, 'app-dark.svg');
+		return $this->urlGenerator->imagePath(Application::APP_NAME, 'app-dark.svg') ?? '';
+	}
+
+	public function getLoginSetup(IUser $user): ILoginSetupProvider {
+		return new AtLoginProvider($user, $this->getSecret(), $this->emailService, $this->occonfig, $this->registry, $this, $this->stateStorage);
 	}
 }
