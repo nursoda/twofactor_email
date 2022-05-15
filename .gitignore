@@ -1,9 +1,11 @@
-/js/
-/node_modules/
-/vendor/
+/appinfo/signature.json
 /build/
+/js/
+/l10n/*.json
 /node-modules/
+/node_modules/
 /signed/
-/translationtool.phar
 /translationfiles
+/translationtool.phar
+vendor/
 .php-cs-fixer.cache
