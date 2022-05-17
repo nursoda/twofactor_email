@@ -13,23 +13,22 @@ use OC\Template as OCTemplate;
 
 class AtLoginProvider extends OCTemplate implements ILoginSetupProvider {
 
-    /** @var IUser */
-    private $myUser;
+	/** @var IUser */
+	private $myUser;
 
-    /** @var EmailService */
-    private $EmailService;
+	/** @var EmailService */
+	private $EmailService;
 
-    /** @var OCCONFIG */
-    private $occonfig;
+	/** @var OCCONFIG */
+	private $occonfig;
 
-    /** @var IRegistry */
-    private $registry;
+	/** @var IRegistry */
+	private $registry;
 
-    /** @var Email */
-    private $provider;
+	/** @var Email */
+	private $provider;
 
-	/** @var $mySecret */
-    private $mySecret;
+	private $mySecret;
 
 	public function __construct(IUser $myUser, $mySecret, EmailService $EmailService, OCCONFIG $occonfig, IRegistry $registry, Email $provider) {
 		$this->myUser = $myUser;
