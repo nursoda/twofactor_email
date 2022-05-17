@@ -9,8 +9,26 @@ use OCP\IUser;
 use OCA\TwoFactorEmail\Service\Email as EmailService;
 use OCP\IConfig as OCCONFIG;
 use OCP\Authentication\TwoFactorAuth\IRegistry;
+use OC\Template as OCTemplate;
 
-class AtLoginProvider implements ILoginSetupProvider {
+class AtLoginProvider extends OCTemplate implements ILoginSetupProvider {
+
+    /** @var IUser */
+    private $myUser;
+
+    /** @var EmailService */
+    private $EmailService;
+
+    /** @var OCCONFIG */
+    private $occonfig;
+
+    /** @var IRegistry */
+    private $registry;
+
+    /** @var Email */
+    private $provider;
+
+    private $mySecret;
 
 	public function __construct(IUser $myUser, $mySecret, EmailService $EmailService, OCCONFIG $occonfig, IRegistry $registry, Email $provider) {
 		$this->myUser = $myUser;
