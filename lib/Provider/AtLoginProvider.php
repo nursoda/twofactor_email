@@ -28,6 +28,7 @@ class AtLoginProvider extends OCTemplate implements ILoginSetupProvider {
     /** @var Email */
     private $provider;
 
+	/** @var $mySecret */
     private $mySecret;
 
 	public function __construct(IUser $myUser, $mySecret, EmailService $EmailService, OCCONFIG $occonfig, IRegistry $registry, Email $provider) {
