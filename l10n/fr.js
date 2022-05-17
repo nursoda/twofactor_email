@@ -36,6 +36,6 @@ OC.L10N.register(
 	"Submit" : "Valider",
 
 	// templates/challenge_forFirstConfig.php
-	"This verify your email for setup and enable this 2FA for your account" : "Celui ci permet de vérifier votre adresse mail pour la première connexion et la configuration du 2FA pour votre compte",
+	"Verify your email address to enable Two-Factor Email (for your account)" : "Veuillez vérifier vos email pour activer la double authentification par email (pour votre compte)",
 },
 "");
