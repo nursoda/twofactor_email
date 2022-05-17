@@ -41,8 +41,8 @@ class AtLoginProvider extends OCTemplate implements ILoginSetupProvider {
 	}
 
 	public function setEnabledActivity() {
-		$state2fa = $this->occonfig->getSystemValue('twofactor_enforced');
-		if ($state2fa) {
+		$isEnforced = $this->occonfig->getSystemValue('twofactor_enforced');
+		if ($isEnforced) {
 			$this->registry->enableProviderFor($this->provider, $this->myUser);
 		}
 	}
