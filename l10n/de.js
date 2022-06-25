@@ -1,7 +1,7 @@
 OC.L10N.register(
 	"twofactor_email",
 	{
-	// ADDITIONAL strings to be localized may be found in package.json and appinfo.info.xml
+	// ADDITIONAL strings to be localized in appinfo/info.xml
 
 	// lib/Provider/Email.php
 	"Email verification" : "E-Mail Bestätigung",
