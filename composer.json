@@ -11,8 +11,8 @@
   },
   "require-dev": {
     "christophwurst/nextcloud": "dev-master",
-    "nextcloud/coding-standard": ">=0.5.0",
-    "psalm/phar": ">=4.9.2"
+    "nextcloud/coding-standard": "dev-master",
+    "psalm/phar": "dev-master"
   },
   "require": {
     "php": ">=7.3 <8.2"
