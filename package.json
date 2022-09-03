@@ -31,7 +31,8 @@
     "nextcloud-server": "latest",
     "@nextcloud/axios": "latest",
     "@nextcloud/initial-state": "latest",
-    "vue": "^2.7.10"
+    "vue": "^2.7.10",
+    "vue-material-design-icons": "latest"
   },
   "devDependencies": {
     "@babel/core": "latest",

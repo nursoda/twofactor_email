@@ -1,5 +1,7 @@
 /appinfo/signature.json
 /build/
+/img/card*
+/img/email-code*
 /js/
 /l10n/*.json
 /node-modules/
