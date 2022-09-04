@@ -1,11 +1,12 @@
 # Changelog
 Notable changes in [changelog format](https://keepachangelog.com/en/1.0.0/), project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
-## 2.6.0 (2022-09-03)
+## 2.6.0 (2022-09-04)
 ### Added
 - Support for Nextcloud 25 (tested against beta 4)
 ### Changed
-- Adopt to Nextcloud 25 theming reqirements
+- material-design-icon as app icon, avoid to use it in-app
+- replace verification by authentication where applicable
 ### Removed
 - Support for Nextcloud 21
 
