@@ -4,7 +4,7 @@ OC.L10N.register(
 	// ADDITIONAL strings to be localized in appinfo/info.xml
 
 	// lib/Provider/Email.php
-	"Email verification" : "E-Mail Bestätigung",
+	"Email" : "E-Mail",
 	"Send a code to your email address" : "Sende einen Code an deine E-Mail-Adresse",
 
 	// lib/Service/Email.php
@@ -16,21 +16,20 @@ OC.L10N.register(
 	"You need to set an email address in 'Personal info' first." : "Du musst zuerst eine E-Mail-Adresse in 'Persönliche Informationen' hinterlegen.",
 
 	"Could not send a verification code via email. An Admin must set this up first." : "Prüfcode konnte nicht per E-Mail versendet werden. Ein Administrator muss dies zuerst einrichten.",
-	"Enable Two-Factor Email" : "Zwei-Faktor E-Mail einschalten",
+	"Enable Two-Factor Authentication via Email" : "Zwei-Faktor Authentifizierung per E-Mail einschalten",
 
 	"The entered code does not match that sent to {emailAddress}." : "Der eigegebene Code unterscheidet sich von dem an {emailAddress} gesendeten.",
 	"A code has been sent to {emailAddress}." : "Ein Code wurde an {emailAddress} gesendet.",
 	"Verify code" : "Code bestätigen",
 	"Cancel activation" : "Einschalten abbrechen",
 
-	"Two-Factor Email is enabled. Codes are sent to {emailAddress}." : "Zwei-Faktor E-Mail ist eingeschaltet. Codes werden an {emailAddress} gesendet.",
-	"Disable Two-Factor Email" : "Zwei-Faktor E-Mail ausschalten",
+	"Two-Factor Authentication via Email is enabled. Codes are sent to {emailAddress}." : "Zwei-Faktor Authentifizierung per E-Mail ist eingeschaltet. Codes werden an {emailAddress} gesendet.",
+	"Disable Two-Factor Authentication via Email" : "Zwei-Faktor Authentifizierung per E-Mail ausschalten",
 
 	// templates/error.php 
 	"Error while sending the email. Please try again later or ask your administrator." : "Fehler beim Versenden der E-Mail. Bitte probiere es später nochmal oder frage deinen Administrator.",
 
 	// templates/challenge.php
-	"Two-Factor Email app icon" : "Zwei-Faktor E-Mail App-Symbol",
 	"A code has been sent to your email address." : "Ein Code wurde an deine E-Mail-Adresse gesendet",
 	"Authentication code" : "Authentifizierungscode",
 	"Submit" : "Übermitteln",

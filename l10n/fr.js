@@ -4,7 +4,7 @@ OC.L10N.register(
 	// ADDITIONAL strings to be localized in appinfo/info.xml
 
 	// lib/Provider/Email.php
-	"Email verification" : "Vérification de l'email",
+	"Email" : "Email",
 	"Send a code to your email address" : "Code envoyé à votre adresse mail",
 
 	// lib/Service/Email.php
@@ -16,21 +16,20 @@ OC.L10N.register(
 	"You need to set an email address in 'Personal info' first." : "Vous devez définir votre adresse mail dans 'Info personnelle' en premier.",
 
 	"Could not send a verification code via email. An Admin must set this up first." : "Impossible d'envoyer l'email de vérification. L'administrateur doit d'abord configurer celui-ci.",
-	"Enable Two-Factor Email" : "Activer la double authentification par email",
+	"Enable Two-Factor Authentication via Email" : "Activer la double authentification par email",
 
 	"The entered code does not match that sent to {emailAddress}." : "Le code que vous avez entré ne correspond pas au code fournis à l'adresse {emailAddress}.",
 	"A code has been sent to {emailAddress}." : "Un code a été envoyé à {emailAddress}.",
 	"Verify code" : "Code de vérification",
 	"Cancel activation" : "Annuler la connexion",
 
-	"Two-Factor Email is enabled. Codes are sent to {emailAddress}." : "La double authentification par email a été activée. Le code a été envoyé à {emailAddress}.",
-	"Disable Two-Factor Email" : "Désactiver la double authentification par email",
+	"Two-Factor Authentication via Email is enabled. Codes are sent to {emailAddress}." : "La double authentification par email a été activée. Le code a été envoyé à {emailAddress}.",
+	"Disable Two-Factor Authentication via Email" : "Désactiver la double authentification par email",
 
 	// templates/error.php 
 	"Error while sending the email. Please try again later or ask your administrator." : "Erreur lors de l'envoie de l'email. Veuillez rééssayer plus tard ou veuillez contacter votre administrateur.",
 
 	// templates/challenge.php
-	"Two-Factor Email app icon" : "Icone d'application d'authentification double facteur par email",
 	"A code has been sent to your email address." : "Un code a été envoyé à votre adresse mail.",
 	"Authentication code" : "Code d'authentification",
 	"Submit" : "Valider",

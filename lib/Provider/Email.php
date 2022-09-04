@@ -78,7 +78,7 @@ class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 	 * Get the display name for selecting the 2FA provider
 	 */
 	public function getDisplayName(): string {
-		return $this->l10n->t('Email verification');
+		return $this->l10n->t('Email');
 	}
 
 	/**

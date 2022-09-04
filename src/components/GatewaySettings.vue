@@ -13,7 +13,7 @@
 				</span>
 				<span v-else>
 					<button @click="enable">
-						<L10n text="Enable Two-Factor Email" />
+						<L10n text="Enable Two-Factor Authentication via Email" />
 					</button>
 				</span>
 			</p>
@@ -36,11 +36,11 @@
 				</button>
 			</p>
 			<p v-if="state === states.ENABLED">
-				<L10n text="Two-Factor Email is enabled. Codes are sent to {emailAddress}."
+				<L10n text="Two-Factor Authentication via Email is enabled. Codes are sent to {emailAddress}."
 					:options="{emailAddress: emailAddress}" />
 				<br>
 				<button @click="disable">
-					<L10n text="Disable Two-Factor Email" />
+					<L10n text="Disable Two-Factor Authentication via Email" />
 				</button>
 			</p>
 		</div>
