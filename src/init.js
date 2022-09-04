@@ -22,9 +22,6 @@
 
 import Vue from 'vue'
 import EmailSettings from './views/EmailSettings.vue'
-import 'vue-material-design-icons/styles.css';
-import AppIcon from 'vue-material-design-icons/CardAccountMail.vue';
-Vue.component('app-icon', AppIcon);
 
 new Vue({
 	render: h => h(EmailSettings),
