@@ -16,15 +16,15 @@ OC.L10N.register(
 	"You need to set an email address in 'Personal info' first." : "Önce 'Kişisel bilgiler' bölümünde bir e-posta adresi ayarlamanız gerekir.",
 
 	"Could not send a verification code via email. An Admin must set this up first." : "E-posta yoluyla bir doğrulama kodu gönderilemedi. Bu, önce bir Yönetici tarafından ayarlanmalıdır.",
-	"Enable Two-Factor Authentication via Email" : "E-posta ile İki Faktörlü Kimlik Doğrulamayı Etkinleştirin",
+	"Enable Two-Factor Authentication via Email" : "E-posta ile İki Adımlı Kimlik Doğrulamayı Etkinleştir",
 
 	"The entered code does not match that sent to {emailAddress}." : "Girilen kod {emailAddress} adresine gönderilenle eşleşmiyor.",
 	"A code has been sent to {emailAddress}." : "{emailAddress} adresine bir kod gönderildi.",
 	"Verify code" : "Kodu doğrula",
 	"Cancel activation" : "Etkinleştirmeyi iptal et",
 
-	"Two-Factor Authentication via Email is enabled. Codes are sent to {emailAddress}." : "E-posta ile İki Faktörlü Kimlik Doğrulama etkinleştirildi. Kodlar {emailAddress} adresine gönderiliyor.",
-	"Disable Two-Factor Authentication via Email" : "E-posta ile İki Faktörlü Kimlik Doğrulamayı Devre Dışı Bırakma",
+	"Two-Factor Authentication via Email is enabled. Codes are sent to {emailAddress}." : "E-posta ile İki Adımlı Kimlik Doğrulama etkinleştirildi. Kodlar {emailAddress} adresine gönderiliyor.",
+	"Disable Two-Factor Authentication via Email" : "E-posta ile İki Adımlı Kimlik Doğrulamayı Devre Dışı Bırak",
 
 	// templates/error.php
 	"Error while sending the email. Please try again later or ask your administrator." : "E-posta gönderilirken hata oluştu. Lütfen daha sonra tekrar deneyin veya yöneticinize danışın.",
