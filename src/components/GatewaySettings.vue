@@ -53,7 +53,7 @@ import {
 	startVerification,
 	tryVerification,
 	disable,
-} from '../service/registration'
+} from '../service/registration.js'
 import { loadState } from '@nextcloud/initial-state'
 
 export default {
