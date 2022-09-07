@@ -4,7 +4,7 @@ OC.L10N.register(
 	// ADDITIONAL strings to be localized in appinfo/info.xml
 
 	// lib/Provider/Email.php
-	"Email" : "элетронной почте",
+	"Email" : "Электронная почта",
 	"Send a code to your email address" : "Отправить код на ваш электронный адрес",
 
 	// lib/Service/Email.php
@@ -16,14 +16,14 @@ OC.L10N.register(
 	"You need to set an email address in 'Personal info' first." : "Сначала вам нужно установить адрес электронной почты в разделе «Личная информация».",
 
 	"Could not send a verification code via email. An Admin must set this up first." : "Не удалось отправить код подтверждения по электронной почте. Для начала администратор должен настроить сервис двухфакторной аутентификации.",
-	"Enable Two-Factor Authentication via Email" : "Активируйте двухфакторную аутентификацию по электронной почте",
+	"Enable Two-Factor Authentication via Email" : "Включить двухфакторную аутентификацию по электронной почте",
 
 	"The entered code does not match that sent to {emailAddress}." : "Введенный код не совпадает с отправленным на {emailAddress}.",
 	"A code has been sent to {emailAddress}." : "Код подтверждения был отправлен на {emailAddress}.",
 	"Verify code" : "Подтвердить код",
 	"Cancel activation" : "Отменить активацию",
 
-	"Two-Factor Authentication via Email is enabled. Codes are sent to {emailAddress}." : "Активирована двухэтапная аутентификация по электронной почте. Коды подтверждения будут отправлены на {emailAddress}.",
+	"Two-Factor Authentication via Email is enabled. Codes are sent to {emailAddress}." : "Двухэтапная аутентификация по электронной почте включена. Коды подтверждения будут отправлены на {emailAddress}.",
 	"Disable Two-Factor Authentication via Email" : "Отключить двухфакторную аутентификацию по электронной почте",
 
 	// templates/error.php 
