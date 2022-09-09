@@ -5,7 +5,7 @@ Notable changes in [changelog format](https://keepachangelog.com/en/1.0.0/), pro
 
 ### Added
 
-* Portuguese translation (@NN)
+* Brazilian Portuguese translation (José A. Marteline Cavalcante)
 
 ### Changed
 
