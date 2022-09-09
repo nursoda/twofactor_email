@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
 	<id>twofactor_email</id>
-	<version>2.6.0</version>
+	<version>2.7.0</version>
 	<dependencies>
 		<nextcloud min-version="22" max-version="25" />
 		<php min-version="7.3" max-version="8.1" />
@@ -31,9 +31,10 @@
 	<summary lang="de">Zwei-Faktor E-Mail Provider</summary>
 	<summary lang="ru">Поставщик двухфакторной аутентификации по E-mail</summary>
 	<summary lang="tr">İki Aşamalı E-posta Sağlayıcısı</summary>
+	<summary lang="pt">Provedor de autenticação de dois fatores via e-mail</summary>
 	<description lang="en">This app allows users to set up email as a second factor for web logins. It requires that an email address is set in 'Personal info'. It currently cannot be used on first login when two-factor authentication is enforced (not implemented yet).</description>
 	<description lang="de">Diese App ermöglicht es Benutzern, E-Mail als zweiten Faktor für Webanmeldungen einzurichten. Sie setzt voraus, dass eine E-Mail-Adresse in den persönlichen Einstellungen hinterlegt ist. Sie kann derzeit nicht für die erste Anmeldung verwendet werden, wenn die Zwei-Faktor-Authentifizierung erzwungen wird.</description>
 	<description lang="ru">Это приложение позволяет пользователям настроить электронную почту в качестве второго фактора для входа в систему через Интернет. Для этого необходимо, чтобы адрес электронной почты был сохранен в разделе «Личная информация». В настоящее время его нельзя использовать для первого входа в систему, если принудительно применяется двухфакторная аутентификация.</description>
 	<description lang="fr">Cette application permet aux utilisateurs d'activer la double authentification par email lors de la connexion web. Une adresse mail doit être configurée dans les 'Infos personelles'. Ce module ne peut pas être utilisé pour les premières connexion quand la double authentification est forcée (Ce n'est pas encore implémentée).</description>
 	<description lang="tr">Bu uygulama, kullanıcıların internet üzerinden oturum açmak için ikinci bir aşama olarak e-posta ayarlamasına olanak tanır. 'Kişisel bilgiler' bölümünde bir e-posta adresinin ayarlanmış olmasını gerektirir. Şu anda iki aşamalı kimlik doğrulama zorunlu tutulduğunda ilk oturum açmada kullanılamıyor (henüz uygulanmadı).</description>
-</info>
+	<description lang="pt">Este aplicativo permite que os usuários configurem o e-mail como um segundo fator para logins via web. É necessário que um e-mail seja definido em 'Informações pessoais'. Atualmente não pode ser utilizado no primeiro login, se a autenticação de dois fatores for forçada nesta situação (ainda não implementado).</description></info>
