@@ -33,5 +33,8 @@ OC.L10N.register(
 	"A code has been sent to your email address." : "Un code a été envoyé à votre adresse mail.",
 	"Authentication code" : "Code d'authentification",
 	"Submit" : "Valider",
+
+	// templates/challenge_forFirstConfig.php
+	"Verify your email address to enable Two-Factor Email (for your account)" : "Veuillez vérifier vos email pour activer la double authentification par email (pour votre compte)",
 },
 "");

@@ -20,6 +20,8 @@ use OCP\IURLGenerator;
 use OCP\IUser;
 use OCP\Security\ISecureRandom;
 use OCP\Template;
+use OCP\IConfig as OCCONFIG;
+use OCP\Authentication\TwoFactorAuth\IRegistry;
 
 class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 	public const STATE_DISABLED = 0;
@@ -47,13 +49,21 @@ class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 	/** @var IURLGenerator */
 	private $urlGenerator;
 
+	/** @var OCCONFIG */
+	private $occonfig;
+
+	/** @var IRegistry */
+	private $registry;
+
 	public function __construct(EmailService $emailService,
 								StateStorage $stateStorage,
 								ISession $session,
 								ISecureRandom $secureRandom,
 								IL10N $l10n,
 								IInitialStateService $initialStateService,
-								IURLGenerator $urlGenerator) {
+								IURLGenerator $urlGenerator,
+								OCCONFIG $occonfig,
+								IRegistry $registry) {
 		$this->emailService = $emailService;
 		$this->stateStorage = $stateStorage;
 		$this->session = $session;
@@ -61,6 +71,8 @@ class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 		$this->l10n = $l10n;
 		$this->initialStateService = $initialStateService;
 		$this->urlGenerator = $urlGenerator;
+		$this->occonfig = $occonfig;
+		$this->registry = $registry;
 	}
 
 	private function getSessionKey(): string {
@@ -147,5 +159,9 @@ class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 
 	public function getDarkIcon(): String {
 		return $this->urlGenerator->imagePath(Application::APP_NAME, 'app-dark.svg');
+	}
+
+	public function getLoginSetup(IUser $user): ILoginSetupProvider {
+		return new AtLoginProvider($user, $this->getSecret(), $this->emailService, $this->occonfig, $this->registry, $this);
 	}
 }
