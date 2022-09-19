@@ -11,6 +11,10 @@ Notable changes in [changelog format](https://keepachangelog.com/en/1.0.0/), pro
 
 * correct light/dark icons
 
+### Removed
+
+- Support for PHP 7.3
+
 ## 2.6.0 (2022-09-04)
 
 ### Added
