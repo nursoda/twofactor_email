@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ '16.x', '17.x' ]
+        node: [ '16.x', '17.x', '18.x' ]
     name: node${{ matrix.node }}
     steps:
       - uses: actions/checkout@v2

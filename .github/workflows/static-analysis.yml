@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix: # https://docs.github.com/en/actions/using-jobs/using-a-build-matrix-for-your-jobs
-        nextcloud: [ 'v21.0.0', 'v22.1.1', 'v23.0.2', 'dev-master' ]
+        nextcloud: [ 'v22.2.10', 'v23.0.9', 'v24.0.5', 'dev-master' ]
         php: [ '7.4', '8.0' ]
         include:
           - nextcloud: 'dev-master' 
