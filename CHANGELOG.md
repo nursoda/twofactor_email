@@ -5,11 +5,11 @@ Notable changes in [changelog format](https://keepachangelog.com/en/1.0.0/), pro
 
 ### Added
 
-* Brazilian Portuguese translation (José A. Marteline Cavalcante)
+- Brazilian Portuguese translation (José A. Marteline Cavalcante)
 
 ### Changed
 
-* correct light/dark icons
+- correct light/dark icons
 
 ### Removed
 
