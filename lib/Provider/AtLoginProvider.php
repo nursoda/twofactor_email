@@ -60,6 +60,9 @@ class AtLoginProvider implements ILoginSetupProvider {
 			return new Template('twofactor_email', 'error');
 		}
 		$this->setEnabledActivity();
+		$this->stateStorage->persist(
+			State::verifying($this->myUser, $this->mySecret)
+		);
 		$tmpl = new Template('twofactor_email', 'challenge_forFirstConfig');
 		$tmpl->assign('emailAddress', $this->myUser->getEmailAddress());
 		return $tmpl;
