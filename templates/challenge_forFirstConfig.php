@@ -1,4 +1,4 @@
-<img class="two-factor-icon" src="<?php print_unescaped(image_path('twofactor_email', 'email-code-light.svg')); ?>" alt="<?php p($l->t('Two-Factor Email app icon')); ?>">
+<img class="two-factor-icon" src="<?php print_unescaped(image_path('twofactor_email', 'app.svg')); ?>" alt="<?php p($l->t('Two-Factor Email app icon')); ?>">
 <p><?php p($l->t('A code has been sent to your email address.')) ?></p>
 <p><?php p($l->t('Verify your email address to enable Two-Factor Email (for your account)')) ?></p>
 <form method="POST" class="twofactor-email-form">
