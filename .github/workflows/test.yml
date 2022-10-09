@@ -1,0 +1,174 @@
+name: Test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+      - stable*
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version: [ "8.1" ]
+        nextcloud-version: [ 'master' ]
+        db: ['sqlite']
+
+    name: Nextcloud ${{ matrix.nextcloud-version }} php${{ matrix.php-version }} unit tests
+    steps:
+      - name: Set up php${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: ctype,curl,dom,gd,iconv,intl,json,mbstring,openssl,posix,sqlite,xml,zip
+          coverage: xdebug
+
+      - name: Checkout Nextcloud
+        run: git clone https://github.com/nextcloud/server.git --recursive --depth 1 -b ${{ matrix.nextcloud-version }} nextcloud
+
+      - name: Install Nextcloud
+        run: php -f nextcloud/occ maintenance:install --database-host 127.0.0.1 --database-name nextcloud --database-user nextcloud --database-pass nextcloud --admin-user admin --admin-pass admin --database ${{ matrix.db }}
+
+      - name: Checkout app
+        uses: actions/checkout@v3
+        with:
+          path: nextcloud/apps/twofactor_email
+
+      - name: Install dependencies
+        working-directory: nextcloud/apps/twofactor_email
+        run: composer install
+
+      - name: Run tests
+        working-directory: nextcloud/apps/twofactor_email
+        run: composer run test:unit
+
+      - name: Report coverage
+        uses: codecov/codecov-action@v1
+        if: ${{ always() }}
+        with:
+          file: ./nextcloud/apps/twofactor_email/tests/clover.xml
+          flags: unittests
+          fail_ci_if_error: true
+
+  acceptance-tests:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version: [ "8.1" ]
+        nextcloud-version: [ 'master' ]
+        browser: [ 'firefox' ]
+        db: [ 'mysql' ]
+
+    name: Nextcloud ${{ matrix.nextcloud-version }} acceptance tests on php${{ matrix.php-version }}/${{ matrix.browser }}/${{ matrix.db }}
+
+    services:
+      mysql-service:
+        image: mariadb:10.5
+        env:
+          MYSQL_ROOT_PASSWORD: my-secret-pw
+          MYSQL_DATABASE: nextcloud
+          MYSQL_USER: nextcloud
+          MYSQL_PASSWORD: nextcloud
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+      postgres-service:
+        image: postgres
+        env:
+          POSTGRES_USER: nextcloud
+          POSTGRES_DB: nextcloud
+          POSTGRES_PASSWORD: nextcloud
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Set up php${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: ctype,curl,dom,gd,iconv,intl,json,mbstring,openssl,posix,sqlite,xml,zip
+          coverage: none
+
+      - name: Checkout Nextcloud
+        run: git clone https://github.com/nextcloud/server.git --recursive --depth 1 -b ${{ matrix.nextcloud-version }} nextcloud
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          path: nextcloud/apps/twofactor_email
+
+      - name: Read package.json node and npm engines version
+        uses: skjnldsv/read-package-engines-version-actions@v1.2
+        id: versions
+        with:
+          path: nextcloud/apps/twofactor_email
+          fallbackNode: '^12'
+          fallbackNpm: '^6'
+
+      - name: Set up node ${{ steps.versions.outputs.nodeVersion }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ steps.versions.outputs.nodeVersion }}
+
+      - name: Set up npm ${{ steps.versions.outputs.npmVersion }}
+        run: npm i -g npm@"${{ steps.versions.outputs.npmVersion }}"
+
+      - name: Install Nextcloud
+        run: php -f nextcloud/occ maintenance:install --database-host 127.0.0.1 --database-name nextcloud --database-user nextcloud --database-pass nextcloud --admin-user admin --admin-pass admin --database ${{ matrix.db }}
+
+      - name: Checkout app
+        uses: actions/checkout@master
+        with:
+          path: nextcloud/apps/twofactor_email
+
+      - name: Install dependencies
+        working-directory: nextcloud/apps/twofactor_email
+        run: |
+          composer install
+          npm ci
+
+      - name: Build the app
+        working-directory: nextcloud/apps/twofactor_email
+        run: npm run build
+
+      - name: Install the app
+        run: php -f nextcloud/occ app:enable twofactor_email
+
+      - name: Start Nextcloud web server
+        working-directory: nextcloud
+        run: php -S 0.0.0.0:8080 &
+
+      - name: Connect to sauce
+        uses: saucelabs/sauce-connect-action@main
+        with:
+          username: ${{ secrets.SAUCE_USERNAME }}
+          accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
+          tunnelIdentifier: "${{ github.run_id }}-${{ matrix.nextcloud-version }}-php${{ matrix.php-version }}-${{ matrix.browser }}"
+
+      - name: Run tests
+        working-directory: nextcloud/apps/twofactor_email
+        run: composer run test:acceptance
+        env:
+          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+          SAUCE_TUNNEL_ID: "${{ github.run_id }}-${{ matrix.nextcloud-version }}-php${{ matrix.php-version }}-${{ matrix.browser }}"
+          SELENIUM_BROWSER: ${{ matrix.browser }}
+    env:
+      CI: true
+      TRAVIS: true
