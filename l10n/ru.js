@@ -1,5 +1,5 @@
 OC.L10N.register(
-	"twofactor_email",
+	"twofactor_email", {
 	
 	// ADDITIONAL strings to be localized in appinfo/info.xml
 
