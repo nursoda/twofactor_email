@@ -22,9 +22,9 @@
 		<admin>https://github.com/nursoda/twofactor_email/wiki/Admin-manual</admin>
 		<developer>https://github.com/nursoda/twofactor_email/wiki/Developer-notes</developer>
 	</documentation>
-	<screenshot small-thumbnail="https://raw.githubusercontent.com/nursoda/twofactor_email/main/screenshots/select-auth_thumb.png">https://raw.githubusercontent.com/nursoda/twofactor_email/main/screenshots/challenge.png</screenshot>
-	<screenshot>https://raw.githubusercontent.com/nursoda/twofactor_email/main/screenshots/settings-before.png</screenshot>
-	<screenshot>https://raw.githubusercontent.com/nursoda/twofactor_email/main/screenshots/settings-after.png</screenshot>
+	<screenshot small-thumbnail="https://raw.githubusercontent.com/nursoda/twofactor_email/v2/screenshots/select-auth_thumb.png">https://raw.githubusercontent.com/nursoda/twofactor_email/v2/screenshots/challenge.png</screenshot>
+	<screenshot>https://raw.githubusercontent.com/nursoda/twofactor_email/v2/screenshots/settings-before.png</screenshot>
+	<screenshot>https://raw.githubusercontent.com/nursoda/twofactor_email/v2/screenshots/settings-after.png</screenshot>
 	<name>Two-Factor Email</name>
 	<summary lang="en">Two-Factor Email Provider</summary>
 	<summary lang="fr">Service de double authentification par email</summary>
