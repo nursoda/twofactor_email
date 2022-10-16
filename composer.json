@@ -10,7 +10,7 @@
     "psalm": "psalm.phar"
   },
   "require-dev": {
-    "christophwurst/nextcloud": "dev-master",
+    "nextcloud/ocp": "dev-master",
     "nextcloud/coding-standard": "dev-master",
     "psalm/phar": "dev-master"
   },
