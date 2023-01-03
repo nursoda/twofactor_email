@@ -8,12 +8,15 @@ use OCA\TwoFactorEmail\AppInfo\Application;
 use OCA\TwoFactorEmail\Service\Email as EmailService;
 use OCA\TwoFactorEmail\Service\StateStorage;
 use OCA\TwoFactorEmail\Settings\PersonalSettings;
+use OCP\AppFramework\IAppContainer;
 use OCP\Authentication\TwoFactorAuth\IActivatableAtLogin;
 use OCP\Authentication\TwoFactorAuth\ILoginSetupProvider;
 use OCP\Authentication\TwoFactorAuth\IPersonalProviderSettings;
 use OCP\Authentication\TwoFactorAuth\IProvider;
 use OCP\Authentication\TwoFactorAuth\IProvidesIcons;
 use OCP\Authentication\TwoFactorAuth\IProvidesPersonalSettings;
+use OCP\Authentication\TwoFactorAuth\IRegistry;
+use OCP\IConfig as OCCONFIG;
 use OCP\IInitialStateService;
 use OCP\IL10N;
 use OCP\ISession;
@@ -21,9 +24,6 @@ use OCP\IURLGenerator;
 use OCP\IUser;
 use OCP\Security\ISecureRandom;
 use OCP\Template;
-use OCP\AppFramework\IAppContainer;
-use OCP\IConfig as OCCONFIG;
-use OCP\Authentication\TwoFactorAuth\IRegistry;
 
 class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings, IActivatableAtLogin {
 	public const STATE_DISABLED = 0;

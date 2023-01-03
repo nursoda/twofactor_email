@@ -4,17 +4,15 @@ declare(strict_types = 1);
 
 namespace OCA\TwoFactorEmail\Provider;
 
-use OCA\TwoFactorEmail\Provider\Email as EmailProvider;
+use OCA\TwoFactorEmail\Service\Email as EmailService;
 use OCA\TwoFactorEmail\Service\StateStorage;
 use OCP\Authentication\TwoFactorAuth\ILoginSetupProvider;
-use OCP\Template;
-use OCP\IUser;
-use OCA\TwoFactorEmail\Service\Email as EmailService;
-use OCP\IConfig as OCCONFIG;
 use OCP\Authentication\TwoFactorAuth\IRegistry;
+use OCP\IConfig as OCCONFIG;
+use OCP\IUser;
+use OCP\Template;
 
 class AtLoginProvider implements ILoginSetupProvider {
-
 	/** @var IUser */
 	private $myUser;
 
@@ -51,7 +49,7 @@ class AtLoginProvider implements ILoginSetupProvider {
 	}
 
 	public function getBody(): Template {
-		if($this->myUser->getEMailAddress() === null) {
+		if ($this->myUser->getEMailAddress() === null) {
 			return new Template('twofactor_email', 'error_email_empty');
 		}
 		try {
