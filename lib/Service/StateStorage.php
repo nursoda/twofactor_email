@@ -12,7 +12,6 @@ use OCP\IConfig;
 use OCP\IUser;
 
 class StateStorage {
-
 	/** @var IConfig */
 	private $config;
 

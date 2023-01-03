@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace OCA\TwoFactorEmail\Service;
 
+use OCP\Defaults;
 use OCP\IL10N;
 use OCP\ILogger;
 use OCP\IUser;
 use OCP\Mail\IMailer;
-use OCP\Defaults;
 
 class Email {
-
 	/** @var IMailer */
 	private $mailer;
 

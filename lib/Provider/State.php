@@ -4,12 +4,10 @@ declare(strict_types = 1);
 
 namespace OCA\TwoFactorEmail\Provider;
 
+use JsonSerializable;
 use OCP\IUser;
 
-use JsonSerializable;
-
 class State implements JsonSerializable {
-
 	/** @var IUser */
 	private $user;
 
