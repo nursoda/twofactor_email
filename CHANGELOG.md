@@ -1,6 +1,16 @@
 # Changelog
 Notable changes in [changelog format](https://keepachangelog.com/en/1.0.0/), project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
+## 2.7.1 (2022-10-16)
+
+### Changed
+
+- Fix Russian translation (Artyom)
+- Support for Nextcloud 25 (tested against RC5)
+
+Until further notice, this v2 branch is maintained as legacy.
+Volunteers needed for the ongoing v3 re-write based on twofactor_totp.
+
 ## 2.7.0 (2022-09-20)
 
 ### Added

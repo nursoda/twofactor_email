@@ -5,18 +5,16 @@ declare(strict_types=1);
 namespace OCA\TwoFactorEmail\Service;
 
 use Exception;
-use OCA\TwoFactorEmail\Exception\VerificationException;
 use OCA\TwoFactorEmail\Exception\TransmissionException;
-use OCA\TwoFactorEmail\Service\Email as EmailService;
+use OCA\TwoFactorEmail\Exception\VerificationException;
 use OCA\TwoFactorEmail\Provider\Email as EmailProvider;
 use OCA\TwoFactorEmail\Provider\State;
-
+use OCA\TwoFactorEmail\Service\Email as EmailService;
 use OCP\Authentication\TwoFactorAuth\IRegistry;
 use OCP\IUser;
 use OCP\Security\ISecureRandom;
 
 class SetupService {
-
 	/** @var StateStorage */
 	private $stateStorage;
 

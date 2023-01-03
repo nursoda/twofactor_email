@@ -26,8 +26,8 @@ declare(strict_types=1);
 namespace OCA\TwoFactorEmail\Controller;
 
 use OCA\TwoFactorEmail\AppInfo\Application;
-use OCA\TwoFactorEmail\Exception\VerificationException;
 use OCA\TwoFactorEmail\Exception\TransmissionException;
+use OCA\TwoFactorEmail\Exception\VerificationException;
 use OCA\TwoFactorEmail\Service\SetupService;
 
 use OCP\AppFramework\Controller;
@@ -37,7 +37,6 @@ use OCP\IRequest;
 use OCP\IUserSession;
 
 class SettingsController extends Controller {
-
 	/** @var IUserSession */
 	private $userSession;
 

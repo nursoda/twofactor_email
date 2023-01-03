@@ -1,6 +1,8 @@
 OC.L10N.register(
-"twofactor_email",
-{
+	"twofactor_email",
+	{
+	// ADDITIONAL strings to be localized in appinfo/info.xml
+
 	// lib/Provider/Email.php
 	"Email" : "E-Mail",
 	"Send a code to your email address" : "Envie um código para seu endereço de e-mail",

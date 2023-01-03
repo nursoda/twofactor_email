@@ -1,18 +1,28 @@
 name: Static analysis
 
-on: [pull_request]
+on:
+  - pull_request
 
 jobs:
   static-psalm-analysis:
     runs-on: ubuntu-latest
     strategy:
       matrix: # https://docs.github.com/en/actions/using-jobs/using-a-build-matrix-for-your-jobs
-        nextcloud: [ 'v22.2.10', 'v23.0.9', 'v24.0.5', 'dev-master' ]
-        php: [ '7.4', '8.0' ]
+        ocp:
+          - 'dev-stable22'
+          - 'dev-stable23'
+          - 'dev-stable24'
+          - 'dev-stable25'
+          - 'dev-master'
+        php:
+          - '7.4'
+          - '8.0'
         include:
-          - nextcloud: 'dev-master' 
+          - ocp: 'dev-stable25' 
             php: '8.1'
-    name: Nextcloud ${{ matrix.nextcloud }} on PHP ${{ matrix.php }}
+          - ocp: 'dev-master' 
+            php: '8.1'
+    name: Nextcloud ${{ matrix.ocp }} on PHP ${{ matrix.php }}
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -25,6 +35,6 @@ jobs:
       - name: Remove PHP lockfile
         run: rm composer.lock
       - name: Install dependencies
-        run: composer require --dev christophwurst/nextcloud:${{ matrix.nextcloud }}
+        run: composer require --dev nextcloud/ocp:${{ matrix.ocp }}
       - name: Run coding standards check
         run: composer run -- psalm --php-version=${{ matrix.php }}
