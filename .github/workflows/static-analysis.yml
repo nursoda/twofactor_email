@@ -1,14 +1,22 @@
 name: Static analysis
 
-on: [pull_request]
+on:
+  - pull_request
 
 jobs:
   static-psalm-analysis:
     runs-on: ubuntu-latest
     strategy:
       matrix: # https://docs.github.com/en/actions/using-jobs/using-a-build-matrix-for-your-jobs
-        ocp: [ 'dev-stable22', 'dev-stable23', 'dev-stable24', 'dev-stable25', 'dev-master' ]
-        php: [ '7.4', '8.0' ]
+        ocp:
+          - 'dev-stable22'
+          - 'dev-stable23'
+          - 'dev-stable24'
+          - 'dev-stable25'
+          - 'dev-master'
+        php:
+          - '7.4'
+          - '8.0'
         include:
           - ocp: 'dev-stable25' 
             php: '8.1'
