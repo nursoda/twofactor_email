@@ -4,12 +4,10 @@ declare(strict_types = 1);
 
 namespace OCA\TwoFactorEmail\Provider;
 
+use JsonSerializable;
 use OCP\IUser;
 
-use JsonSerializable;
-
 class State implements JsonSerializable {
-
 	/** @var IUser */
 	private $user;
 
@@ -72,7 +70,7 @@ class State implements JsonSerializable {
 		return $this->authenticationCode;
 	}
 
-	public function jsonSerialize() {
+	public function jsonSerialize(): array {
 		if ($this->user->getEMailAddress() === null) {
 			return [
 				'state' => $this->state,

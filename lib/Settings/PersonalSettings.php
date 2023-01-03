@@ -32,7 +32,6 @@ use OCP\IInitialStateService;
 use OCP\Template;
 
 class PersonalSettings implements IPersonalProviderSettings {
-
 	/** @var IInitialStateService */
 	private $initialStateService;
 	/** @var State */

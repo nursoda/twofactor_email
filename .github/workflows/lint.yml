@@ -12,7 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: [ '7.4', '8.0', '8.1' ]
+        php:
+          - '7.4'
+          - '8.0'
+          - '8.1'
     name: php${{ matrix.php }}
     steps:
       - uses: actions/checkout@v2
@@ -28,7 +31,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ '16.x', '17.x', '18.x' ]
+        node:
+          - '16.x'
+          - '18.x'
+          - '19.x'
     name: node${{ matrix.node }}
     steps:
       - uses: actions/checkout@v2
