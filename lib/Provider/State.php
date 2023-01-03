@@ -72,7 +72,7 @@ class State implements JsonSerializable {
 		return $this->authenticationCode;
 	}
 
-	public function jsonSerialize() {
+	public function jsonSerialize(): array {
 		if ($this->user->getEMailAddress() === null) {
 			return [
 				'state' => $this->state,
