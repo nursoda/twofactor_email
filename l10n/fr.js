@@ -33,8 +33,5 @@ OC.L10N.register(
 	"A code has been sent to your email address." : "Un code a été envoyé à votre adresse mail.",
 	"Authentication code" : "Code d'authentification",
 	"Submit" : "Valider",
-
-	// templates/challenge_forFirstConfig.php
-	"This verify your email for setup and enable this 2FA for your account" : "Celui ci permet de vérifier votre adresse mail pour la première connexion et la configuration du 2FA pour votre compte",
 },
 "");
