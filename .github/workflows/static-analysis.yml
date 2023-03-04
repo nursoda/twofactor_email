@@ -9,19 +9,18 @@ jobs:
     strategy:
       matrix: # https://docs.github.com/en/actions/using-jobs/using-a-build-matrix-for-your-jobs
         ocp:
-          - 'dev-stable22'
-          - 'dev-stable23'
           - 'dev-stable24'
           - 'dev-stable25'
+          - 'dev-stable26'
           - 'dev-master'
         php:
-          - '7.4'
           - '8.0'
+          - '8.1'
         include:
-          - ocp: 'dev-stable25' 
-            php: '8.1'
+          - ocp: 'dev-stable26' 
+            php: '8.2'
           - ocp: 'dev-master' 
-            php: '8.1'
+            php: '8.2'
     name: Nextcloud ${{ matrix.ocp }} on PHP ${{ matrix.php }}
     steps:
       - name: Checkout
