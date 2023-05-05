@@ -12,11 +12,14 @@ jobs:
           - 'dev-stable24'
           - 'dev-stable25'
           - 'dev-stable26'
+          - 'dev-stable27'
           - 'dev-master'
         php:
           - '8.0'
           - '8.1'
         include:
+          - ocp: 'dev-stable27' 
+            php: '8.2'
           - ocp: 'dev-stable26' 
             php: '8.2'
           - ocp: 'dev-master' 
