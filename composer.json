@@ -15,6 +15,6 @@
     "psalm/phar": "dev-master"
   },
   "require": {
-    "php": ">=8.0 <8.3"
+    "php": ">=8.0 <8.4"
   }
 }
