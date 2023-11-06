@@ -13,17 +13,26 @@ jobs:
           - 'dev-stable25'
           - 'dev-stable26'
           - 'dev-stable27'
+          - 'dev-stable28'
           - 'dev-master'
         php:
           - '8.0'
           - '8.1'
+          - '8.2'
+          - '8.3'
         include:
-          - ocp: 'dev-stable27'
-            php: '8.2'
+          - ocp: 'dev-stable24'
+            php: '8.0'
+          - ocp: 'dev-stable25'
+            php: '8.1'
           - ocp: 'dev-stable26'
             php: '8.2'
-          - ocp: 'dev-master'
+          - ocp: 'dev-stable27'
             php: '8.2'
+          - ocp: 'dev-stable28'
+            php: '8.3'
+          - ocp: 'dev-master'
+            php: '8.3'
     name: Nextcloud ${{ matrix.ocp }} on PHP ${{ matrix.php }}
     steps:
       - name: Checkout

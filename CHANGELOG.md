@@ -1,6 +1,13 @@
 # Changelog
 Notable changes in [changelog format](https://keepachangelog.com/en/1.0.0/), project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
+## 2.7.4 (2023-11-06)
+
+### Added
+
+- Support for Nextcloud 28 (tested against beta1)
+- Support for PHP 8.3
+
 ## 2.7.3 (2023-05-20)
 
 ### Added
