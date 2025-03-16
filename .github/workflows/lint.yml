@@ -13,9 +13,9 @@ jobs:
     strategy:
       matrix:
         php:
-          - '7.4'
-          - '8.0'
           - '8.1'
+          - '8.3'
+          - '8.4'
     name: php${{ matrix.php }}
     steps:
       - uses: actions/checkout@v2
@@ -37,7 +37,7 @@ jobs:
           - '19.x'
     name: node${{ matrix.node }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Set up node ${{ matrix.node }}
         uses: actions/setup-node@v1
         with:
@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Set up php 
         uses: shivammathur/setup-php@v2
         with:

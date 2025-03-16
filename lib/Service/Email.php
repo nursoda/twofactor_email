@@ -11,34 +11,18 @@ use OCP\IUser;
 use OCP\Mail\IMailer;
 
 class Email {
-	/** @var IMailer */
-	private $mailer;
 
-	/** @var IL10N */
-	private $l10n;
-
-	/** @var LoggerInterface */
-	private $logger;
-
-	/** @var Defaults */
-	private $themingDefaults;
-
-	public function __construct(IMailer $mailer,
-								IL10N $l10n,
-								LoggerInterface $logger,
-								Defaults $themingDefaults) {
-		$this->mailer = $mailer;
-		$this->l10n = $l10n;
-		$this->logger = $logger;
-		$this->themingDefaults = $themingDefaults;
+	public function __construct(
+		private IMailer $mailer,
+		private IL10N $l10n,
+		private LoggerInterface $logger,
+		private Defaults $themingDefaults,
+	) {
 	}
 
-	/**
-	 * @param IUser $user
-	 * @param string $authenticationCode
-	 */
+
 	public function send(IUser $user, string $authenticationCode): void {
-		$this->logger->debug('sending email message to ' . $user->getEMailAddress() . ', code: $authenticationCode');
+		$this->logger->debug('Sending email message to ' . $user->getEMailAddress() . ', code: ' . $authenticationCode);
 
 		$template = $this->mailer->createEMailTemplate('twofactor_email.send');
 		$user_at_cloud = $user->getDisplayName() . " @ " . $this->themingDefaults->getName();

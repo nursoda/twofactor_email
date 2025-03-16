@@ -8,25 +8,15 @@ use JsonSerializable;
 use OCP\IUser;
 
 class State implements JsonSerializable {
-	/** @var IUser */
-	private $user;
 
-	/** @var int */
-	private $state;
-
-	/** @var string|null */
-	private $authenticationCode;
-
-	public function __construct(IUser $user,
-								int $state,
-								string $authenticationCode = null) {
-		$this->user = $user;
-		$this->state = $state;
-		$this->authenticationCode = $authenticationCode;
+	public function __construct(
+		private IUser $user,
+		private int $state,
+		private ?string $authenticationCode = null,
+	) {
 	}
 
-	public static function verifying(IUser $user,
-									 string $authenticationCode): State {
+	public static function verifying(IUser $user, string $authenticationCode): State {
 		return new State(
 			$user,
 			Email::STATE_VERIFYING,
@@ -49,24 +39,15 @@ class State implements JsonSerializable {
 		);
 	}
 
-	/**
-	 * @return IUser
-	 */
 	public function getUser(): IUser {
 		return $this->user;
 	}
 
-	/**
-	 * @return int
-	 */
 	public function getState(): int {
 		return $this->state;
 	}
 
-	/**
-	 * @return null|string
-	 */
-	public function getVerificationCode() {
+	public function getVerificationCode(): ?string {
 		return $this->authenticationCode;
 	}
 
