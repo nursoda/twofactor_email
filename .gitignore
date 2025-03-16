@@ -12,3 +12,5 @@ vendor/
 /appinfo/Archiv*
 /img/Archiv*
 /screenshots/Archiv*
+.idea/
+*.iml
