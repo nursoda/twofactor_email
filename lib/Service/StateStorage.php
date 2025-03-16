@@ -12,11 +12,10 @@ use OCP\IConfig;
 use OCP\IUser;
 
 class StateStorage {
-	/** @var IConfig */
-	private $config;
 
-	public function __construct(IConfig $config) {
-		$this->config = $config;
+	public function __construct(
+		private IConfig $config,
+	) {
 	}
 
 	private function getUserValue(IUser $user, string $key, string $default = ''): string {
@@ -90,7 +89,7 @@ class StateStorage {
 
 				break;
 			default:
-				throw new Exception('invalid provider state');
+				throw new Exception('Invalid provider state');
 		}
 
 		return $state;

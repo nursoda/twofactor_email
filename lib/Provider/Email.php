@@ -8,7 +8,6 @@ use OCA\TwoFactorEmail\AppInfo\Application;
 use OCA\TwoFactorEmail\Service\Email as EmailService;
 use OCA\TwoFactorEmail\Service\StateStorage;
 use OCA\TwoFactorEmail\Settings\PersonalSettings;
-
 use OCP\Authentication\TwoFactorAuth\IPersonalProviderSettings;
 use OCP\Authentication\TwoFactorAuth\IProvider;
 use OCP\Authentication\TwoFactorAuth\IProvidesIcons;
@@ -26,41 +25,15 @@ class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 	public const STATE_VERIFYING = 1;
 	public const STATE_ENABLED = 2;
 
-	/** @var EmailService */
-	public $emailService;
-
-	/** @var StateStorage */
-	protected $stateStorage;
-
-	/** @var ISession */
-	protected $session;
-
-	/** @var ISecureRandom */
-	protected $secureRandom;
-
-	/** @var IL10N */
-	protected $l10n;
-
-	/** @var IInitialStateService */
-	private $initialStateService;
-
-	/** @var IURLGenerator */
-	private $urlGenerator;
-
-	public function __construct(EmailService $emailService,
-								StateStorage $stateStorage,
-								ISession $session,
-								ISecureRandom $secureRandom,
-								IL10N $l10n,
-								IInitialStateService $initialStateService,
-								IURLGenerator $urlGenerator) {
-		$this->emailService = $emailService;
-		$this->stateStorage = $stateStorage;
-		$this->session = $session;
-		$this->secureRandom = $secureRandom;
-		$this->l10n = $l10n;
-		$this->initialStateService = $initialStateService;
-		$this->urlGenerator = $urlGenerator;
+	public function __construct(
+		public EmailService $emailService,
+		protected StateStorage $stateStorage,
+		protected ISession $session,
+		protected ISecureRandom $secureRandom,
+		protected IL10N $l10n,
+		private IInitialStateService $initialStateService,
+		private IURLGenerator $urlGenerator,
+	) {
 	}
 
 	private function getSessionKey(): string {
@@ -113,6 +86,7 @@ class Email implements IProvider, IProvidesIcons, IProvidesPersonalSettings {
 
 		$tmpl = new Template('twofactor_email', 'challenge');
 		$tmpl->assign('emailAddress', $user->getEMailAddress());
+
 		return $tmpl;
 	}
 

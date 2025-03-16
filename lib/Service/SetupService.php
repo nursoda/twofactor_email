@@ -15,31 +15,14 @@ use OCP\IUser;
 use OCP\Security\ISecureRandom;
 
 class SetupService {
-	/** @var StateStorage */
-	private $stateStorage;
 
-	/** @var EmailService */
-	private $emailService;
-
-	/** @var EmailProvider */
-	private $emailProvider;
-
-	/** @var ISecureRandom */
-	private $random;
-
-	/** @var IRegistry */
-	private $providerRegistry;
-
-	public function __construct(StateStorage $stateStorage,
-								EmailService $emailService,
-								EmailProvider $emailProvider,
-								ISecureRandom $random,
-								IRegistry $providerRegistry) {
-		$this->stateStorage = $stateStorage;
-		$this->emailService = $emailService;
-		$this->emailProvider = $emailProvider;
-		$this->random = $random;
-		$this->providerRegistry = $providerRegistry;
+	public function __construct(
+		private StateStorage $stateStorage,
+		private EmailService $emailService,
+		private EmailProvider $emailProvider,
+		private ISecureRandom $random,
+		private IRegistry $providerRegistry,
+	) {
 	}
 
 	public function getState(IUser $user): State {
@@ -55,7 +38,7 @@ class SetupService {
 		try {
 			$this->emailService->send($user, $authenticationCode);
 		} catch (Exception $ex) {
-			throw new TransmissionException('could not send verification code', 0, $ex);
+			throw new TransmissionException('Could not send verification code', 0, $ex);
 		}
 
 		return $this->stateStorage->persist(

@@ -29,7 +29,6 @@ use OCA\TwoFactorEmail\AppInfo\Application;
 use OCA\TwoFactorEmail\Exception\TransmissionException;
 use OCA\TwoFactorEmail\Exception\VerificationException;
 use OCA\TwoFactorEmail\Service\SetupService;
-
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\JSONResponse;
@@ -37,19 +36,13 @@ use OCP\IRequest;
 use OCP\IUserSession;
 
 class SettingsController extends Controller {
-	/** @var IUserSession */
-	private $userSession;
 
-	/** @var SetupService */
-	private $setupService;
-
-	public function __construct(IRequest $request,
-								IUserSession $userSession,
-								SetupService $setupService) {
+	public function __construct(
+		IRequest $request,
+		private IUserSession $userSession,
+		private privateSetupService $setupService,
+	) {
 		parent::__construct(Application::APP_NAME, $request);
-
-		$this->userSession = $userSession;
-		$this->setupService = $setupService;
 	}
 
 	/**
@@ -58,7 +51,7 @@ class SettingsController extends Controller {
 	public function startVerification(): JSONResponse {
 		$user = $this->userSession->getUser();
 
-		if (is_null($user)) {
+		if ($user === null) {
 			return new JSONResponse([], Http::STATUS_BAD_REQUEST);
 		}
 
@@ -80,7 +73,7 @@ class SettingsController extends Controller {
 	public function finishVerification(string $verificationCode): JSONResponse {
 		$user = $this->userSession->getUser();
 
-		if (is_null($user)) {
+		if ($user === null) {
 			return new JSONResponse([], Http::STATUS_BAD_REQUEST);
 		}
 
@@ -99,7 +92,7 @@ class SettingsController extends Controller {
 	public function revokeVerification(): JSONResponse {
 		$user = $this->userSession->getUser();
 
-		if (is_null($user)) {
+		if ($user === null) {
 			return new JSONResponse([], Http::STATUS_BAD_REQUEST);
 		}
 

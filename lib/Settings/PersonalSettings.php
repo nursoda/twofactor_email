@@ -32,19 +32,12 @@ use OCP\IInitialStateService;
 use OCP\Template;
 
 class PersonalSettings implements IPersonalProviderSettings {
-	/** @var IInitialStateService */
-	private $initialStateService;
-	/** @var State */
-	private $state;
-	/** @var bool */
-	private $available;
 
-	public function __construct(IInitialStateService $initialStateService,
-								State $state,
-								bool $available) {
-		$this->initialStateService = $initialStateService;
-		$this->state = $state;
-		$this->available = $available;
+	public function __construct(
+		private IInitialStateService $initialStateService,
+		private State $state,
+		private bool $available,
+	) {
 	}
 
 	/**
