@@ -40,7 +40,7 @@ class SettingsController extends Controller {
 	public function __construct(
 		IRequest $request,
 		private IUserSession $userSession,
-		private privateSetupService $setupService,
+		private SetupService $setupService,
 	) {
 		parent::__construct(Application::APP_NAME, $request);
 	}
