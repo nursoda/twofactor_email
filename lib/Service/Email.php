@@ -6,9 +6,9 @@ namespace OCA\TwoFactorEmail\Service;
 
 use OCP\Defaults;
 use OCP\IL10N;
-use Psr\Log\LoggerInterface;
 use OCP\IUser;
 use OCP\Mail\IMailer;
+use Psr\Log\LoggerInterface;
 
 class Email {
 
