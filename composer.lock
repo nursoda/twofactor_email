@@ -4,25 +4,72 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b3dbdd8ce0226c19a793b7406dfe08f3",
+    "content-hash": "fbc7d53fe027e25e05e6fee1b196afaf",
     "packages": [],
     "packages-dev": [
+        {
+            "name": "kubawerlos/php-cs-fixer-custom-fixers",
+            "version": "v3.23.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kubawerlos/php-cs-fixer-custom-fixers.git",
+                "reference": "b3210c6e546bdfc95664297a8971ae3b6b1f4a5a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kubawerlos/php-cs-fixer-custom-fixers/zipball/b3210c6e546bdfc95664297a8971ae3b6b1f4a5a",
+                "reference": "b3210c6e546bdfc95664297a8971ae3b6b1f4a5a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-filter": "*",
+                "ext-tokenizer": "*",
+                "friendsofphp/php-cs-fixer": "^3.61.1",
+                "php": "^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.6.4 || ^10.5.29"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpCsFixerCustomFixers\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kuba Werłos",
+                    "email": "werlos@gmail.com"
+                }
+            ],
+            "description": "A set of custom fixers for PHP CS Fixer",
+            "support": {
+                "issues": "https://github.com/kubawerlos/php-cs-fixer-custom-fixers/issues",
+                "source": "https://github.com/kubawerlos/php-cs-fixer-custom-fixers/tree/v3.23.0"
+            },
+            "time": "2025-02-15T09:15:56+00:00"
+        },
         {
             "name": "nextcloud/coding-standard",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextcloud/coding-standard.git",
-                "reference": "55def702fb9a37a219511e1d8c6fe8e37164c1fb"
+                "reference": "e2a9dbe871adfd5df54e044418ef1847b2b58a2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nextcloud/coding-standard/zipball/55def702fb9a37a219511e1d8c6fe8e37164c1fb",
-                "reference": "55def702fb9a37a219511e1d8c6fe8e37164c1fb",
+                "url": "https://api.github.com/repos/nextcloud/coding-standard/zipball/e2a9dbe871adfd5df54e044418ef1847b2b58a2b",
+                "reference": "e2a9dbe871adfd5df54e044418ef1847b2b58a2b",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.3|^8.0",
+                "kubawerlos/php-cs-fixer-custom-fixers": "^3.22",
+                "php": "^8.0",
                 "php-cs-fixer/shim": "^3.17"
             },
             "default-branch": true,
@@ -45,9 +92,9 @@
             "description": "Nextcloud coding standards for the php cs fixer",
             "support": {
                 "issues": "https://github.com/nextcloud/coding-standard/issues",
-                "source": "https://github.com/nextcloud/coding-standard/tree/v1.1.1"
+                "source": "https://github.com/nextcloud/coding-standard/tree/master"
             },
-            "time": "2023-06-01T12:05:01+00:00"
+            "time": "2025-01-17T19:29:22+00:00"
         },
         {
             "name": "nextcloud/ocp",
@@ -55,26 +102,26 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextcloud-deps/ocp.git",
-                "reference": "8459dfb0e35183bbc5596ff7a1e5181b60acd56d"
+                "reference": "dc5473e3895d859535de45eab15d2095cb8eafe4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nextcloud-deps/ocp/zipball/8459dfb0e35183bbc5596ff7a1e5181b60acd56d",
-                "reference": "8459dfb0e35183bbc5596ff7a1e5181b60acd56d",
+                "url": "https://api.github.com/repos/nextcloud-deps/ocp/zipball/dc5473e3895d859535de45eab15d2095cb8eafe4",
+                "reference": "dc5473e3895d859535de45eab15d2095cb8eafe4",
                 "shasum": ""
             },
             "require": {
-                "php": "~8.0 || ~8.1 || ~8.2",
+                "php": "~8.1 || ~8.2 || ~8.3 || ~8.4",
                 "psr/clock": "^1.0",
                 "psr/container": "^2.0.2",
                 "psr/event-dispatcher": "^1.0",
-                "psr/log": "^1.1.4"
+                "psr/log": "^3.0.2"
             },
             "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "28.0.0-dev"
+                    "dev-master": "32.0.0-dev"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -85,27 +132,31 @@
                 {
                     "name": "Christoph Wurst",
                     "email": "christoph@winzerhof-wurst.at"
+                },
+                {
+                    "name": "Joas Schilling",
+                    "email": "coding@schilljs.com"
                 }
             ],
-            "description": "Composer package containing Nextcloud's public API (classes, interfaces)",
+            "description": "Composer package containing Nextcloud's public OCP API and the unstable NCU API",
             "support": {
                 "issues": "https://github.com/nextcloud-deps/ocp/issues",
                 "source": "https://github.com/nextcloud-deps/ocp/tree/master"
             },
-            "time": "2023-11-03T00:31:54+00:00"
+            "time": "2025-03-11T00:46:19+00:00"
         },
         {
             "name": "php-cs-fixer/shim",
-            "version": "v3.37.1",
+            "version": "v3.72.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/shim.git",
-                "reference": "e1f64aca03848c60d6eca5ab0dfc8b9f9678cb27"
+                "reference": "f5131b7a7d0103919a1b478a2763bd76c98e472e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/shim/zipball/e1f64aca03848c60d6eca5ab0dfc8b9f9678cb27",
-                "reference": "e1f64aca03848c60d6eca5ab0dfc8b9f9678cb27",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/shim/zipball/f5131b7a7d0103919a1b478a2763bd76c98e472e",
+                "reference": "f5131b7a7d0103919a1b478a2763bd76c98e472e",
                 "shasum": ""
             },
             "require": {
@@ -142,9 +193,9 @@
             "description": "A tool to automatically fix PHP code style",
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/shim/issues",
-                "source": "https://github.com/PHP-CS-Fixer/shim/tree/v3.37.1"
+                "source": "https://github.com/PHP-CS-Fixer/shim/tree/v3.72.0"
             },
-            "time": "2023-10-29T20:52:01+00:00"
+            "time": "2025-03-13T11:26:00+00:00"
         },
         {
             "name": "psalm/phar",
@@ -152,16 +203,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/psalm/phar.git",
-                "reference": "6670792256356b7da143fe7400b51516d46ad3b5"
+                "reference": "42f694ac03cb1ff9018177a1c3696f600426ecc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psalm/phar/zipball/6670792256356b7da143fe7400b51516d46ad3b5",
-                "reference": "6670792256356b7da143fe7400b51516d46ad3b5",
+                "url": "https://api.github.com/repos/psalm/phar/zipball/42f694ac03cb1ff9018177a1c3696f600426ecc1",
+                "reference": "42f694ac03cb1ff9018177a1c3696f600426ecc1",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1 || ^8.0"
+                "php": "^8.2"
             },
             "conflict": {
                 "vimeo/psalm": "*"
@@ -180,7 +231,7 @@
                 "issues": "https://github.com/psalm/phar/issues",
                 "source": "https://github.com/psalm/phar/tree/master"
             },
-            "time": "2023-11-04T15:40:06+00:00"
+            "time": "2025-03-14T20:10:36+00:00"
         },
         {
             "name": "psr/clock",
@@ -335,30 +386,30 @@
         },
         {
             "name": "psr/log",
-            "version": "1.1.4",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "d49695b909c3b7628b6289db5479a1c204601f11"
+                "reference": "f16e1d5863e37f8d8c2a01719f5b34baa2b714d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
-                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/f16e1d5863e37f8d8c2a01719f5b34baa2b714d3",
+                "reference": "f16e1d5863e37f8d8c2a01719f5b34baa2b714d3",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=8.0.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "3.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Psr\\Log\\": "Psr/Log/"
+                    "Psr\\Log\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -379,23 +430,23 @@
                 "psr-3"
             ],
             "support": {
-                "source": "https://github.com/php-fig/log/tree/1.1.4"
+                "source": "https://github.com/php-fig/log/tree/3.0.2"
             },
-            "time": "2021-05-03T11:20:27+00:00"
+            "time": "2024-09-11T13:17:53+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "nextcloud/ocp": 20,
         "nextcloud/coding-standard": 20,
+        "nextcloud/ocp": 20,
         "psalm/phar": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.0 <8.3"
+        "php": ">=8.0 <8.5"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
