@@ -3,8 +3,8 @@
 	<id>twofactor_email</id>
 	<version>2.7.4</version>
 	<dependencies>
-		<nextcloud min-version="24" max-version="29" />
-		<php min-version="8.0" max-version="8.3" />
+		<nextcloud min-version="24" max-version="31" />
+		<php min-version="8.0" max-version="8.4" />
 	</dependencies>
 	<repository type="git">https://github.com/nursoda/twofactor_email.git</repository>
 	<licence>agpl</licence>

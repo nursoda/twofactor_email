@@ -6,7 +6,7 @@ namespace OCA\TwoFactorEmail\Service;
 
 use OCP\Defaults;
 use OCP\IL10N;
-use OCP\ILogger;
+use Psr\Log\LoggerInterface;
 use OCP\IUser;
 use OCP\Mail\IMailer;
 
@@ -17,7 +17,7 @@ class Email {
 	/** @var IL10N */
 	private $l10n;
 
-	/** @var ILogger */
+	/** @var LoggerInterface */
 	private $logger;
 
 	/** @var Defaults */
@@ -25,7 +25,7 @@ class Email {
 
 	public function __construct(IMailer $mailer,
 								IL10N $l10n,
-								ILogger $logger,
+								LoggerInterface $logger,
 								Defaults $themingDefaults) {
 		$this->mailer = $mailer;
 		$this->l10n = $l10n;
