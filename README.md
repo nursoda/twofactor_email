@@ -1,6 +1,8 @@
-# 2FA E-mail provider
+# Two-Factor Email Provider for Nextcloud
 
-This two factor authentication provider creates 6-digit random authentication codes and sends them to the user's primary email address.
+[Nextcloud](https://nextcloud.com/) supports web logins with [two factor authentication](https://en.wikipedia.org/wiki/Multi-factor_authentication#Factors) (2FA). To support a certain type of 2nd factor, an add-on server-app "2FA provider" must be installed. This is the current Two-Factor Email Provider for Nextcloud (see below).
+
+It kicks in after the primary authentication stage (typically username and password). It challenges the user to enter a 6-digit authentication code (aka one-time password, OTP) - a code that is randomly generated and sent to the user's primary email address by this [Nextcloud App (category Security)](https://apps.nextcloud.com/categories/security).
 
 Currently this app must be installed by an admin and must be enabled by the user. It currently uses the primary email address set in 'Personal info' and cannot be activated if none is set there. There is an issue that argues that using the primary notification address poses a security risk (to be discussed).
 
