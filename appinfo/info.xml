@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
 	<id>twofactor_email</id>
-	<version>2.8.0</version>
+	<version>2.8.2</version>
 	<dependencies>
-		<nextcloud min-version="29" max-version="31" />
+		<nextcloud min-version="29" max-version="32" />
 		<php min-version="8.0" max-version="8.4" />
 	</dependencies>
 	<repository type="git">https://github.com/nursoda/twofactor_email.git</repository>
