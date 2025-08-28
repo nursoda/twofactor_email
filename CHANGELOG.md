@@ -1,6 +1,23 @@
 # Changelog
 Notable changes in [changelog format](https://keepachangelog.com/en/1.0.0/), project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 
+## 2.8.2 (2025-09-14)
+
+### Securty
+
+- Update vulnerable dependencies (form-date, axios)
+  vue2 is not vulnerable but unsupported. Please test and switch to v3.
+
+## 2.8.1 (2025-08-29)
+
+### Added
+
+- Support for Nextcloud 32
+
+This should be the last v2 release since the v3 is in beta testing for NC32.
+Once released, an app update should migrate all users to v3. Please read the v3 README.
+Probably not all languages will be avalilable upon release – volunteers needed.
+
 ## 2.8.0 (2025-03-16)
 
 ### Added
