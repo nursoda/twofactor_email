@@ -3,7 +3,7 @@ Notable changes in [changelog format](https://keepachangelog.com/en/1.0.0/), pro
 
 ## 2.8.2 (2025-09-14)
 
-### Securty
+### Security
 
 - Update vulnerable dependencies (form-date, axios)
   vue2 is not vulnerable but unsupported. Please test and switch to v3.
