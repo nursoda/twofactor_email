@@ -1,23 +1,37 @@
 OC.L10N.register(
-    "twofactor_email",
-    {
-    "Email" : "E-mail",
-    "Send a code to your email address" : "Wyślij kod na swój adres e-mail",
-    "Login attempt for %s" : "Próba logowania dla %s",
-    "Your two-factor authentication code is: %s" : "Twój kod uwierzytelniania dwuskładnikowego to: %s",
-    "If you tried to login, please enter that code on %s. If you did not, somebody else did and knows your your email address or username – and your password!" : "Jeśli próbowałeś się zalogować, wprowadź ten kod na %s. Jeśli nie, ktoś inny to zrobił i zna Twój adres e-mail lub nazwę użytkownika – oraz Twoje hasło!",
-    "You need to set an email address in 'Personal info' first." : "Najpierw musisz ustawić adres e-mail w sekcji „Informacje osobiste”.",
-    "Could not send a verification code via email. An Admin must set this up first." : "Nie udało się wysłać kodu weryfikacyjnego e-mailem. Administrator musi to najpierw skonfigurować.",
-    "Enable Two-Factor Authentication via Email" : "Włącz uwierzytelnianie dwuskładnikowe przez e-mail",
-    "The entered code does not match that sent to {emailAddress}." : "Wprowadzony kod nie pasuje do wysłanego na {emailAddress}.",
-    "A code has been sent to {emailAddress}." : "Kod został wysłany na {emailAddress}.",
-    "Verify code" : "Zweryfikuj kod",
-    "Cancel activation" : "Anuluj aktywację",
-    "Two-Factor Authentication via Email is enabled. Codes are sent to {emailAddress}." : "Uwierzytelnianie dwuskładnikowe przez e-mail jest włączone. Kody są wysyłane na {emailAddress}.",
-    "Disable Two-Factor Authentication via Email" : "Wyłącz uwierzytelnianie dwuskładnikowe przez e-mail",
-    "Error while sending the email. Please try again later or ask your administrator." : "Błąd podczas wysyłania wiadomości e-mail. Spróbuj ponownie później lub skontaktuj się z administratorem.",
-    "A code has been sent to your email address." : "Kod został wysłany na Twój adres e-mail.",
-    "Authentication code" : "Kod uwierzytelniający",
-    "Submit" : "Prześlij"
+	"twofactor_email",
+	{
+	// ADDITIONAL strings to be localized in appinfo/info.xml
+
+	// lib/Provider/Email.php
+	"Email" : "E-mail",
+	"Send a code to your email address" : "Wyślij kod na swój adres e-mail",
+
+	// lib/Service/Email.php
+	"Login attempt for %s" : "Próba logowania dla %s",
+	"Your two-factor authentication code is: %s" : "Twój kod uwierzytelniania dwuskładnikowego to: %s",
+	"If you tried to login, please enter that code on %s. If you did not, somebody else did and knows your your email address or username – and your password!" : "Jeśli próbowałeś się zalogować, wprowadź ten kod na %s. Jeśli nie, ktoś inny to zrobił i zna Twój adres e-mail lub nazwę użytkownika – oraz Twoje hasło!",
+
+	// src/components/GatewaySettings.vue
+	"You need to set an email address in 'Personal info' first." : "Najpierw musisz ustawić adres e-mail w sekcji „Informacje osobiste”.",
+
+	"Could not send a verification code via email. An Admin must set this up first." : "Nie udało się wysłać kodu weryfikacyjnego e-mailem. Administrator musi to najpierw skonfigurować.",
+	"Enable Two-Factor Authentication via Email" : "Włącz uwierzytelnianie dwuskładnikowe przez e-mail",
+
+	"The entered code does not match that sent to {emailAddress}." : "Wprowadzony kod nie pasuje do wysłanego na {emailAddress}.",
+	"A code has been sent to {emailAddress}." : "Kod został wysłany na {emailAddress}.",
+	"Verify code" : "Zweryfikuj kod",
+	"Cancel activation" : "Anuluj aktywację",
+
+	"Two-Factor Authentication via Email is enabled. Codes are sent to {emailAddress}." : "Uwierzytelnianie dwuskładnikowe przez e-mail jest włączone. Kody są wysyłane na {emailAddress}.",
+	"Disable Two-Factor Authentication via Email" : "Wyłącz uwierzytelnianie dwuskładnikowe przez e-mail",
+
+	// templates/error.php 
+	"Error while sending the email. Please try again later or ask your administrator." : "Błąd podczas wysyłania wiadomości e-mail. Spróbuj ponownie później lub skontaktuj się z administratorem.",
+
+	// templates/challenge.php
+	"A code has been sent to your email address." : "Kod został wysłany na Twój adres e-mail.",
+	"Authentication code" : "Kod uwierzytelniający",
+	"Submit" : "Prześlij",
 },
 "");
