@@ -51,7 +51,7 @@
     "eslint-plugin-vue": "latest",
     "eslint-webpack-plugin": "latest",
     "stylelint": "^16.0.0",
-    "stylelint-config-recommended-scss": "^16.0.0",
+    "stylelint-config-recommended-scss": "^17.0.1",
     "stylelint-scss": "latest",
     "stylelint-webpack-plugin": "^5.0.1",
     "vue-loader": "legacy",
