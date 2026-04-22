@@ -32,9 +32,7 @@ jobs:
     strategy:
       matrix:
         node:
-          - '16.x'
-          - '18.x'
-          - '19.x'
+          - '20.x'
     name: node${{ matrix.node }}
     steps:
       - uses: actions/checkout@v4
