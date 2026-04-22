@@ -22,10 +22,12 @@ class Email {
 
 
 	public function send(IUser $user, string $authenticationCode): void {
-		$this->logger->debug('Sending email message to ' . $user->getEMailAddress() . ', code: ' . $authenticationCode);
+		$email = $user->getEMailAddress();
+		assert($email !== null);
+		$this->logger->debug('Sending email message to ' . $email . ', code: ' . $authenticationCode);
 
 		$template = $this->mailer->createEMailTemplate('twofactor_email.send');
-		$user_at_cloud = $user->getDisplayName() . " @ " . $this->themingDefaults->getName();
+		$user_at_cloud = $user->getDisplayName() . ' @ ' . $this->themingDefaults->getName();
 		$template->setSubject($this->l10n->t('Login attempt for %s', [$user_at_cloud]));
 		$template->addHeader();
 		$template->addHeading($this->l10n->t('Your two-factor authentication code is: %s', [$authenticationCode]));
@@ -33,7 +35,7 @@ class Email {
 		$template->addFooter();
 
 		$message = $this->mailer->createMessage();
-		$message->setTo([ $user->getEMailAddress() => $user->getDisplayName() ]);
+		$message->setTo([ $email => $user->getDisplayName() ]);
 		$message->useTemplate($template);
 
 		$this->mailer->send($message);

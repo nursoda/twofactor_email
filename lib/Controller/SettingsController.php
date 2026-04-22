@@ -56,7 +56,7 @@ class SettingsController extends Controller {
 		}
 
 		try {
-			$state = $this->setupService->startSetup($user);
+			$this->setupService->startSetup($user);
 		} catch (TransmissionException $ex) {
 			return new JSONResponse([], Http::STATUS_INTERNAL_SERVER_ERROR);
 		}

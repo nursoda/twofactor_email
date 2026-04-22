@@ -1,20 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.3.1@2feba22a005a18bf31d4c7b9bdb9252c73897476">
+<files psalm-version="dev-master@7e751c06a756fa64dc4c759c09fe4a173afcb433">
+  <file src="lib/AppInfo/Application.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="lib/Controller/SettingsController.php">
+    <UnusedClass>
+      <code><![CDATA[SettingsController]]></code>
+    </UnusedClass>
+  </file>
   <file src="lib/Provider/Email.php">
-    <MissingDependency occurrences="3">
-      <code>Template</code>
-      <code>Template</code>
-      <code>Template</code>
+    <MissingDependency>
+      <code><![CDATA[Template]]></code>
+      <code><![CDATA[Template]]></code>
+      <code><![CDATA[Template]]></code>
     </MissingDependency>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="lib/Service/Email.php">
-    <InvalidArrayOffset occurrences="1">
-      <code>[ $user-&gt;getEMailAddress() =&gt; $user-&gt;getDisplayName() ]</code>
-    </InvalidArrayOffset>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="lib/Service/SetupService.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedReturnValue>
+      <code><![CDATA[State]]></code>
+      <code><![CDATA[State]]></code>
+    </PossiblyUnusedReturnValue>
+  </file>
+  <file src="lib/Service/StateStorage.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="lib/Settings/PersonalSettings.php">
-    <MissingDependency occurrences="1">
-      <code>Template</code>
+    <MissingDependency>
+      <code><![CDATA[Template]]></code>
     </MissingDependency>
+    <UnusedProperty>
+      <code><![CDATA[$available]]></code>
+      <code><![CDATA[$initialStateService]]></code>
+      <code><![CDATA[$state]]></code>
+    </UnusedProperty>
   </file>
 </files>

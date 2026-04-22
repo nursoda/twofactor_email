@@ -14,9 +14,7 @@ jobs:
     strategy:
       matrix:
         node-versions:
-          - '16.x'
-          - '18.x'
-          - '19.x'
+          - '20.x'
 
     name: node${{ matrix.node-versions }}
     steps:
