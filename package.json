@@ -49,7 +49,7 @@
     "eslint-plugin-node": "latest",
     "eslint-plugin-promise": "latest",
     "eslint-plugin-vue": "latest",
-    "eslint-webpack-plugin": "^5.0.3",
+    "eslint-webpack-plugin": "^6.0.0",
     "stylelint": "^16.0.0",
     "stylelint-config-recommended-scss": "^16.0.0",
     "stylelint-scss": "latest",
