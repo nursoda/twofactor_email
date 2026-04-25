@@ -13,7 +13,7 @@
     "psalm": "psalm.phar"
   },
   "require-dev": {
-    "nextcloud/ocp": "^v30",
+    "nextcloud/ocp": "^v33",
     "nextcloud/coding-standard": "dev-master",
     "psalm/phar": "dev-master"
   },
