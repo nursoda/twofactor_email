@@ -20,7 +20,6 @@ class Email {
 	) {
 	}
 
-
 	public function send(IUser $user, string $authenticationCode): void {
 		$email = $user->getEMailAddress();
 		assert($email !== null);
