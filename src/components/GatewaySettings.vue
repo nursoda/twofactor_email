@@ -19,11 +19,13 @@
 			</p>
 			<p v-if="state === states.CREATED">
 				<span v-if="ErrorDetected === true">
-					<L10n text="The entered code does not match that sent to {emailAddress}."
+					<L10n
+						text="The entered code does not match that sent to {emailAddress}."
 						:options="{emailAddress: emailAddress}" />
 				</span>
 				<span v-else>
-					<L10n text="A code has been sent to {emailAddress}."
+					<L10n
+						text="A code has been sent to {emailAddress}."
 						:options="{emailAddress: emailAddress}" />
 				</span>
 				<br>
@@ -36,7 +38,8 @@
 				</button>
 			</p>
 			<p v-if="state === states.ENABLED">
-				<L10n text="Two-Factor Authentication via Email is enabled. Codes are sent to {emailAddress}."
+				<L10n
+					text="Two-Factor Authentication via Email is enabled. Codes are sent to {emailAddress}."
 					:options="{emailAddress: emailAddress}" />
 				<br>
 				<button @click="disable">
@@ -48,19 +51,20 @@
 </template>
 
 <script>
+import { loadState } from '@nextcloud/initial-state'
 import L10n from './L10n.vue'
 import {
+	disable,
 	startVerification,
 	tryVerification,
-	disable,
 } from '../service/registration.js'
-import { loadState } from '@nextcloud/initial-state'
 
 export default {
 	name: 'GatewaySettings',
 	components: {
 		L10n,
 	},
+
 	data() {
 		const STATE = {
 			DISABLED: 0,
@@ -78,37 +82,40 @@ export default {
 			ErrorDetected: false,
 		}
 	},
+
 	mounted() {
 		this.isAvailable = loadState('twofactor_email', 'available')
 		const state = loadState('twofactor_email', 'state')
 		this.state = state.state
 		this.emailAddress = state.emailAddress
 	},
+
 	methods: {
 		enable() {
 			this.loading = true
 			this.ErrorDetected = false
 			startVerification()
-				.then(res => {
+				.then((res) => {
 					this.state = this.states.CREATED
 					this.emailAddress = res.emailAddress
 					this.loading = false
 				})
-				.catch(reason => {
+				.catch(() => {
 					this.state = this.states.DISABLED
 					this.ErrorDetected = true
 					this.loading = false
 				})
 		},
+
 		confirm() {
 			this.loading = true
 
 			tryVerification(this.confirmationCode)
-				.then(res => {
+				.then(() => {
 					this.state = this.states.ENABLED
 					this.loading = false
 				})
-				.catch(reason => {
+				.catch(() => {
 					this.state = this.states.CREATED
 					this.ErrorDetected = true
 					this.loading = false
@@ -119,14 +126,13 @@ export default {
 			this.loading = true
 
 			disable()
-				.then(res => {
+				.then((res) => {
 					this.state = this.states.DISABLED
 					this.emailAddress = res.emailAddress
 					this.loading = false
 				})
-				.catch(reason => {
+				.catch(() => {
 					this.ErrorDetected = true
-					console.error(reason)
 				})
 		},
 	},

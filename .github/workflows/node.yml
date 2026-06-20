@@ -13,14 +13,14 @@ jobs:
     strategy:
       matrix:
         node-versions:
-          - '20.x'
+          - '24'
 
     name: node${{ matrix.node-versions }}
     steps:
       - uses: actions/checkout@v4
 
       - name: Set up node ${{ matrix.node-versions }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-versions }}
 
