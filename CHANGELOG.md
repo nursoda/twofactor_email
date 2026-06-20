@@ -6,6 +6,12 @@ This is the legacy version of the twofactor_email app for Nextcloud.
 The new version lacks translation, please help to integrate it, see
 https://github.com/datenschutz-individuell/twofactor_email/issues/6
 
+## 2.8.10 (2026-06-20)
+
+### Changed
+
+- Update dependencies
+
 ## 2.8.9 (2026-05-10)
 
 ### Changed
