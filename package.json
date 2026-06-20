@@ -27,9 +27,7 @@
     "dev": "./node_modules/webpack-cli/bin/cli.js --config src/webpack.dev.config.js --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src",
-    "lint:fix": "eslint src --fix",
-    "stylelint": "stylelint src",
-    "stylelint:fix": "stylelint src --fix"
+    "lint:fix": "eslint src --fix"
   },
   "dependencies": {
     "@nextcloud/axios": "latest",
@@ -41,10 +39,6 @@
     "@nextcloud/eslint-config": "^9.0.0-rc.9",
     "css-loader": "latest",
     "eslint": "latest",
-    "stylelint": "latest",
-    "stylelint-config-recommended-scss": "latest",
-    "stylelint-scss": "latest",
-    "stylelint-webpack-plugin": "latest",
     "vue-loader": "legacy",
     "vue-template-compiler": "latest",
     "webpack": "latest",
