@@ -17,12 +17,11 @@
  *
  * You should have received a copy of the GNU Affero General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
- *
  */
 
 import Vue from 'vue'
 import EmailSettings from './views/EmailSettings.vue'
 
 new Vue({
-	render: h => h(EmailSettings),
+	render: (h) => h(EmailSettings),
 }).$mount('#twofactor-email')
