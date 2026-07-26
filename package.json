@@ -44,5 +44,8 @@
     "webpack": "latest",
     "webpack-cli": "latest",
     "webpack-merge": "latest"
+  },
+  "overrides": {
+    "postcss": "^8.5.23"
   }
 }
