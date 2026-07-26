@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "669c2fd90fb9be010d844707f9710528",
+    "content-hash": "acc7180683a1685be2ca3f0691e85c8d",
     "packages": [],
     "packages-dev": [
         {
@@ -61,7 +61,7 @@
         },
         {
             "name": "nextcloud/coding-standard",
-            "version": "dev-master",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextcloud/coding-standard.git",
@@ -78,7 +78,6 @@
                 "php": "^8.0",
                 "php-cs-fixer/shim": "^3.17"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -101,7 +100,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nextcloud/coding-standard/issues",
-                "source": "https://github.com/nextcloud/coding-standard/tree/master"
+                "source": "https://github.com/nextcloud/coding-standard/tree/v1.5.0"
             },
             "time": "2026-05-19T18:30:09+00:00"
         },
@@ -203,16 +202,16 @@
         },
         {
             "name": "psalm/phar",
-            "version": "dev-master",
+            "version": "6.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psalm/phar.git",
-                "reference": "c4c1c6309bb043830492193cc224b392503b6cbc"
+                "reference": "11c6b55449667837fc07bb2a456c45a137c05ecd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psalm/phar/zipball/c4c1c6309bb043830492193cc224b392503b6cbc",
-                "reference": "c4c1c6309bb043830492193cc224b392503b6cbc",
+                "url": "https://api.github.com/repos/psalm/phar/zipball/11c6b55449667837fc07bb2a456c45a137c05ecd",
+                "reference": "11c6b55449667837fc07bb2a456c45a137c05ecd",
                 "shasum": ""
             },
             "require": {
@@ -221,7 +220,6 @@
             "conflict": {
                 "vimeo/psalm": "*"
             },
-            "default-branch": true,
             "bin": [
                 "psalm.phar"
             ],
@@ -233,9 +231,9 @@
             "description": "Composer-based Psalm Phar",
             "support": {
                 "issues": "https://github.com/psalm/phar/issues",
-                "source": "https://github.com/psalm/phar/tree/master"
+                "source": "https://github.com/psalm/phar/tree/6.16.1"
             },
-            "time": "2026-05-05T09:51:42+00:00"
+            "time": "2026-03-19T11:11:23+00:00"
         },
         {
             "name": "psr/clock",
@@ -441,10 +439,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "nextcloud/coding-standard": 20,
-        "psalm/phar": 20
-    },
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -13,7 +13,6 @@
         <directory name="vendor" />
     </extraFiles>
     <issueHandlers>
-        <MissingPureAnnotation errorLevel="suppress" />
         <MissingOverrideAttribute errorLevel="suppress" />
     </issueHandlers>
 </psalm>

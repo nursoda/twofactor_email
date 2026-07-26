@@ -14,8 +14,8 @@
   },
   "require-dev": {
     "nextcloud/ocp": "^v30",
-    "nextcloud/coding-standard": "dev-master",
-    "psalm/phar": "dev-master"
+    "nextcloud/coding-standard": "^1.5",
+    "psalm/phar": "^6.16"
   },
   "require": {
     "php": ">=8.1 <8.6"
