@@ -6,7 +6,26 @@
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
     errorBaseline="tests/psalm-baseline.xml"
 >
+    <!--
+        The baseline serves the NORMAL run. That is why "composer psalm:taint" passes the
+        ignore-baseline flag: taint mode does not report the issues recorded here, so
+        every entry looks unused and the run fails with UnusedBaselineEntry instead of
+        with a finding about data flow.
+
+        Do NOT replace the baseline by suppressing MissingDependency below. That changes
+        the analysis, not just the reporting: psalm stops analysing calls on a class
+        whose parent it reports as missing, and resumes once the report is suppressed.
+        OCP\Template extends the private \OC_Template, which the OCP package does not
+        ship, so suppressing it produces "no constructor" and "no assign" for every
+        "new Template(...)" — errors with no apparent cause.
+
+        Note for whoever edits this: an XML comment must not contain two hyphens in a
+        row, so the flag above cannot be written with its dashes. Doing that turns the
+        whole file into "Missing psalm node".
+    -->
     <projectFiles>
+        <!-- lib only, so templates/ is not covered. The three templates here are almost
+             empty; if HTML sinks move into them, add the directory. -->
         <directory name="lib" />
     </projectFiles>
     <extraFiles>
