@@ -37,3 +37,11 @@ jobs:
         run: composer require --dev nextcloud/ocp:${{ matrix.ocp }}
       - name: Run coding standards check
         run: composer run -- psalm --php-version=${{ matrix.php }}
+
+      # Data-flow analysis, and it has to stay empty. Without this step the script
+      # exists but nothing enforces it, and PHP has no other SAST coverage here —
+      # codeql-analysis.yml is limited to javascript.
+      # It runs once per matrix cell rather than in a job of its own, which costs a
+      # couple of seconds per cell and saves duplicating the whole setup.
+      - name: Run taint analysis
+        run: composer run -- psalm:taint --php-version=${{ matrix.php }}
