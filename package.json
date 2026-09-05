@@ -46,7 +46,6 @@
     "webpack-merge": "latest"
   },
   "overrides": {
-    "fast-uri": "^3.1.7",
     "postcss": "^8.5.23"
   }
 }
