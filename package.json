@@ -38,11 +38,11 @@
   "devDependencies": {
     "@nextcloud/eslint-config": "^9.0.1",
     "css-loader": "^7.1.5",
-    "eslint": "^10.13.0",
+    "eslint": "^10.14.0",
     "vue-loader": "^15.11.1",
     "vue-template-compiler": "^2.7.16",
     "webpack": "^5.112.2",
-    "webpack-cli": "^7.2.3",
+    "webpack-cli": "^7.3.1",
     "webpack-merge": "^6.0.1"
   },
   "overrides": {
