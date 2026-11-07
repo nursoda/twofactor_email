@@ -23,3 +23,8 @@ updates:
     schedule:
       interval: "weekly"
       day: "saturday"
+    # init, autobuild and analyze must run the same version, or CodeQL fails.
+    groups:
+      codeql-action:
+        patterns:
+          - "github/codeql-action*"
