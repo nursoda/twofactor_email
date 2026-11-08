@@ -1,16 +1,20 @@
 <?xml version="1.0"?>
 <psalm
     errorLevel="4"
+    findUnusedCode="false"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
     errorBaseline="tests/psalm-baseline.xml"
 >
     <!--
-        The baseline serves the NORMAL run. That is why "composer psalm:taint" passes the
-        ignore-baseline flag: taint mode does not report the issues recorded here, so
-        every entry looks unused and the run fails with UnusedBaselineEntry instead of
-        with a finding about data flow.
+        Both runs share the baseline. It holds only the MissingDependency entries for
+        OCP\Template, which taint mode reports as well. Add nothing to it that taint
+        mode does not report: "composer psalm:taint" would then fail with
+        UnusedBaselineEntry instead of with a finding about data flow.
+
+        findUnusedCode is off: psalm does not know that Nextcloud wires controllers and
+        services through dependency injection, so it reports them as unused.
 
         Do NOT replace the baseline by suppressing MissingDependency below. That changes
         the analysis, not just the reporting: psalm stops analysing calls on a class
@@ -20,8 +24,8 @@
         "new Template(...)" — errors with no apparent cause.
 
         Note for whoever edits this: an XML comment must not contain two hyphens in a
-        row, so the flag above cannot be written with its dashes. Doing that turns the
-        whole file into "Missing psalm node".
+        row, so no command line flag can be written here with its dashes. Doing that
+        turns the whole file into "Missing psalm node".
     -->
     <projectFiles>
         <!-- lib only, so templates/ is not covered. The three templates here are almost
