@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e3e76072f4bfeaad0c39e9d60f81419",
+    "content-hash": "0dce1db4a8cbae76052e87a55220106f",
     "packages": [],
     "packages-dev": [
         {
@@ -57,8 +57,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-09-19T20:46:56+00:00",
-            "published-time": "2026-09-19T20:48:20+00:00"
+            "time": "2026-09-19T20:46:56+00:00"
         },
         {
             "name": "nextcloud/coding-standard",
@@ -103,8 +102,7 @@
                 "issues": "https://github.com/nextcloud/coding-standard/issues",
                 "source": "https://github.com/nextcloud/coding-standard/tree/v1.5.0"
             },
-            "time": "2026-05-19T18:30:09+00:00",
-            "published-time": "2026-05-20T06:24:52+00:00"
+            "time": "2026-05-19T18:30:09+00:00"
         },
         {
             "name": "nextcloud/ocp",
@@ -148,8 +146,7 @@
                 "issues": "https://github.com/nextcloud-deps/ocp/issues",
                 "source": "https://github.com/nextcloud-deps/ocp/tree/v30.0.9"
             },
-            "time": "2025-03-31T13:55:31+00:00",
-            "published-time": "2025-04-11T00:48:57+00:00"
+            "time": "2025-03-31T13:55:31+00:00"
         },
         {
             "name": "php-cs-fixer/shim",
@@ -207,21 +204,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-11-06T16:26:08+00:00",
-            "published-time": "2026-11-06T16:26:16+00:00"
+            "time": "2026-11-06T16:26:08+00:00"
         },
         {
             "name": "psalm/phar",
-            "version": "6.20.9",
+            "version": "7.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psalm/phar.git",
-                "reference": "a0465306a64e7a77789329cc6d79dea6e1ec84bf"
+                "reference": "db70a5db1f257ac0e9589d61c5a3d2f9ad593408"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psalm/phar/zipball/a0465306a64e7a77789329cc6d79dea6e1ec84bf",
-                "reference": "a0465306a64e7a77789329cc6d79dea6e1ec84bf",
+                "url": "https://api.github.com/repos/psalm/phar/zipball/db70a5db1f257ac0e9589d61c5a3d2f9ad593408",
+                "reference": "db70a5db1f257ac0e9589d61c5a3d2f9ad593408",
                 "shasum": ""
             },
             "require": {
@@ -241,10 +237,9 @@
             "description": "Composer-based Psalm Phar",
             "support": {
                 "issues": "https://github.com/psalm/phar/issues",
-                "source": "https://github.com/psalm/phar/tree/6.20.9"
+                "source": "https://github.com/psalm/phar/tree/7.3.0"
             },
-            "time": "2026-11-05T00:45:46+00:00",
-            "published-time": "2026-11-05T00:45:58+00:00"
+            "time": "2026-11-11T00:47:10+00:00"
         },
         {
             "name": "psr/clock",
@@ -292,8 +287,7 @@
                 "issues": "https://github.com/php-fig/clock/issues",
                 "source": "https://github.com/php-fig/clock/tree/1.0.0"
             },
-            "time": "2022-11-25T14:36:26+00:00",
-            "published-time": "2022-11-25T14:59:22+00:00"
+            "time": "2022-11-25T14:36:26+00:00"
         },
         {
             "name": "psr/container",
@@ -346,8 +340,7 @@
                 "issues": "https://github.com/php-fig/container/issues",
                 "source": "https://github.com/php-fig/container/tree/2.0.2"
             },
-            "time": "2021-11-05T16:47:00+00:00",
-            "published-time": "2021-11-05T16:53:27+00:00"
+            "time": "2021-11-05T16:47:00+00:00"
         },
         {
             "name": "psr/event-dispatcher",
@@ -397,8 +390,7 @@
                 "issues": "https://github.com/php-fig/event-dispatcher/issues",
                 "source": "https://github.com/php-fig/event-dispatcher/tree/1.0.0"
             },
-            "time": "2019-01-08T18:20:26+00:00",
-            "published-time": "2019-03-25T15:31:44+00:00"
+            "time": "2019-01-08T18:20:26+00:00"
         },
         {
             "name": "psr/log",
@@ -448,8 +440,7 @@
             "support": {
                 "source": "https://github.com/php-fig/log/tree/2.0.0"
             },
-            "time": "2021-07-14T16:41:46+00:00",
-            "published-time": "2021-07-14T16:46:06+00:00"
+            "time": "2021-07-14T16:41:46+00:00"
         }
     ],
     "aliases": [],
@@ -464,5 +455,5 @@
     "platform-overrides": {
         "php": "8.2"
     },
-    "plugin-api-version": "2.11.0"
+    "plugin-api-version": "2.9.0"
 }
