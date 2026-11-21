@@ -4,7 +4,7 @@ import { generateUrl } from 'nextcloud-server/dist/router.js'
 /**
  * Starts the verification.
  *
- * @return {Promise<any>}
+ * @return {Promise<{state: number, emailAddress: string}>}
  */
 export function startVerification() {
 	const url = generateUrl('/apps/twofactor_email/settings/enable')
@@ -16,7 +16,7 @@ export function startVerification() {
  * Compares the entered code with the generated/saved one.
  *
  * @param {string} code the user entered
- * @return {Promise<any>}
+ * @return {Promise<Array>} an empty array
  */
 export function tryVerification(code) {
 	const url = generateUrl('/apps/twofactor_email/settings/validate')
@@ -29,7 +29,7 @@ export function tryVerification(code) {
 /**
  * Disables the Two-Factor method for this user.
  *
- * @return {Promise<any>}
+ * @return {Promise<{state: number, emailAddress: string}>}
  */
 export function disable() {
 	const url = generateUrl('/apps/twofactor_email/settings/disable')
